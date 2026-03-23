@@ -1,90 +1,154 @@
-
-import React from 'react';
+import React, { useRef } from 'react';
 import { experiences } from '../../constants';
+
+const SectionTitle = ({ label, title, subtitle }) => (
+  <div className="text-center mb-20">
+    <p
+      className="text-xs font-medium tracking-widest uppercase mb-3"
+      style={{ color: '#7c3aed', letterSpacing: '0.2em' }}
+    >
+      {label}
+    </p>
+    <h2
+      className="text-4xl sm:text-5xl font-bold mb-4"
+      style={{ fontFamily: 'Syne, sans-serif', color: '#f0eeff' }}
+    >
+      {title}
+    </h2>
+    <div
+      className="w-12 h-0.5 mx-auto mb-5"
+      style={{ background: 'linear-gradient(90deg, transparent, #7c3aed, transparent)' }}
+    />
+    <p className="text-base max-w-lg mx-auto" style={{ color: '#9490b5', lineHeight: 1.7 }}>
+      {subtitle}
+    </p>
+  </div>
+);
+
+const ExperienceCard = ({ experience, align }) => (
+  <div
+    className="rounded-2xl p-6 sm:p-8 relative overflow-hidden group"
+    style={{
+      background: 'rgba(13,11,34,0.9)',
+      border: '1px solid rgba(255,255,255,0.06)',
+      boxShadow: '0 4px 30px rgba(0,0,0,0.3)',
+      transition: 'all 0.35s cubic-bezier(0.16,1,0.3,1)',
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.borderColor = 'rgba(124,58,237,0.35)';
+      e.currentTarget.style.boxShadow = '0 12px 50px rgba(124,58,237,0.18)';
+      e.currentTarget.style.transform = 'translateY(-4px)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)';
+      e.currentTarget.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+      e.currentTarget.style.transform = 'translateY(0)';
+    }}
+  >
+    {/* Top gradient accent */}
+    <div
+      className="absolute inset-x-0 top-0 h-px"
+      style={{ background: 'linear-gradient(90deg, transparent, rgba(124,58,237,0.5), transparent)' }}
+    />
+    {/* Corner glow */}
+    <div
+      className="absolute -top-10 -right-10 w-32 h-32 rounded-full pointer-events-none"
+      style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.1), transparent 70%)' }}
+    />
+
+    {/* Header */}
+    <div className="flex items-start gap-4 mb-5">
+      <div
+        className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0"
+        style={{ border: '1px solid rgba(255,255,255,0.08)' }}
+      >
+        <img src={experience.img} alt={experience.company} className="w-full h-full object-cover" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <h3
+          className="text-lg font-bold leading-tight mb-1"
+          style={{ fontFamily: 'Syne, sans-serif', color: '#f0eeff' }}
+        >
+          {experience.role}
+        </h3>
+        <p className="text-sm font-medium" style={{ color: '#a855f7' }}>{experience.company}</p>
+        <p className="text-xs mt-1" style={{ color: '#4e4a6a' }}>{experience.date}</p>
+      </div>
+    </div>
+
+    {/* Description */}
+    <p className="text-sm leading-relaxed mb-5" style={{ color: '#9490b5', lineHeight: 1.75 }}>
+      {experience.desc}
+    </p>
+
+    {/* Skills */}
+    <div>
+      <p className="text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: '#4e4a6a' }}>
+        Skills used
+      </p>
+      <div className="flex flex-wrap gap-1.5">
+        {experience.skills.map((skill, idx) => (
+          <span key={idx} className="tag-chip">{skill.trim()}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+);
 
 const Experience = () => {
   return (
     <section
       id="experience"
-      className="py-24 pb-24 px-6 sm:px-8 md:px-12 lg:px-16 max-w-6xl mx-auto font-sans bg-skills-gradient clip-path-custom-2"
+      className="py-28 px-6 sm:px-8 md:px-12 lg:px-16 max-w-6xl mx-auto font-sans relative"
     >
-      {/* Section Title */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">EXPERIENCE</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
-          A collection of my work experience and the roles I have taken in various organizations
-        </p>
-      </div>
+      <SectionTitle
+        label="What I've done"
+        title="Experience"
+        subtitle="Roles and responsibilities I've held in organisations — from technical management to digital marketing"
+      />
 
-      {/* Experience Timeline */}
+      {/* Timeline layout */}
       <div className="relative">
-        {/* Vertical line */}
-        <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 sm:-translate-x-0 w-1 bg-white h-full"></div>
+        {/* Center line — visible only md+ */}
+        <div
+          className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
+          style={{ background: 'linear-gradient(to bottom, transparent, rgba(124,58,237,0.4) 15%, rgba(124,58,237,0.4) 85%, transparent)' }}
+        />
 
-        {/* Experience Entries */}
-        {experiences.map((experience, index) => (
-          <div
-            key={experience.id}
-            className={`flex flex-col sm:flex-row items-center mb-16 ${
-              index % 2 === 0 ? 'sm:justify-end' : 'sm:justify-start'
-            }`}
-          >
-            {/* Timeline Circle */}
-            <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-400 border-4 border-[#8245ec] w-12 h-12 sm:w-16 sm:h-16 rounded-full flex justify-center items-center z-10">
-              <img
-                src={experience.img}
-                alt={experience.company}
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
-            {/* Content Section */}
+        <div className="flex flex-col gap-16">
+          {experiences.map((experience, index) => (
             <div
-              className={`w-full sm:max-w-md p-4 sm:p-8 rounded-2xl shadow-2xl border border-white bg-gray-900 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] ${
-                index % 2 === 0 ? 'sm:ml-auto' : 'sm:mr-auto'
-              } sm:mx-12 mx-4 transform transition-transform duration-300 hover:scale-105`}
+              key={experience.id}
+              className={`relative flex flex-col md:flex-row items-center gap-8 ${
+                index % 2 === 0 ? 'md:flex-row-reverse' : 'md:flex-row'
+              }`}
             >
-              {/* Flex container for image and text */}
-              <div className="flex items-center space-x-6">
-                {/* Company Logo/Image */}
-                <div className="w-16 h-16 bg-white rounded-md overflow-hidden">
-                  <img
-                    src={experience.img}
-                    alt={experience.company}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                {/* Role, Company Name, and Date */}
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-white">
-                      {experience.role}
-                    </h3>
-                    <h4 className="text-md sm:text-sm text-gray-300">
-                      {experience.company}
-                    </h4>
-                  </div>
-                  {/* Date at the bottom */}
-                  <p className="text-sm text-gray-500 mt-2">{experience.date}</p>
-                </div>
+              {/* Timeline node */}
+              <div
+                className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-14 h-14 rounded-full items-center justify-center z-10 flex-shrink-0"
+                style={{
+                  background: '#03020f',
+                  border: '2px solid rgba(124,58,237,0.6)',
+                  boxShadow: '0 0 20px rgba(124,58,237,0.25)',
+                }}
+              >
+                <img
+                  src={experience.img}
+                  alt={experience.company}
+                  className="w-10 h-10 rounded-full object-cover"
+                />
               </div>
-              <p className="mt-4 text-gray-400">{experience.desc}</p>
-              <div className="mt-4">
-                <h5 className="font-medium text-white">Skills:</h5>
-                <ul className="flex flex-wrap mt-2">
-                  {experience.skills.map((skill, idx) => (
-                    <li
-                      key={idx}
-                      className="bg-[#8245ec] text-gray-300 px-4 py-1 text-xs sm:text-sm rounded-lg mr-2 mb-2 border border-gray-400"
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
+
+              {/* Card — takes up half the width */}
+              <div className="w-full md:w-[calc(50%-3.5rem)]">
+                <ExperienceCard experience={experience} align={index % 2 === 0 ? 'right' : 'left'} />
               </div>
+
+              {/* Spacer for opposite side */}
+              <div className="hidden md:block w-[calc(50%-3.5rem)]" />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

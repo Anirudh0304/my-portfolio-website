@@ -4,26 +4,32 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [activeSection, setActiveSection] = useState('about');
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Detect scroll and change navbar background
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 60);
+
+      // Active section tracking
+      const sections = ['about', 'skills', 'experience', 'work', 'education', 'contact'];
+      for (const id of sections.slice().reverse()) {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 120) {
+          setActiveSection(id);
+          break;
+        }
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Smooth scroll to sections and close mobile menu
   const handleMenuItemClick = (sectionId) => {
     setActiveSection(sectionId);
     setIsOpen(false);
     const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (section) section.scrollIntoView({ behavior: 'smooth' });
   };
 
   const menuItems = [
@@ -32,111 +38,150 @@ const Navbar = () => {
     { id: 'experience', label: 'Experience' },
     { id: 'work', label: 'Projects' },
     { id: 'education', label: 'Education' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-6 sm:px-8 md:px-10 lg:px-16 ${
-        isScrolled
-          ? 'bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md'
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 w-full z-50 transition-all duration-500 px-6 sm:px-8 md:px-10 lg:px-16"
+      style={{
+        background: isScrolled
+          ? 'rgba(3,2,15,0.85)'
+          : 'transparent',
+        backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+        borderBottom: isScrolled ? '1px solid rgba(124,58,237,0.12)' : '1px solid transparent',
+        boxShadow: isScrolled ? '0 4px 40px rgba(0,0,0,0.4)' : 'none',
+      }}
     >
-      <div className="text-white py-5 flex justify-between items-center">
+      <div className="py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-2xl font-bold cursor-pointer">
-          <span className="text-[#8245ec]">&lt;</span>
-          <span className="text-white">Konduri</span>
-          <span className="text-[#8245ec]">/</span>
-          <span className="text-white">Anirudh</span>
-          <span className="text-[#8245ec]">&gt;</span>
-        </div>
+        <button
+          onClick={() => handleMenuItemClick('about')}
+          className="group text-xl font-display font-bold tracking-tight cursor-pointer"
+        >
+          <span style={{ color: '#7c3aed' }}>&lt;</span>
+          <span
+            style={{ color: '#f0eeff' }}
+            className="transition-colors duration-200 group-hover:text-purple-300"
+          >Konduri</span>
+          <span style={{ color: '#7c3aed' }}>/</span>
+          <span
+            style={{ color: '#f0eeff' }}
+            className="transition-colors duration-200 group-hover:text-purple-300"
+          >Anirudh</span>
+          <span style={{ color: '#7c3aed' }}>&gt;</span>
+        </button>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-6 text-gray-300 text-lg font-medium">
+        <ul className="hidden md:flex items-center gap-1">
           {menuItems.map((item) => (
-            <li
-              key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
-                activeSection === item.id ? 'text-[#8245ec]' : ''
-              }`}
-            >
-              <button onClick={() => handleMenuItemClick(item.id)}>{item.label}</button>
+            <li key={item.id}>
+              <button
+                onClick={() => handleMenuItemClick(item.id)}
+                className="relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg group"
+                style={{
+                  color: activeSection === item.id ? '#c084fc' : '#9490b5',
+                  fontFamily: 'DM Sans, sans-serif',
+                }}
+              >
+                {activeSection === item.id && (
+                  <span
+                    className="absolute inset-0 rounded-lg"
+                    style={{ background: 'rgba(124,58,237,0.12)' }}
+                  />
+                )}
+                <span className="relative group-hover:text-purple-300 transition-colors duration-200">
+                  {item.label}
+                </span>
+                {activeSection === item.id && (
+                  <span
+                    className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
+                    style={{ background: '#a855f7' }}
+                  />
+                )}
+              </button>
             </li>
           ))}
         </ul>
 
         {/* Social Icons */}
-        <div className="hidden md:flex space-x-6">
+        <div className="hidden md:flex items-center gap-3">
           <a
             href="https://github.com/Anirudh0304"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec] transition-transform transform hover:scale-110"
+            className="flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-200 group"
+            style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}
           >
-            <FaGithub size={28} />
+            <FaGithub
+              size={18}
+              className="transition-all duration-200 group-hover:text-purple-400"
+              style={{ color: '#9490b5' }}
+            />
           </a>
           <a
             href="https://www.linkedin.com/in/konduri-anirudh/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec] transition-transform transform hover:scale-110"
+            className="flex items-center justify-center w-9 h-9 rounded-lg transition-all duration-200 group"
+            style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}
           >
-            <FaLinkedin size={28} />
+            <FaLinkedin
+              size={18}
+              className="transition-all duration-200 group-hover:text-purple-400"
+              style={{ color: '#9490b5' }}
+            />
           </a>
         </div>
 
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden">
-          {isOpen ? (
-            <FiX
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(false)}
-            />
-          ) : (
-            <FiMenu
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(true)}
-            />
-          )}
-        </div>
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden p-2 rounded-lg transition-colors duration-200"
+          style={{ background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.2)' }}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen
+            ? <FiX size={20} style={{ color: '#a855f7' }} />
+            : <FiMenu size={20} style={{ color: '#a855f7' }} />
+          }
+        </button>
       </div>
 
-      {/* Mobile Menu Items */}
+      {/* Mobile menu */}
       {isOpen && (
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
-          <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
+        <div
+          className="md:hidden absolute top-full left-4 right-4 rounded-2xl overflow-hidden"
+          style={{
+            background: 'rgba(7,5,26,0.95)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(124,58,237,0.2)',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+          }}
+        >
+          <ul className="py-4 px-2">
             {menuItems.map((item) => (
-              <li
-                key={item.id}
-                className={`cursor-pointer hover:text-white ${
-                  activeSection === item.id ? 'text-[#8245ec]' : ''
-                }`}
-              >
-                <button onClick={() => handleMenuItemClick(item.id)}>
+              <li key={item.id}>
+                <button
+                  onClick={() => handleMenuItemClick(item.id)}
+                  className="w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200"
+                  style={{
+                    color: activeSection === item.id ? '#c084fc' : '#9490b5',
+                    background: activeSection === item.id ? 'rgba(124,58,237,0.12)' : 'transparent',
+                  }}
+                >
                   {item.label}
                 </button>
               </li>
             ))}
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/Anirudh0304"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
-              >
-                <FaGithub size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/konduri-anirudh/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
-              >
-                <FaLinkedin size={24} />
-              </a>
-            </div>
           </ul>
+          <div className="flex gap-3 px-6 py-4" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+            <a href="https://github.com/Anirudh0304" target="_blank" rel="noopener noreferrer">
+              <FaGithub size={20} style={{ color: '#9490b5' }} />
+            </a>
+            <a href="https://www.linkedin.com/in/konduri-anirudh/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin size={20} style={{ color: '#9490b5' }} />
+            </a>
+          </div>
         </div>
       )}
     </nav>
