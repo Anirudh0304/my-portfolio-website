@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
@@ -42,7 +41,7 @@ const Footer = () => {
               <span style={{ color: '#f0eeff' }}>Anirudh</span>
               <span style={{ color: '#7c3aed' }}>&gt;</span>
             </button>
-            <p className="text-sm" style={{ color: '#4e4a6a' }}>Data Scientist · VIT Vellore '26</p>
+            <p className="text-sm" style={{ color: '#4e4a6a' }}>Data Scientist · VIT Vellore &apos;26</p>
           </div>
 
           {/* Nav */}

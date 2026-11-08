@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 import Tilt from 'react-parallax-tilt';
 import profileImage from '../../assets/profile.jpg';
@@ -22,6 +23,11 @@ const StatBadge = ({ number, label }) => (
     <span className="text-xs mt-0.5" style={{ color: '#9490b5' }}>{label}</span>
   </div>
 );
+
+StatBadge.propTypes = {
+  number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  label: PropTypes.string.isRequired,
+};
 
 const About = () => {
   const [visible, setVisible] = useState(false);

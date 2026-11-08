@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { education } from '../../constants';
 
 const SectionTitle = ({ label, title, subtitle }) => (
@@ -24,6 +24,12 @@ const SectionTitle = ({ label, title, subtitle }) => (
     </p>
   </div>
 );
+
+SectionTitle.propTypes = {
+  label: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+};
 
 const Education = () => {
   return (

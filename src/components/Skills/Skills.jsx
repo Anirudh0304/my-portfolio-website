@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { SkillsInfo } from '../../constants';
 import Tilt from 'react-parallax-tilt';
 
@@ -25,6 +25,11 @@ const SectionTitle = ({ title, subtitle }) => (
     </p>
   </div>
 );
+
+SectionTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+};
 
 const categoryIcons = {
   'Languages': '{ }',

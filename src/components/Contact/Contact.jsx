@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
@@ -42,8 +43,7 @@ const inputStyle = {
   fontFamily: 'DM Sans, sans-serif',
 };
 
-const InputField = ({ type = 'text', name, placeholder, required, as: Tag = 'input', rows, children }) => {
-  const [focused, setFocused] = useState(false);
+const InputField = ({ type = 'text', name, placeholder, required, as: Tag = 'input', rows }) => {
   return (
     <Tag
       type={type}
@@ -56,6 +56,15 @@ const InputField = ({ type = 'text', name, placeholder, required, as: Tag = 'inp
       style={{ ...inputStyle, resize: Tag === 'textarea' ? 'vertical' : undefined }}
     />
   );
+};
+
+InputField.propTypes = {
+  type: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  required: PropTypes.bool,
+  as: PropTypes.elementType,
+  rows: PropTypes.number,
 };
 
 const Contact = () => {
@@ -119,7 +128,7 @@ const Contact = () => {
           style={{ background: 'linear-gradient(90deg, transparent, #7c3aed, transparent)' }}
         />
         <p className="text-base max-w-lg mx-auto" style={{ color: '#9490b5', lineHeight: 1.7 }}>
-          Have an opportunity or project in mind? I'd love to hear from you.
+          Have an opportunity or project in mind? I&apos;d love to hear from you.
         </p>
       </div>
 
@@ -131,10 +140,10 @@ const Contact = () => {
               className="text-2xl font-bold mb-3"
               style={{ fontFamily: 'Syne, sans-serif', color: '#f0eeff' }}
             >
-              Let's work together
+              Let&apos;s work together
             </h3>
             <p className="text-sm leading-relaxed" style={{ color: '#9490b5', lineHeight: 1.8 }}>
-              I'm currently open to Data Science, Data Analyst, and Product Management opportunities
+              I&apos;m currently open to Data Science, Data Analyst, and Product Management opportunities
               — full-time or internships. Graduating May 2026 from VIT Vellore.
             </p>
           </div>

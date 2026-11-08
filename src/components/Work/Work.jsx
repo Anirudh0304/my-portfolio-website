@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 import { projects } from '../../constants';
 import { FaGithub } from 'react-icons/fa';
 import { HiExternalLink, HiX } from 'react-icons/hi';
@@ -26,6 +27,12 @@ const SectionTitle = ({ label, title, subtitle }) => (
     </p>
   </div>
 );
+
+SectionTitle.propTypes = {
+  label: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+};
 
 const ProjectCard = ({ project, onClick }) => (
   <button
@@ -103,6 +110,19 @@ const ProjectCard = ({ project, onClick }) => (
     </div>
   </button>
 );
+
+const projectShape = PropTypes.shape({
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  github: PropTypes.string.isRequired,
+});
+
+ProjectCard.propTypes = {
+  project: projectShape.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 const Modal = ({ project, onClose }) => {
   useEffect(() => {
@@ -205,6 +225,11 @@ const Modal = ({ project, onClose }) => {
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  project: projectShape.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 const Work = () => {

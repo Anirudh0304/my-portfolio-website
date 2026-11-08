@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import { experiences } from '../../constants';
 
 const SectionTitle = ({ label, title, subtitle }) => (
@@ -25,7 +25,13 @@ const SectionTitle = ({ label, title, subtitle }) => (
   </div>
 );
 
-const ExperienceCard = ({ experience, align }) => (
+SectionTitle.propTypes = {
+  label: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+};
+
+const ExperienceCard = ({ experience }) => (
   <div
     className="rounded-2xl p-6 sm:p-8 relative overflow-hidden group"
     style={{
@@ -94,6 +100,17 @@ const ExperienceCard = ({ experience, align }) => (
     </div>
   </div>
 );
+
+ExperienceCard.propTypes = {
+  experience: PropTypes.shape({
+    img: PropTypes.string.isRequired,
+    company: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    skills: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+};
 
 const Experience = () => {
   return (
