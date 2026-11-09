@@ -43,6 +43,21 @@ const images = {
   "HR Analytics": hr,
   "Task Manager": task,
 };
+const pageTitle = (pathname, projectId) => {
+  if (pathname === "/") return "Konduri Anirudh — Product Management";
+  if (pathname === "/experience") return "Experience — Konduri Anirudh";
+  if (pathname === "/projects") return "Projects — Konduri Anirudh";
+  if (pathname === "/writing") return "Writing — Konduri Anirudh";
+  if (pathname === "/contact") return "Contact — Konduri Anirudh";
+  if (pathname.startsWith("/projects/")) {
+    const project =
+      projects[projectId] || archive.find((item) => slug(item.title) === projectId);
+    return project
+      ? `${project.title} — Konduri Anirudh`
+      : "Projects — Konduri Anirudh";
+  }
+  return "Konduri Anirudh — Product Management";
+};
 const slug = (t) => t.toLowerCase().replaceAll(" ", "-");
 const Journey = createContext(null);
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -181,7 +196,7 @@ function Header() {
         </summary>
         <Navigation mobile />
         <div className="mobile-utilities">
-          <a href="/resume.pdf">
+          <a href="/resume.pdf" target="_blank" rel="noreferrer">
             Résumé <Arrow />
           </a>
           <Go to="/contact">
@@ -256,7 +271,10 @@ function Home() {
         )}
         <div className="home-bio">
           <p>I’m Anirudh, an Associate Product Manager at Revspot.ai.</p>
-          <p>I work on AI workflows for advertising.</p>
+          <p>
+            I build and evaluate AI workflows for advertising—turning campaign
+            problems into product decisions.
+          </p>
         </div>
         <div className="home-invitation">
           <Action to="/experience">Follow my journey</Action>
@@ -274,10 +292,10 @@ function Home() {
         </div>
       </aside>
       <footer className="folio home-folio">
-        <span>On the workbench</span>
-        <b>Feedback → Decision</b>
-        <span>Independent project · In development</span>
-        <Action to="/projects/feedback">View project</Action>
+        <span>Current practice</span>
+        <b>AI workflow evaluation</b>
+        <span>Campaign planning, analysis, creative &amp; execution</span>
+        <Action to="/experience">Explore experience</Action>
       </footer>
     </>
   );
@@ -316,9 +334,9 @@ function Experience() {
                 <p>
                   {id === "apm"
                     ? [
-                        "Translate customer and operational problems into AI workflows.",
-                        "Use structured evaluations and ablation tests to assess workflows.",
-                        "Work across advertising workflows for Meta and Google Ads.",
+                        "Turn customer and operational problems into requirements, agent workflows, and engineering initiatives.",
+                        "Design structured evaluations and ablation tests to understand where AI workflows improve or fail.",
+                        "Support campaign capabilities across Meta and Google Ads, from planning and analysis to creative and execution.",
                       ][i]
                     : theme.text}
                 </p>
@@ -342,6 +360,12 @@ function Experience() {
         <p className="annotation">
           A progression from marketing to product practice.
         </p>
+        <section className="education-note">
+          <Label>Education</Label>
+          <h2>Vellore Institute of Technology</h2>
+          <p>B.Tech, Computer Science &amp; Engineering (Data Science)</p>
+          <p className="small">May 2026</p>
+        </section>
       </aside>
       <Footer to="/projects" title="Explore the projects" />
     </>
@@ -466,7 +490,10 @@ function Projects() {
               )
               .map((item) => (
                 <article key={item.title}>
-                  <h3>{item.title}</h3>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p className="project-summary">{item.text}</p>
+                  </div>
                   <span>{item.type}</span>
                   <Action to={`/projects/${slug(item.title)}`}>
                     View project
@@ -957,7 +984,7 @@ function Shell() {
       previous.current = entryKey;
       sheet.current.querySelector("h1")?.focus({ preventScroll: true });
     }
-    document.title = `Konduri Anirudh — ${location.pathname === "/" ? "Product Management" : location.pathname.split("/")[1].replace(/^./, (t) => t.toUpperCase())}`;
+    document.title = pageTitle(location.pathname, location.pathname.split("/")[2]);
     try {
       sessionStorage.setItem(
         "portfolio-route",

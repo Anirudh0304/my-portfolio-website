@@ -419,6 +419,20 @@ img {
 .role-history .annotation {
   margin-top: 3cqw;
 }
+.education-note {
+  margin-top: 2.2cqw;
+  padding-top: 1.35cqw;
+  border-top: 1px solid;
+}
+.education-note .print-label {
+  margin-bottom: 0.8cqw;
+}
+.education-note h2 {
+  font-size: 1.55cqw;
+}
+.education-note p + p {
+  margin-top: 0.35cqw;
+}
 .projects-chapter h1 {
   font-size: 6.1cqw;
   line-height: 0.94;
@@ -499,6 +513,12 @@ img {
 }
 .project-register h3 {
   font-size: 2cqw;
+}
+.project-register .project-summary {
+  margin-top: 0.55cqw;
+  font-size: 1.15cqw;
+  line-height: 1.4;
+  max-width: 42ch;
 }
 .project-register span,
 .project-register .action {
@@ -740,8 +760,7 @@ img {
     margin: 0;
     min-height: 100vh;
     padding-bottom: 1px;
-    background: #d2e8f5 url("/materials/paper.webp") center top/auto 950px
-      repeat-y;
+    background: #d2e8f5;
   }
   .sheet > .paper {
     display: none;
@@ -1005,6 +1024,19 @@ img {
   .role-history .annotation {
     margin-top: 28px;
   }
+  .education-note {
+    margin-top: 30px;
+    padding-top: 27px;
+  }
+  .education-note .print-label {
+    margin-bottom: 12px;
+  }
+  .education-note h2 {
+    font-size: 23px;
+  }
+  .education-note p + p {
+    margin-top: 8px;
+  }
   .projects-chapter h1 {
     font-size: 62px;
     margin-bottom: 30px;
@@ -1070,6 +1102,11 @@ img {
   }
   .project-register h3 {
     font-size: 24px;
+  }
+  .project-register .project-summary {
+    margin-top: 7px;
+    font-size: 15px;
+    max-width: 40ch;
   }
   .project-register span {
     font-size: 14px;
