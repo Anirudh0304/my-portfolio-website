@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T16:28:55.895984+00:00",
+  "title": "Design System: Konduri Anirudh \u2014 Folded Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0385 270)",
+          "oklch(26% 0.0554 270)",
+          "oklch(37% 0.0723 270)",
+          "oklch(48% 0.0892 270)",
+          "oklch(59% 0.0938 270)",
+          "oklch(70% 0.0769 270)",
+          "oklch(82% 0.0585 270)",
+          "oklch(95% 0.0385 270)"
+        ]
+      },
+      "orange": {
+        "role": "secondary",
+        "displayName": "Orange",
+        "tonalRamp": [
+          "oklch(15% 0.0462 35)",
+          "oklch(26% 0.0665 35)",
+          "oklch(37% 0.0868 35)",
+          "oklch(48% 0.1071 35)",
+          "oklch(59% 0.1126 35)",
+          "oklch(70% 0.0923 35)",
+          "oklch(82% 0.0702 35)",
+          "oklch(95% 0.0462 35)"
+        ]
+      },
+      "orange-hover": {
+        "role": "secondary",
+        "displayName": "Orange Hover",
+        "tonalRamp": [
+          "oklch(15% 0.0346 35)",
+          "oklch(26% 0.0498 35)",
+          "oklch(37% 0.0651 35)",
+          "oklch(48% 0.0803 35)",
+          "oklch(59% 0.0845 35)",
+          "oklch(70% 0.0692 35)",
+          "oklch(82% 0.0526 35)",
+          "oklch(95% 0.0346 35)"
+        ]
+      },
+      "desktop-surround": {
+        "role": "neutral",
+        "displayName": "Desktop Surround",
+        "tonalRamp": [
+          "oklch(15% 0.0038 85)",
+          "oklch(26% 0.0055 85)",
+          "oklch(37% 0.0072 85)",
+          "oklch(48% 0.0089 85)",
+          "oklch(59% 0.0094 85)",
+          "oklch(70% 0.0077 85)",
+          "oklch(82% 0.0058 85)",
+          "oklch(95% 0.0038 85)"
+        ]
+      },
+      "mobile-paper-fallback": {
+        "role": "neutral",
+        "displayName": "Mobile Paper Fallback",
+        "tonalRamp": [
+          "oklch(15% 0.0135 235)",
+          "oklch(26% 0.0194 235)",
+          "oklch(37% 0.0253 235)",
+          "oklch(48% 0.0312 235)",
+          "oklch(59% 0.0328 235)",
+          "oklch(70% 0.0269 235)",
+          "oklch(82% 0.0205 235)",
+          "oklch(95% 0.0135 235)"
+        ]
+      },
+      "dialog-paper": {
+        "role": "neutral",
+        "displayName": "Dialog Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0096 235)",
+          "oklch(26% 0.0138 235)",
+          "oklch(37% 0.0181 235)",
+          "oklch(48% 0.0223 235)",
+          "oklch(59% 0.0235 235)",
+          "oklch(70% 0.0192 235)",
+          "oklch(82% 0.0146 235)",
+          "oklch(95% 0.0096 235)"
+        ]
+      },
+      "screenshot-ground": {
+        "role": "neutral",
+        "displayName": "Screenshot Ground",
+        "tonalRamp": [
+          "oklch(15% 0.0038 275)",
+          "oklch(26% 0.0055 275)",
+          "oklch(37% 0.0072 275)",
+          "oklch(48% 0.0089 275)",
+          "oklch(59% 0.0094 275)",
+          "oklch(70% 0.0077 275)",
+          "oklch(82% 0.0058 275)",
+          "oklch(95% 0.0038 275)"
+        ]
+      },
+      "selection": {
+        "role": "neutral",
+        "displayName": "Selection",
+        "tonalRamp": [
+          "oklch(15% 0.0269 60)",
+          "oklch(26% 0.0388 60)",
+          "oklch(37% 0.0506 60)",
+          "oklch(48% 0.0625 60)",
+          "oklch(59% 0.0657 60)",
+          "oklch(70% 0.0538 60)",
+          "oklch(82% 0.0409 60)",
+          "oklch(95% 0.0269 60)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Personal name",
+        "purpose": "Homepage name in Alan Sans; CSS registers the family as Alan."
+      },
+      "headline": {
+        "displayName": "Chapter heading",
+        "purpose": "Base heading with measured chapter-specific overrides."
+      },
+      "body": {
+        "displayName": "Supporting copy",
+        "purpose": "Inter paragraphs and readable details; self-hosted Inter.woff2 and genuine InterItalic.woff2 share the Inter family, weights 100\u2013900, with font synthesis disabled."
+      }
+    },
+    "shadows": [
+      {
+        "name": "portrait-lift",
+        "value": "drop-shadow(2px 5px 5px #142e5125)",
+        "purpose": "CSS filter on genuine framed portrait; other stock depth is raster."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Centre print and menu resolve."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Opening, chapter turns and shared screenshot travel."
+      },
+      {
+        "name": "first-opening",
+        "value": "740ms; second flap delay 60ms; initial rotations \u00b1175deg",
+        "purpose": "Once per session on desktop; skip for reduced motion, interrupt on keyboard."
+      },
+      {
+        "name": "centre-print",
+        "value": "380ms; delay 170ms",
+        "purpose": "Print resolve during opening."
+      },
+      {
+        "name": "chapter-turn",
+        "value": "280ms",
+        "purpose": "Pointer only, desktop outgoing bounded panels."
+      },
+      {
+        "name": "project-image",
+        "value": "280ms",
+        "purpose": "Pointer shared screenshot carry into project detail."
+      },
+      {
+        "name": "mobile-menu",
+        "value": "200ms",
+        "purpose": "Pointer disclosure resolve; keyboard and reduced motion disable animation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile-max",
+        "value": "960px"
+      },
+      {
+        "name": "desktop-min",
+        "value": "961px"
+      },
+      {
+        "name": "sheet-cap",
+        "value": "1601px"
+      }
+    ],
+    "auditRefinements": {
+      "date": "2026-11-08",
+      "bodyMinimum": "14px desktop",
+      "metadataMinimum": "12px desktop",
+      "touchTargetMinimum": "44px mobile/coarse pointer",
+      "accent": "#9a2d09",
+      "modalScrollLock": true,
+      "mobileDetailTop": "auto",
+      "projectsPaperHeight": "--opening-height",
+      "fontDelivery": [
+        "AlanSans.woff2",
+        "Inter.woff2",
+        "InterItalic.woff2"
+      ],
+      "reverseStock": "paper-back.webp",
+      "responsiveQueries": {
+        "mobile": "(max-width: 60em)",
+        "desktop": "(min-width: 60.0625em)",
+        "feedbackStack": "(max-width: 33.75em)"
+      },
+      "mobileInsertBleed": "8px",
+      "dialogCloseFocus": "explicit native onClose trigger restoration"
+    }
+  },
+  "components": [
+    {
+      "name": "Journey action",
+      "kind": "button",
+      "refersTo": "action",
+      "description": "Underlined orange route action with inline directional arrow.",
+      "html": "<a class=\"ds-action\" href=\"#/experience\">Follow my journey <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M3 12h18m-8-8 8 8-8 8\"/></svg></a>",
+      "css": ".ds-action{font-family:Inter,sans-serif;color:var(--ink,#07174f);color:var(--orange,#9a2d09);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.2em;display:inline-block}.ds-action svg{width:.8em;height:.8em;fill:none;stroke:currentColor;stroke-width:2.2;margin-left:.12em}.ds-action:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;}@media(hover:hover) and (pointer:fine){.ds-action:hover{color:#802405}}"
+    },
+    {
+      "name": "Copy address control",
+      "kind": "button",
+      "refersTo": "copy-button",
+      "description": "Transparent native text button with a printed bottom rule. Clipboard behavior belongs to React, not this visual sample.",
+      "html": "<button class=\"ds-copy\" type=\"button\">Copy address</button>",
+      "css": ".ds-copy{font-family:Inter,sans-serif;color:var(--ink,#07174f);background:transparent;border:0;border-bottom:1px solid currentColor;padding:2px 0;font-weight:600;cursor:pointer}.ds-copy:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;}.ds-copy:disabled{opacity:.6;cursor:default}@media(hover:hover) and (pointer:fine){.ds-copy:hover{color:#802405}}"
+    },
+    {
+      "name": "Printed chapter index",
+      "kind": "nav",
+      "refersTo": "chapter-current",
+      "description": "Unequal-fold desktop index with numbered chapters and current-page ink.",
+      "html": "<nav class=\"ds-index\" aria-label=\"Chapters\"><a href=\"#/\" aria-current=\"page\"><span>01</span><strong>About</strong></a><a href=\"#/experience\"><span>02</span><strong>Experience</strong></a><a href=\"#/projects\"><span>03</span><strong>Projects</strong></a><a href=\"#/writing\"><span>04</span><strong>Writing</strong></a></nav>",
+      "css": ".ds-index{font-family:Inter,sans-serif;color:var(--ink,#07174f);width:200px}.ds-index a{display:flex;flex-direction:column;gap:4px;font-family:Alan,Inter,sans-serif;font-size:29px;font-weight:750;padding:13px 0 15px;line-height:1.04;text-decoration:none;color:var(--ink,#07174f)}.ds-index a>span{font-size:23px}.ds-index strong{font-weight:inherit;width:fit-content;border-bottom:1px solid;padding-bottom:4px}.ds-index a[aria-current=\"page\"]{color:var(--orange,#9a2d09)}.ds-index a:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;}"
+    },
+    {
+      "name": "Mobile Explore disclosure",
+      "kind": "nav",
+      "description": "Native details expands stacked chapter links in document flow.",
+      "html": "<details class=\"ds-explore\"><summary>Explore</summary><nav aria-label=\"Chapters\"><a href=\"#/\" aria-current=\"page\">01 About</a><a href=\"#/experience\">02 Experience</a><a href=\"#/projects\">03 Projects</a><a href=\"#/writing\">04 Writing</a></nav></details>",
+      "css": ".ds-explore{font-family:Inter,sans-serif;color:var(--ink,#07174f);max-width:360px;border-bottom:1px solid}.ds-explore summary{padding:17px 0;font-size:16px;font-weight:700;cursor:pointer}.ds-explore a{display:block;padding:15px 0;border-top:1px solid #07174f55;font-family:Alan,Inter,sans-serif;font-size:25px;font-weight:750;text-decoration:none;color:var(--ink,#07174f)}.ds-explore a[aria-current=\"page\"]{color:var(--orange,#9a2d09)}.ds-explore a:focus-visible,.ds-explore summary:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;}"
+    },
+    {
+      "name": "Torn evidence insert",
+      "kind": "custom",
+      "description": "Distinct offwhite raster stock behind semantic example copy; no CSS card shadow or border.",
+      "html": "<blockquote class=\"ds-insert\">\u201cSetup takes too long.\u201d</blockquote>",
+      "css": ".ds-insert{font-family:Inter,sans-serif;color:var(--ink,#07174f);position:relative;isolation:isolate;margin:12px;padding:24px;font-weight:650;font-style:italic;font-size:20px;transform:rotate(-1deg);border:0;box-shadow:none}.ds-insert:before{content:\"\";position:absolute;inset:-3%;z-index:-1;background:url(\"/materials/insert.webp\") center/100% 100% no-repeat;pointer-events:none}"
+    },
+    {
+      "name": "Mobile paper stock",
+      "kind": "custom",
+      "description": "Dedicated sharp full-bleed stock tiles vertically at natural aspect ratio with horizontal crease relief. Decorative raster sits behind semantic content.",
+      "html": "<section class=\"ds-mobile-paper\"><h2>Projects</h2><p>Independent studies in product thinking.</p></section>",
+      "css": ".ds-mobile-paper{background:#d2e8f5 url(\"/materials/mobile-paper.webp\") center top/100% auto repeat-y;color:var(--ink,#07174f);font-family:Inter,sans-serif;max-width:390px;min-height:400px;padding:34px 22px 30px}.ds-mobile-paper h2{font-family:Alan,Inter,sans-serif;font-size:57px;font-weight:800;line-height:1.02;letter-spacing:-.035em;margin:0 0 18px}.ds-mobile-paper p{font-size:20px;line-height:1.45;margin:0}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A journey held in one folded sheet",
+    "overview": "A personal journey held in one physically folded sheet. The original folded-paper reference establishes the physical silhouette, unequal folds and expressive navy print; the approved replacement world uses a warm-grey desktop surround. The paper is a material object with readable semantic content, rather than a screenshot of an interface.\n\nHeavy Alan Sans lettering, Inter supporting copy, fine printed rules and occasional offwhite torn inserts make the system tactile and editorial. Chapter compositions adapt to their content while keeping the same sheet. The rejected conventional sidebar redesign is not a visual reference.",
+    "keyCharacteristics": [
+      "Pale-blue fibrous stock and unequal folds",
+      "Navy print with orange underlined actions",
+      "Genuine portrait and original project evidence",
+      "Full-bleed continuous paper on mobile"
+    ],
+    "rules": [
+      {
+        "name": "The Two Families Rule",
+        "body": "Use Alan Sans for display and Inter for supporting text; introduce no third family.",
+        "section": "typography"
+      },
+      {
+        "name": "The Material Rule",
+        "body": "Raster stock supplies fibres, creases and torn edges; semantic HTML supplies every readable word and control.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the physical sheet, visible folds and chapter-specific composition.",
+      "Do keep semantic text above decorative raster materials.",
+      "Do use the genuine portrait and retain original image sources and provenance.",
+      "Do preserve keyboard focus, normal scrolling, direct links and reduced-motion access."
+    ],
+    "donts": [
+      "Don\u2019t restore cobalt surroundings, Archivo Black or the superseded 18/62/20 composition.",
+      "Don\u2019t turn the printed chapter index into a conventional application sidebar.",
+      "Don\u2019t bake navigation or readable copy into screenshots.",
+      "Don\u2019t present developing studies or proposed writing as completed evidence."
+    ]
+  }
+}

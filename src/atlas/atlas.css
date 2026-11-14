@@ -7,7 +7,7 @@
 @font-face {
   font-family: Inter;
   src: url("/fonts/Inter.woff2") format("woff2");
-  font-weight: 100 900;
+  font-weight: 400 800;
   font-display: swap;
 }
 :root {
@@ -1698,7 +1698,7 @@ img {
   font-family: Inter;
   src: url("/fonts/InterItalic.woff2") format("woff2");
   font-style: italic;
-  font-weight: 100 900;
+  font-weight: 400 800;
   font-display: swap;
 }
 /* Feedback is evidence for a problem, which leads to a next test. */
@@ -2077,11 +2077,82 @@ html:has(.image-dialog[open]) {
     background-color: #d2e8f5;
   }
 }
+/* The opening spread is a single composed view, not the first slice of a document.
+   Keep its physical 3:2 ratio, but let a short desktop viewport set its scale. */
+@media (min-width: 60.0625em) {
+  .route-home {
+    width: min(100%, 1600px, calc((100svh - 16px) * 1.5));
+    min-height: 0;
+    aspect-ratio: 3 / 2;
+    margin: 8px auto;
+  }
+}
 /* Keep loose-stock edges inside the paper gutter even with enlarged browser text. */
 @media (max-width: 60em) {
   .insert-material {
     inset: -8px;
     width: calc(100% + 16px);
     height: calc(100% + 16px);
+  }
+}
+/* Projects index: finished work leads; studies in progress are a compact list. */
+.selected-work {
+  gap: 2.6cqw;
+  margin-top: 0.6cqw;
+}
+.selected-work h2 {
+  font-size: 2.2cqw;
+  margin: 1.1cqw 0 0.55cqw;
+}
+.selected-work p {
+  font-size: 1.15cqw;
+}
+.selected-work .action {
+  font-size: 1.25cqw;
+}
+.coming-next > .small {
+  margin-bottom: 1.2cqw;
+}
+.coming-next ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.coming-next li + li {
+  margin-top: 1.1cqw;
+  padding-top: 1.1cqw;
+  border-top: 1px solid;
+}
+.coming-next li a {
+  font-family: Alan, Inter, sans-serif;
+  font-weight: 700;
+  font-size: 1.6cqw;
+  line-height: 1.15;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+@media (max-width: 60em) {
+  .selected-work {
+    margin-top: 10px;
+  }
+  .selected-work h2 {
+    font-size: 31px;
+    margin: 18px 0 12px;
+  }
+  .selected-work p {
+    font-size: 17px;
+  }
+  .selected-work .action {
+    font-size: 19px;
+  }
+  .coming-next > .small {
+    margin-bottom: 14px;
+  }
+  .coming-next li + li {
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+  .coming-next li a {
+    font-size: 22px;
   }
 }

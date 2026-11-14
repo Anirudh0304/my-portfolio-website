@@ -9,7 +9,7 @@ import {
 } from "react";
 import { flushSync } from "react-dom";
 import {
-  HashRouter,
+  BrowserRouter,
   Link,
   Navigate,
   Route,
@@ -21,20 +21,28 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { roles, projects, essays, archive, previousDetails } from "./content";
-const trend = "/projects/trend.webp";
-const quant = "/projects/quant.webp";
-const sql = "/projects/sql.webp";
-const uber = "/projects/uber.webp";
-const hr = "/projects/hr.webp";
-const task = "/projects/task.webp";
+const trend = "/screenshots/trend.webp";
+const quant = "/screenshots/quant.webp";
+const sql = "/screenshots/sql.webp";
+const uber = "/screenshots/uber.webp";
+const hr = "/screenshots/hr.webp";
+const task = "/screenshots/task.webp";
 import "./atlas.css";
 const email = "kondurianirudh0304@gmail.com";
+const siteOrigin = "https://kondurianirudh.netlify.app";
+/* Writing stays hidden until one real, published piece exists. Set to true
+   to restore the chapter, its navigation entry and its route. */
+const showWriting = false;
 const chapters = [
   ["/", "About"],
   ["/experience", "Experience"],
   ["/projects", "Projects"],
-  ["/writing", "Writing"],
+  ...(showWriting ? [["/writing", "Writing"]] : []),
 ];
+const afterProjects = showWriting
+  ? ["/writing", "Continue to Writing", "Earlier builds. Next, the thinking behind the work."]
+  : ["/contact", "Let’s talk", "That’s the work so far."];
+const featured = ["TrendSage Lite", "QuantPEGY"];
 const images = {
   "TrendSage Lite": trend,
   QuantPEGY: quant,
@@ -228,7 +236,7 @@ function Footer({ to, title, children }) {
         "/experience": ["/", "About"],
         "/projects": ["/experience", "Experience"],
         "/writing": ["/projects", "Projects"],
-        "/contact": ["/writing", "Writing"],
+        "/contact": showWriting ? ["/writing", "Writing"] : ["/projects", "Projects"],
       }[pathname] || ["/", "About"];
   return (
     <footer className="folio">
@@ -272,8 +280,8 @@ function Home() {
         <div className="home-bio">
           <p>I’m Anirudh, an Associate Product Manager at Revspot.ai.</p>
           <p>
-            I build and evaluate AI workflows for advertising—turning campaign
-            problems into product decisions.
+            I work on launch flows, AI evaluation and internal analytics—turning
+            advertising operations into product decisions.
           </p>
         </div>
         <div className="home-invitation">
@@ -293,8 +301,8 @@ function Home() {
       </aside>
       <footer className="folio home-folio">
         <span>Current practice</span>
-        <b>AI workflow evaluation</b>
-        <span>Campaign planning, analysis, creative &amp; execution</span>
+        <b>Reliable launches &amp; AI evaluation</b>
+        <span>Product workflows, platform guardrails &amp; decision-grade analytics</span>
         <Action to="/experience">Explore experience</Action>
       </footer>
     </>
@@ -323,23 +331,9 @@ function Experience() {
               <span className="theme-number">0{i + 1}</span>
               <div>
                 <h3>
-                  {id === "apm"
-                    ? [
-                        "Product requirements",
-                        "Evaluation",
-                        "Campaign intelligence",
-                      ][i]
-                    : theme.title}
+                  {theme.title}
                 </h3>
-                <p>
-                  {id === "apm"
-                    ? [
-                        "Turn customer and operational problems into requirements, agent workflows, and engineering initiatives.",
-                        "Design structured evaluations and ablation tests to understand where AI workflows improve or fail.",
-                        "Support campaign capabilities across Meta and Google Ads, from planning and analysis to creative and execution.",
-                      ][i]
-                    : theme.text}
-                </p>
+                <p>{theme.text}</p>
               </div>
             </section>
           ))}
@@ -371,123 +365,63 @@ function Experience() {
     </>
   );
 }
-function Evidence({ project }) {
-  return (
-    <div
-      className="evidence"
-      role="group"
-      aria-label="Illustrative feedback to next-test sequence"
-    >
-      <div className="slips">
-        <Label>Feedback</Label>
-        {project.slips.map((text) => (
-          <blockquote key={text}>
-            <Insert />“{text}”
-          </blockquote>
-        ))}
-      </div>
-      <div className="evidence-connector" aria-hidden="true">
-        <svg className="evidence-fork-wide" viewBox="0 0 80 160">
-          <path d="M0 30C60 30 15 80 70 80M0 125C60 125 15 80 70 80M60 70l10 10-10 10" />
-        </svg>
-        <svg
-          className="evidence-fork-down"
-          viewBox="0 0 100 44"
-          preserveAspectRatio="none"
-        >
-          <path d="M25 1C25 27 50 17 50 40M75 1C75 27 50 17 50 40M45 34l5 6 5-6" />
-        </svg>
-        <svg className="evidence-arrow-down" viewBox="0 0 24 28">
-          <path d="M12 1v24m-7-7 7 7 7-7" />
-        </svg>
-      </div>
-      <div className="evidence-note">
-        <Insert />
-        <Label>Problem</Label>
-        <p>{project.problem}</p>
-      </div>
-      <span className="flow-arrow" aria-hidden="true">
-        <Arrow direction="right" />
-      </span>
-      <div className="evidence-note">
-        <Insert />
-        <Label>Next test</Label>
-        <p>{project.test}</p>
-      </div>
-    </div>
-  );
-}
 function Projects() {
   return (
     <>
       <article className="centre chapter projects-chapter">
         <h1 tabIndex={-1}>Projects</h1>
         <p className="projects-intro">
-          Independent studies in product thinking.
+          Finished work in data, machine learning and software.
         </p>
-        <div className="feature-heading">
-          <p className="development">In development</p>
-          <h2>Feedback → Decision</h2>
-          <p>{projects.feedback.subtitle}</p>
-        </div>
-        <Evidence project={projects.feedback} />
-        <div className="project-caption">
-          <span>Independent concept · Illustrative example</span>
-          <Action to="/projects/feedback">Open project</Action>
+        <div className="previous-featured selected-work">
+          {featured.map((name) => {
+            const p = archive.find((item) => item.title === name);
+            return (
+              <article key={name}>
+                <Go to={`/projects/${slug(name)}`} className="preview-image">
+                  <Screenshot
+                    key={images[name]}
+                    data-project-image={slug(name)}
+                    src={images[name]}
+                    alt={`${name} application screenshot`}
+                    loading="lazy"
+                  />
+                </Go>
+                <h2>{name}</h2>
+                <p>{p.text}</p>
+                <Action to={`/projects/${slug(name)}`}>View project</Action>
+              </article>
+            );
+          })}
         </div>
       </article>
-      <aside className="right-fold project-list">
-        <Label>Independent studies</Label>
-        {Object.values(projects)
-          .slice(1)
-          .map((p, i) => (
-            <section key={p.id}>
-              <span className="small">0{i + 2} / In development</span>
-              <h2>{p.title}</h2>
-              <p>{p.subtitle}</p>
-              <Action to={`/projects/${p.id}`}>Explore</Action>
-            </section>
+      <aside className="right-fold project-list coming-next">
+        <Label>Coming next</Label>
+        <p className="small">Independent studies in development.</p>
+        <ul>
+          {Object.values(projects).map((p) => (
+            <li key={p.id}>
+              <Go to={`/projects/${p.id}`}>{p.title}</Go>
+            </li>
           ))}
+        </ul>
       </aside>
-      <Footer to="/writing" title="Follow the thinking">
-        New studies above. Earlier builds below.
+      <Footer to={afterProjects[0]} title={afterProjects[1]}>
+        Selected work above. More projects below.
       </Footer>
-      <section className="previous-spread" id="previous-projects">
+      <section className="previous-spread" id="more-projects">
         <Material />
         <div className="previous-inner">
           <header className="previous-heading">
-            <h2>Previous projects</h2>
+            <h2>More projects</h2>
             <p>
               Earlier explorations in data, machine learning and building
               software.
             </p>
           </header>
-          <div className="previous-featured">
-            {["TrendSage Lite", "QuantPEGY"].map((name) => {
-              const p = archive.find((item) => item.title === name);
-              return (
-                <article key={name}>
-                  <Go to={`/projects/${slug(name)}`} className="preview-image">
-                    <Screenshot
-                      key={images[name]}
-                      data-project-image={slug(name)}
-                      src={images[name]}
-                      alt={`${name} application screenshot`}
-                      loading="lazy"
-                    />
-                  </Go>
-                  <h3>{name}</h3>
-                  <p>{p.text}</p>
-                  <Action to={`/projects/${slug(name)}`}>View project</Action>
-                </article>
-              );
-            })}
-          </div>
           <div className="project-register">
             {archive
-              .filter(
-                (item) => !["TrendSage Lite", "QuantPEGY"].includes(item.title),
-              )
+              .filter((item) => !featured.includes(item.title))
               .map((item) => (
                 <article key={item.title}>
                   <div>
@@ -505,8 +439,8 @@ function Projects() {
             A collection of undergraduate and technical work.
           </p>
         </div>
-        <Footer to="/writing" title="Continue to Writing">
-          Earlier builds. Next, the thinking behind the work.
+        <Footer to={afterProjects[0]} title={afterProjects[1]}>
+          {afterProjects[2]}
         </Footer>
       </section>
     </>
@@ -647,10 +581,9 @@ function ProjectDetail() {
   const item = planned || earlier;
   const detail = previousDetails[item.title];
   const ordered = [
-    "TrendSage Lite",
-    "QuantPEGY",
+    ...featured,
     ...archive
-      .filter((p) => !["TrendSage Lite", "QuantPEGY"].includes(p.title))
+      .filter((p) => !featured.includes(p.title))
       .map((p) => p.title),
   ];
   const nextTitle = ordered[ordered.indexOf(item.title) + 1];
@@ -749,9 +682,9 @@ function ProjectDetail() {
                 ["project-build", "The build"],
                 ["project-interface", "The interface"],
               ].map(([key, title]) => (
-                <a key={key} href={`#/projects/${id}#${key}`}>
+                <Link key={key} to={`/projects/${id}#${key}`}>
                   {title}
-                </a>
+                </Link>
               ))}
             </nav>
             <div className="built-with">
@@ -782,7 +715,7 @@ function ProjectDetail() {
         }
         title={!planned && nextTitle ? `Next / ${nextTitle}` : "All projects"}
       >
-        {planned ? "Independent study · In development" : "Previous project"}
+        {planned ? "Independent study · In development" : "Finished project"}
       </Footer>
       {image && (
         <dialog
@@ -985,6 +918,10 @@ function Shell() {
       sheet.current.querySelector("h1")?.focus({ preventScroll: true });
     }
     document.title = pageTitle(location.pathname, location.pathname.split("/")[2]);
+    const pageUrl = `${siteOrigin}${location.pathname}`;
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href", pageUrl);
+    document.querySelector('meta[property="og:url"]')?.setAttribute("content", pageUrl);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", document.title);
     try {
       sessionStorage.setItem(
         "portfolio-route",
@@ -1098,7 +1035,10 @@ function Shell() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
-          <Route path="/writing" element={<Writing />} />
+          <Route
+            path="/writing"
+            element={showWriting ? <Writing /> : <Navigate to="/projects" replace />}
+          />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -1108,18 +1048,22 @@ function Shell() {
   );
 }
 export default function Atlas() {
-  if (!window.location.hash) {
+  const legacy = window.location.hash;
+  if (legacy.startsWith("#/") && !legacy.startsWith("#//")) {
+    /* Older shared links used hash routes (#/projects); keep them working. */
+    window.history.replaceState(null, "", legacy.slice(1));
+  } else if (window.location.pathname === "/" && !legacy) {
     try {
       const saved = sessionStorage.getItem("portfolio-route");
-      if (saved?.startsWith("/") && !saved.startsWith("//"))
-        window.history.replaceState(null, "", `#${saved}`);
+      if (saved?.startsWith("/") && !saved.startsWith("//") && saved !== "/")
+        window.history.replaceState(null, "", saved);
     } catch {
       /* Use homepage when storage unavailable. */
     }
   }
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Shell />
-    </HashRouter>
+    </BrowserRouter>
   );
 }

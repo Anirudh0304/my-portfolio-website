@@ -5,21 +5,21 @@ export const roles = {
     date: "September 2026 — Present",
     place: "Bengaluru, India",
     intro:
-      "Building Spot, an AI advertising platform, across campaign planning, analysis, creative, and execution.",
+      "I work on Spot, Revspot’s AI advertising product, making launches more reliable and product decisions easier to trust.",
     context: "Current product practice",
     themes: [
       {
-        title: "From problem to workflow",
-        text: "Translate customer and operational problems into product requirements, AI agent workflows, and engineering initiatives.",
-        flow: ["Customer problem", "Product requirement", "Agent workflow"],
+        title: "Make launches correct",
+        text: "Trace gaps between a campaign plan and what reaches an ad platform, then turn failures in setup, targeting, budgets and permissions into safer launch flows.",
+        flow: ["Plan", "Launch path", "Platform reality"],
       },
       {
-        title: "Evaluation is part of the product",
-        text: "Use structured evaluations and ablation testing to understand where a workflow succeeds, where it fails, and what needs to change.",
+        title: "Test the workflow, not the demo",
+        text: "Define evaluation criteria and controlled tests for AI-assisted advertising workflows so the team can see what improved, what failed and what to change next.",
       },
       {
-        title: "Campaign intelligence",
-        text: "Connect funnel, attribution, and targeting problems to reusable capabilities across Meta and Google Ads.",
+        title: "Build a decision-grade view",
+        text: "Develop internal analytics for revenue, customer-level P&L, voice-bot quality and false negatives. Clear definitions make the numbers useful in product decisions.",
       },
     ],
   },
