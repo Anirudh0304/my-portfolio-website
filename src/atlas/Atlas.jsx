@@ -67,6 +67,8 @@ const pageTitle = (pathname, projectId) => {
   return "Konduri Anirudh — Product Management";
 };
 const slug = (t) => t.toLowerCase().replaceAll(" ", "-");
+const anchor = (t) =>
+  t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const Journey = createContext(null);
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 const desktopLayout = () => matchMedia("(min-width: 60.0625em)").matches;
@@ -172,10 +174,16 @@ function Header() {
   return (
     <>
       <header className="masthead">
-        <Go className="brand" to="/">
-          Konduri Anirudh
-        </Go>
-        <span className="discipline">Product Management</span>
+        {location.pathname === "/" ? (
+          <Go className="brand brand-mark" to="/" aria-label="Konduri Anirudh, home">
+            KA
+          </Go>
+        ) : (
+          <Go className="brand" to="/">
+            Konduri Anirudh
+          </Go>
+        )}
+        <span className="discipline">Product · AI workflows · Analytics</span>
         <div className="utilities">
           <a href="/resume.pdf" target="_blank" rel="noreferrer">
             Résumé <Arrow />
@@ -221,9 +229,8 @@ function Index() {
       <Label>Explore</Label>
       <Navigation />
       <p className="signature">
-        Product, data &amp;
-        <br />
-        experiments
+        <span>Based in</span>
+        Bengaluru, India
       </p>
     </aside>
   );
@@ -278,32 +285,54 @@ function Home() {
           />
         )}
         <div className="home-bio">
-          <p>I’m Anirudh, an Associate Product Manager at Revspot.ai.</p>
+          <p className="home-lede">
+            I work on the parts of AI advertising that have to be right:
+            launches, evaluations and the numbers behind decisions.
+          </p>
           <p>
-            I work on launch flows, AI evaluation and internal analytics—turning
-            advertising operations into product decisions.
+            Find where the plan breaks, agree how to test the fix, then make
+            the result measurable.
           </p>
         </div>
         <div className="home-invitation">
-          <Action to="/experience">Follow my journey</Action>
+          <Action to="/experience">See how I work</Action>
+          <a
+            className="secondary-action"
+            href="/resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Résumé (PDF) <Arrow />
+          </a>
         </div>
       </div>
       <aside className="right-fold home-current">
-        <Label>Current chapter</Label>
+        <Label>Now</Label>
         <h2>Revspot.ai</h2>
         <p>Associate Product Manager</p>
         <p className="small">September 2026 — Present</p>
+        <p className="small">On Spot, AI advertising</p>
         <div className="previous-role">
-          <p className="previous-label">Previously</p>
-          <p>Product Management Intern</p>
+          <p className="previous-label">Before</p>
+          <p>PM Intern, Revspot.ai</p>
           <p className="small">June — August 2026</p>
+          <p>B.Tech CSE, VIT</p>
+          <p className="small">May 2026</p>
         </div>
       </aside>
       <footer className="folio home-folio">
-        <span>Current practice</span>
-        <b>Reliable launches &amp; AI evaluation</b>
-        <span>Product workflows, platform guardrails &amp; decision-grade analytics</span>
-        <Action to="/experience">Explore experience</Action>
+        <span>Start with</span>
+        <nav className="proof-links" aria-label="Selected work">
+          <Go to="/experience#make-launches-correct">
+            Making launches correct <Arrow direction="right" />
+          </Go>
+          <Go to="/experience#test-the-workflow-not-the-demo">
+            Testing AI workflows <Arrow direction="right" />
+          </Go>
+          <Go to="/projects/trendsage-lite">
+            TrendSage Lite <Arrow direction="right" />
+          </Go>
+        </nav>
       </footer>
     </>
   );
@@ -327,7 +356,7 @@ function Experience() {
         <p className="lead">{role.intro}</p>
         <div className="themes">
           {role.themes.map((theme, i) => (
-            <section key={theme.title}>
+            <section key={theme.title} id={anchor(theme.title)} tabIndex={-1}>
               <span className="theme-number">0{i + 1}</span>
               <div>
                 <h3>

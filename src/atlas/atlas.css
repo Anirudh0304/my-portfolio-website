@@ -2156,3 +2156,188 @@ html:has(.image-dialog[open]) {
     font-size: 22px;
   }
 }
+
+/* Homepage clarity pass (2026-11-14): one job per region, one primary action,
+   one continuous masthead rule, and aligned text edges. */
+.brand-mark {
+  letter-spacing: 0.02em;
+}
+.signature > span {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 750;
+  font-size: 0.72em;
+  margin-bottom: 0.5em;
+}
+.home-invitation {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6em 1.6em;
+}
+.secondary-action {
+  font-size: 0.68em;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.secondary-action .arrow,
+.proof-links .arrow {
+  width: 0.8em;
+  height: 0.8em;
+}
+.proof-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em 2.4em;
+}
+.proof-links a {
+  font-family: Alan, Inter, sans-serif;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.home-current .previous-role > p.small + p:not(.small) {
+  margin-top: 1.4em;
+}
+@media (hover: hover) and (pointer: fine) {
+  .secondary-action:hover,
+  .proof-links a:hover {
+    color: var(--orange);
+  }
+}
+@media (min-width: 60.0625em) {
+  .masthead {
+    border-bottom: 1px solid var(--ink);
+  }
+  .masthead:after {
+    content: none;
+  }
+  .masthead .brand,
+  .masthead .utilities {
+    border-bottom: 0;
+    padding-bottom: 0;
+    transform: none;
+  }
+  .signature {
+    top: 37cqw;
+    font-size: 1.45cqw;
+  }
+  .home-bio,
+  .home-invitation {
+    left: 2.2cqw;
+    width: 52cqw;
+  }
+  .home-bio {
+    top: 31.4cqw;
+  }
+  .home-bio p {
+    font-size: 1.45cqw;
+    line-height: 1.5;
+    max-width: 50ch;
+  }
+  .home-bio .home-lede {
+    font-size: 2.05cqw;
+    line-height: 1.32;
+    letter-spacing: -0.02em;
+    max-width: none;
+  }
+  .home-bio p + p {
+    margin-top: 1.1cqw;
+  }
+  .home-invitation {
+    top: 44.2cqw;
+    font-size: 2.15cqw;
+  }
+  .home-current h2 {
+    font-size: 3cqw;
+  }
+  .home-current > p.small + p.small {
+    margin-top: 0.3cqw;
+    font-style: italic;
+  }
+  .home-current .previous-role > p:not(.print-label) {
+    font-size: 1.2cqw;
+  }
+  .home-folio {
+    display: grid;
+    grid-template-columns: 16% 1fr;
+    align-items: center;
+    gap: 2cqw;
+  }
+  .home-folio > span:first-child {
+    border-right: 1px solid;
+    padding-right: 2cqw;
+  }
+  .proof-links {
+    font-size: 1.6cqw;
+  }
+}
+@media (max-width: 60em) {
+  .home-bio .home-lede {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+  .home-bio p {
+    font-size: 17px;
+  }
+  .signature {
+    display: none;
+  }
+  .proof-links {
+    flex-direction: column;
+    font-size: 21px;
+    gap: 14px;
+  }
+}
+
+/* Desk and large-screen pass (2026-11-14): the paper sits on a lit desk and the
+   opening spread grows with the screen instead of stopping at 1600px. */
+@media (min-width: 60.0625em) {
+  :root {
+    background: #ece9e2
+      radial-gradient(ellipse 70% 60% at 50% 45%, #f3f1eb 0%, #ece9e2 60%, #e3dfd6 100%)
+      fixed;
+  }
+  .sheet > .paper {
+    filter: drop-shadow(0 1px 2px rgb(58 48 30 / 0.14))
+      drop-shadow(0 14px 28px rgb(58 48 30 / 0.12));
+  }
+  .route-home {
+    --home-width: min(100% - 32px, 2400px, calc((100svh - 32px) * 1.5));
+    width: var(--home-width);
+    max-width: none;
+    margin: max(16px, calc((100svh - var(--home-width) / 1.5) / 2)) auto;
+  }
+}
+/* Above 1600px the opening spread keeps scaling; lift the px caps that were
+   tuned for a 1600px sheet so type stays in proportion to the paper. */
+@media (min-width: 1633px) and (min-height: 1100px) {
+  .route-home .small,
+  .route-home .home-current > p.small,
+  .route-home .home-current .previous-role > p.small {
+    font-size: 1.05cqw;
+  }
+  .route-home .home-current .print-label,
+  .route-home .home-folio > span:first-child {
+    font-size: 1.2cqw;
+  }
+  .route-home .right-fold,
+  .route-home .home-current > p:not(.print-label):not(.small),
+  .route-home .home-current .previous-role > p:not(.previous-label):not(.small) {
+    font-size: 1.25cqw;
+  }
+  .route-home .home-current .previous-role .previous-label {
+    font-size: 1.3cqw;
+  }
+  .route-home .discipline,
+  .route-home .utilities {
+    font-size: 1.35cqw;
+  }
+  .route-home .folio {
+    font-size: 1.3cqw;
+  }
+}
