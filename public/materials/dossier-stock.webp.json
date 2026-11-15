@@ -1,0 +1,26 @@
+{
+  "kind": "approved comp clean-patch texture extraction",
+  "origin": "docs/reference/mobile-dossier.png",
+  "source_patch": "assets/plates/dossier-stock-source.png",
+  "source_patch_sha256": "dd0105c9f3b4a487dd541fbde4d69c01af5d5d41298c81890f04bbb4ec660fbb",
+  "source_patch_size": [
+    140,
+    42
+  ],
+  "approval": "Concept B Tabbed dossier; actual serve-question decision receipt recorded in approved comp sidecar",
+  "transformation": "Mechanical horizontal and vertical mirror tiling of the existing clean, no-ink paper patch. A 280x84 mirrored cell is repeated 3x10 to produce 840x840. No resampling, color correction, added grain, or generated detail.",
+  "generated_detail": false,
+  "output_size": [
+    840,
+    840
+  ],
+  "color_mode": "RGB",
+  "checks": {
+    "webp_pixel_identical_to_png": true,
+    "opposite_edges_pixel_identical": true
+  },
+  "portrait": "Existing real portrait was visually inspected against src/assets/profile.jpg; it was not edited.",
+  "output": "public/materials/dossier-stock.webp",
+  "format": "webp",
+  "lossless": true
+}

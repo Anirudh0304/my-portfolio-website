@@ -1,5 +1,39 @@
 # Session handoff — 2026-11-08
 
+## Completed B dossier — 2026-11-15 (current)
+
+The user explicitly said "complete it please" after the material checkpoint, then "push it". B tabbed dossier is IMPLEMENTED and final QA/review/documentation complete. Direct user instruction takes precedence over the skill's extra approval workflow; no additional approval requested. Formal CLI material receipt remains null and no automatic gate was forged or claimed passed. Earlier resume/draft entries below are historical, not current blockers.
+
+Actual source: Atlas.jsx + atlas.css + dossier.css. The mobile layout uses navy background, neutral stock, original portrait, generated decorative file-edge/clip, attached sticky44px About/Experience/Projects links, one primary experience action, a visible proof link and the continuous finished-project catalogue. Laptop retains folded composition with corrected small labels, date/footer clearance and labelled asides. Original photos/screenshots unchanged.
+
+Final verification:286 route×viewport samples,28 behavior/focus assertions,21 clean axe scans,12 real Chrome200%/400% zoom route samples. A native400% tab-label collision was fixed with126/158/144px minimums, flex-shrink0 and bounded rail scrolling. Visual review's sole P2 material occlusion fixed by100% body-width raster, top:-11.5cqw and live location z3;20 affected captures reviewed resolved. No open confirmed technical finding in tested scope. Physical iPhone/Android/Safari/Firefox and text-only zoom remain unverified. Lint/build pass; final release checks run again before commit.
+
+Final reports: docs/PRODUCT_QA_2026-11-15.md, MOBILE_DOSSIER_FINAL_QA_2026-11-15.md, MOBILE_DOSSIER_FINISH_REVIEW_2026-11-15.md. Earlier independent baselines retained separately. Actual preview4182. Final screenshot .impeccable/review/mobile-2026-11-15/mobile-home-final.png. Comp comparison70% is advisory evidence; it does not pass the formal comp gate and is not pixel-perfect certification. Native genuine portrait and readable functional sizing are intentional implementation differences.
+
+User-authorized documentation merge completed by fresh documenter: DESIGN.md, .impeccable/design.json, related PRODUCT mobile guidance. Tokens/sidecar schema/references validated; laptop rules preserved. New assets/provenance: public/materials/dossier-top.webp (1100×195,27,620bytes, nativealpha) and dossier-stock.webp (840×840,9,532bytes). Source PNGs/prompts retained under assets/plates. Unused standalone clip source removed from repository workspace; original generated output retained outside repository.
+
+Release target: origin/main, source branch atlas-journey. Remote fetched; origin/main and initial HEAD both93be7f5. User requested push; commit reviewed implementation/docs/materials/repro scripts without local build/approval scratch archives. No force push. Verify remote ref equals the new commit; don't claim Netlify deployment until separately verified.
+
+## Historical resume point before completion — 2026-11-15
+
+Connection checked after interruption: tools respond and local preview4182 returns HTTP200. User chose B tabbed-dossier via real decision receipt ef13de8f; approved sidecar recorded. User also explicitly chose to MERGE mobile rules into DESIGN.md while preserving laptop rules. No repeat direction/documentation-choice question needed.
+
+New mobile direction not assembled yet: Impeccable state is plates, spec closed with28 regions and9 measured text regions. Alan Sans750 ranked closest. Original old build state backed up under .impeccable/archive/build-before-mobile-2026-11-15/. Assets ready and numerically scored: assets/plates/dossier-top.png (generated native-alpha file top, mechanical margin trim, embedded prompt), dossier-stock.png (clean approved-comp patch mirrored per texture exception, no invented detail), existing genuine portrait.png. public/materials/dossier-stock.webp exists with provenance; dossier-top delivery conversion still needed after material review.
+
+REQUIRED NEXT: user material/plan review awaiting real receipt. Review URL http://127.0.0.1:51702/, session ae02007836726acbf21b68146076dfe0ec3342d9702891fd94525c408399f67d, revision04fb2e48fd7f1e631e40daeeb69aeabb715619c1f4d03054361f283c2942e161. Serve exec session30835, PID25928. Codex open returned queued, not verified visible. Receipt null at last check. Run component-review status/verify; do not submit review or forge receipt. After real acceptance, build-phase advance → hero/scaffold, assemble B for mobile using live HTML tabs and original assets, preserve laptop, then review/QA and merge docs. This checkpoint explicitly required by skill reference/component-review.md; not missing authorization for B.
+
+## Mobile redesign and strict QA — 2026-11-15
+
+User rejected the entire mobile appearance: flat texture does not read as folded paper. Initial compact-header/content-order adaptation is an unapproved draft and is insufficient. User selected both exploration and an independent mobile identity (answers1,3). Laptop's folded composition remains authority. No push/deploy.
+
+Independent Assessment A (/root/design_review) and B (/root/technical_qa) completed before synthesis. Reports docs/PRODUCT_QA_2026-11-15.md, MOBILE_LAPTOP_DESIGN_REVIEW_2026-11-15.md, MOBILE_LAPTOP_TECHNICAL_QA_2026-11-15.md. Baseline design22/32 mobile,25/32 laptop; technical14/20.242 route/viewport samples,66 axe scans,46 corrected-timing behavior checks. Original phone visual identity is the main P1. Shared small-laptop labels, footer/date overlap, aside names and React warning fixed locally and verified. Five laptop home sizes remain one viewport;30 focused axe scans clean. Physical device/native text zoom remain unverified; synthetic computed-font doubling is only stress evidence.
+
+Changed app files: src/atlas/Atlas.jsx, src/atlas/atlas.css, index.html. Mobile draft compacts native Explore into one header; current role/proof earlier; role picker/TOC before content; finished catalogue before studies; larger touch boxes; safe-area viewport/theme and conditional stock preloads. None of this is the approved new appearance. Desktop targeted fixes retained. Lint/build pass.
+
+Three decision comps generated using the built-in image tool, with exact prompt files/JSON sidecars and embedded provenance under .impeccable/mocks/decision/: mobile-folded-cover.png (A), mobile-tabbed-dossier.png (B), mobile-work-reel.png (C, factual QuantPEGY copy corrected). All approved:false. Existing sources/reference assets remain genuine; generated portrait/screenshot previews are only concept artifacts, never replacements for source imagery.
+
+Decision page http://127.0.0.1:54437/, key ef13de8f; mobile decision payload .impeccable/mobile-decision-2026-11-15.json; surface seed:774a6d9f1a483114. Codex open returned queued, not proof user viewed it. Scope/research docs/mobile-redesign-concepts-2026-11-15.md. Next action: collect user's choice (or explicit delegated choice), then new mobile implementation and final review. Do not rerun concept roll or ask for recorded facts. A visual concept choice is required by Impeccable visualize.md; no new mobile concept implemented yet.
+
 ## Current authority
 
 User approved all shown desktop/mobile compositions and V3 motion, then explicitly requested implementation and approved material continuation with “go ahead”. Do not ask for those approvals again. See docs/surface-brief.md and ../../PORTFOLIO_CONTEXT.md.

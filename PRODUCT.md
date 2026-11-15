@@ -45,7 +45,7 @@ Name: Konduri Anirudh. Voice: direct, thoughtful, concrete. The user rejected a 
 1. Show product reasoning with evidence when it exists.
 2. Keep current experience and independent work distinguishable.
 3. Let the visual identity create interest while navigation remains obvious.
-4. Preserve the reading and keyboard experience on small screens and with reduced motion.
+4. Preserve the reading and keyboard experience on small screens and with reduced motion. The approved mobile dossier keeps the current role immediate, three visible chapter links, early role/project-section navigation and native scrolling/zoom; desktop retains the folded spread.
 5. Keep future project updates confined to a documented content source.
 
 ## Open Decisions
@@ -57,3 +57,13 @@ Custom domain, eventual public hosting provider, completed project content, arti
 On 2026-11-08 the user supplied https://github.com/Anirudh0304/my-portfolio-website as the previous portfolio, currently hosted on Netlify, and the eventual push target after finalisation. Source at commit 901203ff2e03f66a26a7b95fde8990badc707968 uses React/Vite/Tailwind. Preserve that architecture during eventual integration unless a migration is explicitly agreed. The current folded-paper implementation is integrated into this React/Vite checkout; earlier standalone static and motion studies are reference artifacts. No push or deployment is authorised before the design is finalised. Netlify settings are not yet verified.
 
 Read docs/content-inventory.md before using historical material. Newer resume wins over stale dates and figures; GroGoliath's role type remains unconfirmed. The implemented entry is About (home), leading toward Experience, Projects and Writing. The current approved surface contract is docs/surface-brief.md. Work remains local for review; no push or deployment has been made as part of this implementation. Final release still requires finalisation, and the formal CLI plates gate remains open because its tool-specific receipt is null despite explicit chat approval.
+
+## Mobile experience — implemented 2026-11-15
+
+The user selected B, Tabbed dossier, through the real decision page and explicitly chose to merge its mobile rules while preserving laptop rules. The mobile/tablet scope uses the font-relative (max-width: 60em) query, equal to 960px at default browser text. The former flat full-bleed blue sheet and Explore-only disclosure are superseded. The direction contract is docs/mobile-surface-brief.md; DESIGN.md and .impeccable/design.json record the extracted implementation.
+
+The mobile shell places KA, résumé and contact above a neutral reading dossier on navy ground, with pale-blue layered backs, a decorative raster top/clip and attached About, Experience and Projects links. Text and controls are live HTML. The original portrait is unchanged. A separately bounded sticky chapter rail scrolls at enlarged browser text without shrinking away a link; main-page scrolling and browser zoom remain native.
+
+Reading order: identity and portrait, immediate Revspot APM role/specialty, short positioning, See experience and résumé, then featured work and further chapter links. Experience offers Product/Internship/Marketing selection before role details. Finished project detail offers The idea/The build/The interface links before the screenshot and long copy. Projects presents featured finished work and all five further catalogue entries before Coming next studies, then the onward contact action. The current three-chapter mobile journey omits Writing until a real published piece exists; Contact and résumé remain utilities.
+
+Implementation is local at http://127.0.0.1:4182/. The direction and merge choices are user decisions; manual finish review and technical evidence are recorded separately. The formal CLI material-review receipt remains null. This document does not assert that the formal gate passed or that the mobile change was pushed or deployed.

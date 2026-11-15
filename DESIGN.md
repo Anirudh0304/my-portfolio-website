@@ -7,6 +7,11 @@ colors:
   orange-hover: "#802405"
   desktop-surround: "#ece9e2"
   mobile-paper-fallback: "#d2e8f5"
+  dossier-desk: "#081644"
+  dossier-stock: "#e8e8e9"
+  dossier-back: "#b3cfe6"
+  dossier-masthead: "#f1f2f5"
+  action-on-orange: "#fff"
   dialog-paper: "#d8e9f3"
   dialog-backdrop: "#08183ac9"
   screenshot-ground: "#10111a"
@@ -39,10 +44,38 @@ typography:
     fontWeight: 750
     lineHeight: 1.3
     letterSpacing: "0.12em"
+  mobile-display:
+    fontFamily: "Alan, Inter, sans-serif"
+    fontSize: "clamp(32px, calc((100cqw - 40px) * 0.141), 62px)"
+    fontWeight: 750
+    lineHeight: 0.99
+    letterSpacing: "-0.035em"
+  mobile-home-lede:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "16px"
+    fontWeight: 450
+    lineHeight: 1.45
+    letterSpacing: "-0.015em"
+  mobile-body:
+    fontFamily: "Inter, sans-serif"
+    fontSize: "17px"
+    fontWeight: 450
+    lineHeight: 1.45
+  mobile-tab:
+    fontFamily: "Alan, Inter, sans-serif"
+    fontSize: "24px"
+    fontWeight: 750
+    lineHeight: 1
+rounded:
+  mobile-action: "6px"
+  dossier-front: "18px 18px 22px 2px"
+  dossier-tab: "0 22px 22px 0"
 spacing:
   chapter-desktop: "4.2cqw 2.2cqw 0"
-  chapter-mobile: "34px 22px 30px"
-  mobile-gutter: "22px"
+  chapter-mobile: "20px 20px 26px"
+  dossier-gutter: "20px"
+  dossier-primary-action: "11px 12px"
+  mobile-gutter: "clamp(20px, 5.6vw, 32px)"
   copy-button: "2px 0"
 components:
   action:
@@ -55,6 +88,31 @@ components:
     padding: "{spacing.copy-button}"
   chapter-current:
     textColor: "{colors.orange}"
+  dossier-primary-action:
+    backgroundColor: "{colors.orange}"
+    textColor: "{colors.action-on-orange}"
+    rounded: "{rounded.mobile-action}"
+    padding: "{spacing.dossier-primary-action}"
+  dossier-primary-action-active:
+    backgroundColor: "{colors.orange-hover}"
+    textColor: "{colors.action-on-orange}"
+  dossier-front:
+    backgroundColor: "{colors.dossier-stock}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.dossier-front}"
+  dossier-tab:
+    backgroundColor: "{colors.dossier-back}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.dossier-tab}"
+    width: "44px"
+    padding: "16px 7px"
+  dossier-tab-current:
+    backgroundColor: "{colors.dossier-stock}"
+    textColor: "{colors.orange}"
+  mobile-image-dialog:
+    backgroundColor: "{colors.dossier-stock}"
+    textColor: "{colors.ink}"
+    padding: "12px"
   image-dialog:
     backgroundColor: "{colors.dialog-paper}"
     textColor: "{colors.ink}"
@@ -67,131 +125,140 @@ components:
 
 **Creative North Star: "A journey held in one folded sheet"**
 
-A personal journey held in one physically folded sheet. The original folded-paper reference establishes the physical silhouette, unequal folds and expressive navy print; the approved replacement world uses a warm-grey desktop surround. The paper is a material object with readable semantic content, rather than a screenshot of an interface.
+A personal journey held in physical paper. The original folded-paper reference establishes the desktop silhouette, unequal folds and expressive navy print on a warm-grey desk. On mobile, the user-selected tabbed dossier carries the same editorial identity through light neutral reading stock, pale-blue file backs, an actual raster clip and attached chapter tabs.
 
-Heavy Alan Sans lettering, Inter supporting copy, fine printed rules and occasional offwhite torn inserts make the system tactile and editorial. Chapter compositions adapt to their content while keeping the same sheet. The rejected conventional sidebar redesign is not a visual reference.
+Heavy Alan Sans lettering, Inter supporting copy, fine printed rules and occasional offwhite torn inserts make the system tactile and editorial. Chapter compositions adapt to their content. The genuine portrait and original project evidence remain unchanged. The rejected conventional sidebar redesign and full-bleed blue mobile article are not visual references.
 
 **Key Characteristics:**
 
-- Pale-blue fibrous stock and unequal folds
-- Navy print with orange underlined actions
+- Pale-blue fibrous stock and unequal folds on laptop
+- Neutral reading stock, pale-blue file backs and attached tabs on mobile
+- Navy print with sparse burnt-orange actions
 - Genuine portrait and original project evidence
-- Full-bleed continuous paper on mobile
+- Semantic text and ordinary scrolling above decorative raster material
 
-This is a scan of the built system in `src/atlas/Atlas.jsx` and `atlas.css`, refreshed on 2026-11-08 after the user-approved replacement design. Page strategy and the six-block direction contract remain in `docs/surface-brief.md`. This document records implementation, not a visual-review pass or release approval. The formal CLI plates gate remains OPEN: explicit chat approval exists, but its tool-specific web receipt is null. Do not invent a receipt or a passed gate.
+This scan merges the implemented mobile system into the preserved laptop world following the user's explicit merge choice on 2026-11-15. Source: `src/atlas/Atlas.jsx`, `atlas.css` and the later-cascading `dossier.css`. Surface direction lives in `docs/surface-brief.md` and `docs/mobile-surface-brief.md`. This document records implementation, not release approval. Manual visual/technical review is separate from the formal CLI material checkpoint, whose tool-specific receipt remains null; do not claim that checkpoint passed.
 
 ## Colors
 
-Deep navy print sits on pale-blue raster stock, with warm-grey air around the desktop object and sparse burnt-orange actions. Frontmatter values are normative; paper and insert grain retain their image colour variation rather than becoming flat fills.
+Deep navy print, sparse burnt-orange actions and real paper colour variation connect both compositions. Frontmatter values are normative; raster grain retains its variation.
 
 ### Primary
 
-- **Navy ink:** headings, body copy, fine rules, connectors and printed index.
+- **Navy ink:** headings, body copy, rules, connectors, desktop index and mobile tabs.
+- **Dossier navy ground:** mobile surrounding surface; this is the approved mobile-specific world, not a return to the old desktop cobalt surround.
 
 ### Secondary
 
-- **Burnt orange:** journey actions, active chapter and development status; the deeper hover shade applies to fine-pointer action links and copy controls.
+- **Burnt orange:** journey links, current chapter and development status. The mobile homepage primary action uses it as a filled background with white text; the deeper shade serves active/hover states.
 
 ### Neutral
 
-- **Warm-grey surround:** desktop root background; supersedes the older cobalt approval.
-- **Pale-blue fallback:** mobile sheet behind its continuous texture.
-- **Dialog paper:** screenshot viewer surface.
+- **Warm-grey surround:** laptop desk; its subtle radial light and paper shadow remain intact.
+- **Dossier stock:** light neutral mobile reading sheet and selected tab, with fine raster grain.
+- **Dossier backs:** pale-blue layered file backs and unselected tabs, textured with multiply blending.
+- **Dossier masthead:** light utility text over the mobile navy ground.
+- **Pale-blue fallback:** retained legacy stock/failure colour and mobile tab pressed state; it no longer defines the mobile page surface.
+- **Dialog paper:** laptop screenshot viewer. Mobile uses dossier stock instead.
 - **Screenshot ground:** dark containment around original screenshots.
-- **Warm selection:** selected text with navy foreground.
+- **Warm selection:** selected text with navy foreground; also the mobile masthead active/current utility colour.
 
 ## Typography
 
 **Display Font:** self-hosted Alan Sans, registered as `Alan`, with Inter and sans-serif fallbacks.
-**Body Font:** self-hosted Inter with sans-serif fallback. Sources are `public/fonts/AlanSans.woff2` for display, `public/fonts/Inter.woff2` for upright supporting copy and `public/fonts/InterItalic.woff2` for genuine italic supporting copy. All three variable faces declare weights (100–900) and `font-display: swap`; the italic file is registered within the same Inter family with `font-style: italic`. `font-synthesis: none` remains enabled: Previously, annotations and other italic supporting text use the real italic face. This adds a face, not a third font family; the Inter license is retained.
+**Body Font:** self-hosted Inter with sans-serif fallback. Sources are `public/fonts/AlanSans.woff2`, `Inter.woff2` and `InterItalic.woff2`. Alan declares weights (100–900); the delivered upright and genuine italic Inter faces declare weights (400–800), share one family and use `font-display: swap`. Keep `font-synthesis: none` and the retained licenses.
 
-Display lettering is heavy and compact; supporting copy remains conversational and legible. The frontmatter display role is the personal-name treatment; headline and title describe base chapter rules, with deliberate chapter overrides.
+Display lettering is heavy and compact; supporting copy is conversational and readable. Unprefixed frontmatter roles retain the laptop/base rules; mobile roles supplement them at the font-relative readable breakpoint. Chapter-specific overrides remain intentional.
 
 ### Hierarchy
 
-- **Display:** homepage name; desktop container-relative scale, mobile (clamp(43px, 11.3vw, 72px)) with line height (1.02).
-- **Headline:** chapter heading; mobile base and Projects (57px), project detail (44px). Desktop Experience and Projects are (5.2cqw), detail (4.6cqw).
-- **Title:** chapter subheadings; mobile base (29px), tertiary headings (23px). Role and manuscript titles retain their own measured display scale.
-- **Body:** base chapter paragraph; mobile (17px). Lead copy uses (1.65cqw / 1.4), mobile (20px), with a maximum width (46ch). Homepage bio is larger (1.98cqw / 1.5), mobile (19px / 1.5).
-- **Label:** uppercase printed markers; mobile (13px) with tracking (0.1em). Annotations are italic, with mobile size (14px).
+- **Display:** stacked homepage name. Laptop retains its container-relative scale. Mobile uses the `mobile-display` role, measured against the reading sheet, with a fixed (62px) tablet override from (42em).
+- **Headline:** laptop base chapter heading with Experience/Projects overrides (5.2cqw) and detail override (4.6cqw). Mobile chapters use `clamp(34px, calc((100cqw - 40px) * 0.155), 62px)`; project detail uses `clamp(32px, 10.5cqw, 50px)`.
+- **Title:** mobile company heading (34px), role heading (22px), section headings (23px), featured work (29px) and catalogue titles (24px). Laptop keeps its measured chapter scale.
+- **Body:** mobile long copy uses the `mobile-body` role; leads are (18px / 1.5). Homepage positioning uses the smaller `mobile-home-lede` role and becomes (21px) from (42em); role/specialty text is (15px / 1.35), then (18px) on tablet. Catalogue summaries remain (16px / 1.5).
+- **Label:** laptop printed uppercase markers retain their base role. Mobile markers are (13px); the current-chapter label is (12px), uppercase, tracked (0.12em), and sits in a (44px) link. Attached tabs use the `mobile-tab` role with vertical writing.
+
+Laptop supporting copy retains readable floors: body/case-study text (14px), dates/annotations (12px), screenshot affordance (13px). Homepage lede and approach keep the 2026-11-14 measured laptop composition and large-screen scaling.
 
 **The Two Families Rule.** Use Alan Sans for display and Inter for supporting text; introduce no third family.
 
 ## Layout
 
-The desktop sheet is centred, full available width up to (1600px), with a landscape reference footprint (3:2). Its composition is (20/58/22): printed index on the left, content in the central fold, supporting context on the right. The centre starts at (20cqw) and spans (58cqw). The right text area starts at (79.5cqw) and spans (17.2cqw). These inset reading areas sit within the physical folds; they are not equal cards. A masthead and folio span the object. Fine rules and the slight angled masthead stroke belong to the print grammar. On desktop the brand rotates (3deg) around its left edge and the utility group (−4deg) around its right edge. The homepage’s secondary Previously label is italic and separated from the current role by a real printed rule.
+The laptop composition remains an unequal (20/58/22) folded spread: left printed index, central content, right context. Centre begins at (20cqw) and spans (58cqw); right text begins at (79.5cqw) and spans (17.2cqw). The home object retains a landscape (3:2) footprint and fits the viewport height: `min(100% - 32px, 2400px, calc((100svh - 32px) * 1.5))`, with at least (16px) surrounding space and vertical centring. Other spreads retain their base (1600px) cap. The continuous straight masthead rule, aligned bio/action edges, right Now/Before context and bottom proof links remain the laptop composition. The 2026-11-14 straight masthead supersedes the older rotated/broken header rules.
 
-Use container-width units on desktop. Chapter padding and mobile gutters are captured in frontmatter; spacing is measured to each composition rather than a fabricated universal scale. The homepage pairs stacked name and genuine framed portrait, bio below, current role at right and workbench strip below. Previous projects extend into a substantial second spread, with two featured screenshots followed by five ruled entries; each of seven projects has a detail route.
+The readable layout begins at (60em) and below; laptop-specific rules begin at (60.0625em). These equal (960/961px) at default browser text size and permit enlarged text to select reflow. Mobile is a separate paper-object composition. Its navy surround remains visible, while the reading dossier is centred at a maximum (650px). A grid reserves an outer (44px) tab column beside a `minmax(0, 1fr)` reading sheet. Tabs never overlay body copy. The masthead is outside the object, with KA, résumé and contact. It has (20px) side clearance and a maximum width (610px). Safe-area insets remain part of the sheet and sticky rail.
 
-At (960px) and below, use a full-bleed continuous paper texture with no surrounding cobalt or grey side rails. The desktop index disappears; native `details`/`summary` Explore opens stacked navigation in document flow. Main content, context and folio stack naturally. Do not shrink the desktop canvas into the phone. The homepage keeps a compact name/portrait pairing before the stacked bio. The dedicated sharp full-bleed mobile stock tiles vertically at its natural aspect ratio (`background-size: 100% auto; background-repeat: repeat-y`), preserving fine grain and horizontal crease relief without stretching it to the full document height. This replaces the abandoned continuation crop.
+The dossier begins (44px) below the masthead. Its reading sheet is a width container, with internal content using the dossier gutter token. The decorative top/clip raster is (100%) of the sheet width, positioned at (−11.5cqw) relative to that container; its clearance scales with the same sheet as the header, so it stays above readable text. Two pale-blue backs extend beyond the reading sheet to reveal separate layers. The front has a minimum height of `calc(100svh - 146px)` and grows with content. No document-height raster stretching or page-level scroll lock is used.
+
+The homepage reads as identity/name plus genuine portrait → current APM role and specialty → short positioning → primary experience action and résumé → featured work link → further experience/projects links. The full desktop Now/Before panel and proof-link folio are hidden here because their mobile counterparts carry that information in the reading order. Experience places its role picker before the selected role. Finished project details place a section contents row before the screenshot and long copy; supporting technology/source material follows the article. Projects shows the two featured finished builds, then the remaining five catalogue rows, then the clearly marked Coming next studies, and finally the onward contact action. A catalogue-continuation link points to more projects rather than ending the journey early. On (42–60em), featured projects may use two columns; catalogue rows remain readable stacks.
+
+The three-tab rail is sticky at `max(22px, env(safe-area-inset-top, 0px))`, bounded by `calc(100svh - 44px)` with native vertical scrolling and contained overscroll. Tab minimum heights are (126px), (158px), (144px), and all use `flex-shrink: 0`; enlarged browser text can scroll the bounded rail without compressing or losing a chapter. Main-page scrolling remains native.
 
 ## Elevation & Depth
 
-Depth comes from raster fibres, fold lighting, deckled insert edges and the original portrait frame. Loose notes, the proposed outline and correspondence use distinct offwhite insert material, semantic text above it, and no synthetic card borders or shadows. The manuscript itself is unboxed. Fine navy rules divide printed sections.
+Laptop depth comes from raster fibres, fold lighting, deckled inserts and the genuine portrait frame, with the retained soft paper-to-desk shadow. Loose notes and correspondence use distinct offwhite insert material with semantic text above it and no synthetic card border or shadow. The mobile dossier adds structural separation between its neutral front, pale-blue backs and attached tabs; its shadows express physical layers rather than generic cards.
 
 ### Shadow Vocabulary
 
-- **Portrait lift:** `filter: drop-shadow(2px 5px 5px #142e5125)` adds restrained physical separation to the genuine photo.
-- **Material depth:** the paper and insert image files contain their own lighting. Earlier CSS slip/manuscript shadows are superseded by later `box-shadow: none` rules and are not active tokens.
+- **Portrait lift:** `filter: drop-shadow(2px 5px 5px #142e5125)` separates the genuine photo.
+- **Laptop paper lift:** `filter: drop-shadow(0 1px 2px rgb(58 48 30 / 0.14)) drop-shadow(0 14px 28px rgb(58 48 30 / 0.12))` sits over the softly lit warm desk.
+- **Dossier front:** `box-shadow: 2px 5px 9px rgb(0 0 0 / 0.2)`.
+- **Dossier backs:** `box-shadow: 1px 4px 7px rgb(0 0 0 / 0.2)`; the rear sheet skews (−1deg).
+- **Attached tabs:** `box-shadow: 2px 4px 6px rgb(0 0 0 / 0.16)`.
 
-**The Material Rule.** Raster stock supplies fibres, creases and torn edges; semantic HTML supplies every readable word and control.
+**The Material Rule.** Raster stock supplies fibres, creases, torn edges and the mobile clip; semantic HTML supplies every readable word and control.
 
 ## Shapes
 
-Paper silhouettes and torn edges are raster material geometry. Printed sections use straight rules; controls have no pill or rounded-card language. There is no reusable radius scale in the current stylesheet. Slight slip rotations (−1deg / 1deg) and correspondence rotation (−1deg) describe loose physical paper. SVG connectors remain real geometry. Preserve the portrait frame and the original face; never generate or retouch a replacement person.
+Laptop paper silhouettes and torn edges remain raster geometry with straight printed rules, not rounded application cards. Slight loose-slip rotations (−1deg / 1deg) and correspondence rotation (−1deg) retain the physical paper grammar. Mobile has its own limited radius vocabulary: the neutral front rounds its upper corners and lower outer corner, while tabs round only their exposed right edge. The filled mobile primary action has a small radius; no pill language is introduced. These mobile tokens do not change the laptop shape rules.
+
+The original portrait frame and face remain untouched; never generate or retouch a replacement person. Arrows are authored SVG geometry, not substituted Unicode control glyphs.
 
 ## Components
 
 ### Actions and copy control
 
-Actions are burnt-orange underlined text with an inline SVG arrow, weight (700), rather than filled buttons. Underlines use thickness (1.5px) and offset (0.2em). Fine-pointer hover deepens orange. Copy address is a transparent text button with a bottom rule and weight (600); its status is announced in `role="status"`. Disabled buttons use opacity (0.6). Links, buttons and summary share an orange focus outline (3px) with offset (5px).
+Laptop and secondary journey actions remain burnt-orange underlined text with an inline SVG arrow, weight (700), underline thickness (1.5px) and offset (0.2em). Fine-pointer hover deepens orange. Mobile home promotes “See experience” to the filled primary action variant, white text, Alan weight (750), size (18px), minimum height (44px); its padding/radius come from frontmatter. It wraps to full width at (21em) and below. Résumé remains a quieter underlined action.
+
+Copy address is a transparent text button with a bottom rule and weight (600); its status is announced in `role="status"`. Disabled controls use opacity (0.6). Links/buttons retain an orange focus outline (3px) with offset (5px). Attached tabs draw that focus outline inward (−5px) so the bounded rail does not clip it. Mobile/coarse-pointer actions, back links, utilities and image close controls retain minimum (44px) touch height.
 
 ### Navigation and folio
 
-Printed chapter order is About (home) → Experience → Projects → Writing. Active chapter uses orange and `aria-current="page"`. Contact and résumé are utilities, not numbered chapters. Desktop numbered entries use Alan at weight (750); mobile entries are (25px) with stacked ruled rows. Explore closes on route change; Escape closes it and returns focus to summary. The folio links backward and forward through the journey. `/about` and `/start` redirect to home. HashRouter preserves direct chapter links; the address contains the hash route.
+The current journey is About → Experience → Projects. Writing is hidden until a real published piece exists; `/writing` redirects to Projects. Contact and résumé remain utilities. Laptop uses its printed numbered index. Mobile uses exactly three attached chapter links, labelled About, Experience and Projects, plus the current-chapter location label inside the sheet. These are ordinary route links, not an ARIA tab widget. Active chapter uses orange and `aria-current="page"`; active tab stock matches the neutral front and its vertical text is underlined. Pointer hover changes ink to orange; pressed tabs use the retained pale-blue fallback.
 
-### Paper, inserts and image evidence
+The former Explore-only mobile disclosure is retired from the rendered shell; unused legacy CSS does not define the current contract. `/about` and `/start` redirect home. BrowserRouter supplies ordinary direct routes; legacy `#/…` links are rewritten. Folios link backward and forward, and project detail keeps a clear All projects route.
 
-Projects retains a clear Projects heading and the introduction “Independent studies in product thinking.” Its featured study is explicitly in development. The evidence sequence uses a five-track horizontal grid on desktop. At541–960px, a bounded pair of feedback slips merges downward into a centred problem and next test. At540px and below, the feedback slips stack too. Notes size to content, SVG connectors remain visible, and the disclaimer and44px project action occupy separate rows. Navigation and diagram arrows are authored SVG geometry; the arrow in the semantic project name Feedback → Decision remains text. The contact address includes a deliberate word-break opportunity immediately before @, retaining the complete address and normal wrapping elsewhere.
+### Role picker and project contents
 
-The main sheet uses `public/materials/paper.webp`; mobile uses `mobile-paper.webp`; notes and correspondence use `insert.webp`; the genuine framed image is `portrait.webp`. Decorative stock has empty alt text and is hidden from assistive technology. Original project screenshots remain meaningful images with descriptive alt text. Screenshot enlargement is a native dialog, with a labelled close button, pale-blue surface, dark translucent backdrop and viewport-bounded image.
+Mobile role selection appears before role details, with ordinary links for Product, Internship and Marketing, minimum height (46px), Inter (14px / 650), and fine rules above/below. The selected role is orange with an explicit current state; visually hidden text supplies the company/title. Finished project detail has an early contents row linking The idea, The build and The interface to real anchors. These links wrap within the reading sheet rather than becoming a horizontal carousel. Section anchors retain scroll clearance and focus targets.
 
-Provenance: delivery material and six project WebPs have adjacent `.json` records. Generated original paper, native paper and insert sources remain in `assets/plates/`, with prompt text; the portrait derives mechanically from retained `src/assets/profile.jpg`, not an AI face. Project originals remain in `src/assets/work_logo/`. `paper-back.webp` supplies reverse stock in the opening flaps and carries an adjacent provenance JSON; its original PNG is retained in assets/plates/paper-back-native.png with embedded provenance. Source plates also carry embedded PNG provenance; WebP delivery uses adjacent JSON fallback. The final material/project/plate provenance scan covers 16 rasters with zero missing records; it is a separate asset check, not a formal gate receipt.
+### Dossier, inserts and image evidence
+
+The laptop sheet remains `public/materials/paper.webp`, reverse flaps use `paper-back.webp`, notes/correspondence use `insert.webp`, and the unchanged genuine framed portrait is `portrait.webp`. Mobile front/backs/tabs use `dossier-stock.webp`, tiled at (420px × 420px); `dossier-top.webp` is the transparent decorative top/clip. The old `mobile-paper.webp` is retained as an earlier source asset but no longer paints the rendered mobile sheet because the later dossier stylesheet clears that background.
+
+Mobile dossier materials ship with adjacent provenance: top/clip (1100 × 195px, 27,620 bytes, alpha) and stock (840 × 840px, 9,532 bytes). Generated material sources and their records remain retained; the portrait still derives mechanically from `src/assets/profile.jpg`. Project originals remain in `src/assets/work_logo/`, delivery WebPs in `public/screenshots/`. Decorative material has empty alt text and is hidden from assistive technology. Project screenshots retain meaningful descriptive alt text. The top/clip has no pointer interaction.
+
+Screenshot enlargement uses a native labelled dialog, viewport-bounded original image, labelled close button, document scroll lock and internal scrolling. Close restores focus explicitly to its trigger. Its laptop surface remains pale-blue dialog paper; mobile adopts textured dossier stock. Failed screenshots show a bounded unavailable state with enlargement disabled. Failed portrait preserves its aspect ratio; failed material retains a readable fallback. Loose insert bleed remains bounded to (8px) in the readable layout.
 
 ### Motion and reading
 
-First desktop opening uses connected double-sided flaps from (±175deg), each (740ms), with a (60ms) right offset, once per session. Centre print resolves (380ms) after (170ms). Chapter pointer travel turns bounded outgoing panels (280ms) over the already-present destination. Project-image pointer navigation carries the original screenshot to detail over (280ms). Motion easing and breakpoint extensions are in the sidecar.
-
-Keyboard activation and reduced motion skip travel; any key interrupts the first opening. Mobile skips the flap opening and chapter turns. The Explore pointer disclosure animates (200ms); keyboard and reduced motion remove it. Session storage resumes the last route without replaying intro; scrolling is native and browser Back restores stored positions. No fake progress or minimum loading wait exists in this implementation.
+Preserve the laptop first-opening motion: connected double-sided flaps from (±175deg), each (740ms), with a (60ms) right offset, once per session. Centre print resolves (380ms) after (170ms). Pointer chapter travel turns bounded outgoing panels (280ms); pointer project navigation can carry the original screenshot to detail over (280ms). Keyboard activation and reduced motion skip travel; any key interrupts the opening. Mobile skips flap opening and chapter turns, retains ordinary scrolling and browser zoom, and adds no fake pull gesture or mandatory swipe. There is no rendered Explore disclosure to animate. Session storage resumes the last route without replaying intro; browser Back restores stored positions. No fake progress or minimum loading wait exists.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** preserve the physical sheet, visible folds and chapter-specific composition.
-- **Do** keep semantic text above decorative raster materials.
-- **Do** use the genuine portrait and retain original image sources and provenance.
-- **Do** preserve keyboard focus, normal scrolling, direct links and reduced-motion access.
+- **Do** preserve the laptop physical sheet, visible folds and chapter-specific composition.
+- **Do** preserve the approved mobile dossier layers, genuine portrait and attached three-chapter navigation.
+- **Do** keep semantic text above decorative raster materials and the clip clear of reading content.
+- **Do** retain original image sources and provenance.
+- **Do** preserve keyboard focus, native scrolling, browser zoom, direct links and reduced-motion access.
 
 ### Don't:
 
-- **Don’t** restore cobalt surroundings, Archivo Black or the superseded 18/62/20 composition.
-- **Don’t** turn the printed chapter index into a conventional application sidebar.
-- **Don’t** bake navigation or readable copy into screenshots.
-- **Don’t** present developing studies or proposed writing as completed evidence.
-
-
-## QA refinement — 2026-11-08
-
-Supporting desktop copy now has readable floors: body and case-study text14px, dates/annotations12px, screenshot affordance13px. These clamp container-relative scaling near the961px desktop breakpoint without replacing the three-fold composition. The accent remains in the same burnt-orange family, deepened from #b7350b to #9a2d09 for small-text contrast over textured blue stock; navy/stock/hover colour remain unchanged.
-
-At mobile widths, project-detail context uses normal top:auto flow, keeping its final paragraph clear of the folio. Action, copy, previous/back, contents and utility controls have44px minimum touch height. The native screenshot dialog locks document scrolling while retaining internal scrolling; stable scrollbar space avoids a desktop opening jump. Directional links use a small explicit icon/text gap.
-
-Projects’ first paper height follows its measured first folio, so content cannot spill onto the grey surround. A final Writing folio also follows the Previous projects catalogue, preserving the onward journey at the real page end.
-
-Failed screenshot requests show a bounded readable unavailable state with enlargement disabled. Failed portrait keeps the original aspect ratio and a quiet message; failed paper retains a pale-blue reading surface, including after route changes. Healthy images/materials remain the genuine sources. Whole-face WOFF2 delivery and reverse-stock WebP preserve glyphs/pixels while reducing first-entry asset transfer; source TTF/PNG files remain retained.
-
-
-## Cross-engine and browser-text refinement
-
-Responsive breakpoints are font-relative:60em for the readable/mobile layout,60.0625em for desktop-specific rules, and33.75em for stacked feedback slips. At the default16px browser text these remain960/961/540px. Native Firefox text enlargement can now select readable reflow without changing the CSS viewport. JSX motion guards use the matching font-relative query. Loose-stock bleed in this layout is bounded to8px, avoiding decorative overflow at a wide viewport with enlarged text. Native screenshot close explicitly returns focus to the image trigger across Chromium, Firefox and the tested WebKit engine. Cross-engine evidence and remaining hardware limits are recorded in docs/CROSS_BROWSER_REPORT.md.
+- **Don't** restore the rejected full-bleed blue mobile article or Explore-only mobile navigation.
+- **Don't** replace the warm-grey laptop desk with the mobile navy ground.
+- **Don't** turn the printed laptop chapter index into a conventional application sidebar.
+- **Don't** bake navigation or readable copy into screenshots, or use generated portrait pixels.
+- **Don't** present developing studies or proposed writing as completed evidence.
+- **Don't** restore Archivo Black or the superseded (18/62/20) folded composition.

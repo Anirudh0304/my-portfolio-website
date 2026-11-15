@@ -1,0 +1,14 @@
+{
+  "prompt": "Use case: ui-mockup. Design a finished mobile portfolio webpage for Konduri Anirudh, at 390×844 portrait proportions. Render the actual screen edge-to-edge with readable UI, no phone mockup, no browser, desk or exterior scene. Concept B: Tabbed dossier. A personal product portfolio becomes one open, tactile file with attached large section tabs: About, Experience, Projects. This is a new phone-native composition, not the desktop folded spread compressed or a blue textured scrolling article. The file's tab system is the dominant interaction, showing where the visitor is and where to go next; layered file edges communicate a real navigable structure, with calm reading surfaces. Reference 1 supplies the established deep navy, pale blue, orange action and distinctive heavy sans lettering only. Keep that family resemblance while creating an independent mobile identity. Reference 2 supplies Anirudh's genuine portrait, preserving his actual face. Visitors should immediately find 'Konduri Anirudh', 'Associate Product Manager at Revspot.ai', 'AI workflows, evaluation & analytics', and a clearly clickable 'See experience'. Include a compact real work section 'Making launches correct' with a short readable description about reliable AI advertising launches. KA identity, Résumé and Contact stay accessible. Show enough next content to prove this is a working portfolio, not a cover illustration. Use an ink-navy base, pale-blue and light neutral file surfaces, orange functional emphasis. No generic dashboard grid, fake metrics, fictional career outcomes, or decorative folders disconnected from the navigation.",
+  "generator": "image_gen built-in",
+  "approved": true,
+  "kind": "decision comp",
+  "date": "2026-11-15",
+  "approval": {
+    "source": "actual serve-question user submission",
+    "key": "ef13de8f",
+    "optionId": "tabbed-dossier",
+    "buildPath": "comp",
+    "buildPathFlipped": false
+  }
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-08T16:28:55.895984+00:00",
-  "title": "Design System: Konduri Anirudh \u2014 Folded Portfolio",
+  "generatedAt": "2026-11-15T18:01:17.067572+00:00",
+  "title": "Design System: Konduri Anirudh — Folded Portfolio",
   "extensions": {
     "colorMeta": {
       "ink": {
@@ -62,7 +62,7 @@
       },
       "mobile-paper-fallback": {
         "role": "neutral",
-        "displayName": "Mobile Paper Fallback",
+        "displayName": "Retained pale-blue fallback and pressed tab",
         "tonalRamp": [
           "oklch(15% 0.0135 235)",
           "oklch(26% 0.0194 235)",
@@ -115,6 +115,90 @@
           "oklch(82% 0.0409 60)",
           "oklch(95% 0.0269 60)"
         ]
+      },
+      "dossier-desk": {
+        "role": "primary",
+        "displayName": "Dossier navy ground",
+        "tonalRamp": [
+          "oklch(15% 0.0200 269)",
+          "oklch(26% 0.0500 269)",
+          "oklch(37% 0.0800 269)",
+          "oklch(48% 0.1000 269)",
+          "oklch(59% 0.1000 269)",
+          "oklch(70% 0.0800 269)",
+          "oklch(82% 0.0500 269)",
+          "oklch(95% 0.0150 269)"
+        ]
+      },
+      "dossier-stock": {
+        "role": "neutral",
+        "displayName": "Dossier stock",
+        "tonalRamp": [
+          "oklch(15% 0.0006 285)",
+          "oklch(26% 0.0015 285)",
+          "oklch(37% 0.0024 285)",
+          "oklch(48% 0.0030 285)",
+          "oklch(59% 0.0030 285)",
+          "oklch(70% 0.0024 285)",
+          "oklch(82% 0.0015 285)",
+          "oklch(95% 0.0004 285)"
+        ]
+      },
+      "dossier-back": {
+        "role": "neutral",
+        "displayName": "Dossier backs",
+        "tonalRamp": [
+          "oklch(15% 0.0100 241)",
+          "oklch(26% 0.0250 241)",
+          "oklch(37% 0.0400 241)",
+          "oklch(48% 0.0500 241)",
+          "oklch(59% 0.0500 241)",
+          "oklch(70% 0.0400 241)",
+          "oklch(82% 0.0250 241)",
+          "oklch(95% 0.0075 241)"
+        ]
+      },
+      "dossier-masthead": {
+        "role": "neutral",
+        "displayName": "Dossier masthead",
+        "tonalRamp": [
+          "oklch(15% 0.0012 270)",
+          "oklch(26% 0.0030 270)",
+          "oklch(37% 0.0048 270)",
+          "oklch(48% 0.0060 270)",
+          "oklch(59% 0.0060 270)",
+          "oklch(70% 0.0048 270)",
+          "oklch(82% 0.0030 270)",
+          "oklch(95% 0.0009 270)"
+        ]
+      },
+      "action-on-orange": {
+        "role": "neutral",
+        "displayName": "White action ink",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0)",
+          "oklch(26% 0.0000 0)",
+          "oklch(37% 0.0000 0)",
+          "oklch(48% 0.0000 0)",
+          "oklch(59% 0.0000 0)",
+          "oklch(70% 0.0000 0)",
+          "oklch(82% 0.0000 0)",
+          "oklch(95% 0.0000 0)"
+        ]
+      },
+      "dialog-backdrop": {
+        "role": "neutral",
+        "displayName": "Dialog backdrop",
+        "tonalRamp": [
+          "oklch(15% 0.0080 260)",
+          "oklch(26% 0.0200 260)",
+          "oklch(37% 0.0320 260)",
+          "oklch(48% 0.0400 260)",
+          "oklch(59% 0.0400 260)",
+          "oklch(70% 0.0320 260)",
+          "oklch(82% 0.0200 260)",
+          "oklch(95% 0.0060 260)"
+        ]
       }
     },
     "typographyMeta": {
@@ -128,7 +212,23 @@
       },
       "body": {
         "displayName": "Supporting copy",
-        "purpose": "Inter paragraphs and readable details; self-hosted Inter.woff2 and genuine InterItalic.woff2 share the Inter family, weights 100\u2013900, with font synthesis disabled."
+        "purpose": "Inter paragraphs and readable details; self-hosted upright and genuine italic faces share Inter, weights 400–800, with font synthesis disabled."
+      },
+      "mobile-display": {
+        "displayName": "Mobile personal name",
+        "purpose": "Container-width name fitted to the dossier reading sheet; tablet override stays at 62px."
+      },
+      "mobile-home-lede": {
+        "displayName": "Mobile home positioning",
+        "purpose": "Short readable positioning on phones, with 21px override from 42em."
+      },
+      "mobile-body": {
+        "displayName": "Mobile long copy",
+        "purpose": "17px Inter paragraphs on the mobile dossier."
+      },
+      "mobile-tab": {
+        "displayName": "Attached chapter label",
+        "purpose": "24px Alan with vertical-rl writing on the attached chapter links."
       }
     },
     "shadows": [
@@ -136,13 +236,33 @@
         "name": "portrait-lift",
         "value": "drop-shadow(2px 5px 5px #142e5125)",
         "purpose": "CSS filter on genuine framed portrait; other stock depth is raster."
+      },
+      {
+        "name": "laptop-paper-lift",
+        "value": "drop-shadow(0 1px 2px rgb(58 48 30 / 0.14)) drop-shadow(0 14px 28px rgb(58 48 30 / 0.12))",
+        "purpose": "Retained physical sheet separation from the warm laptop desk."
+      },
+      {
+        "name": "dossier-front",
+        "value": "2px 5px 9px rgb(0 0 0 / 0.2)",
+        "purpose": "Neutral mobile reading sheet."
+      },
+      {
+        "name": "dossier-backs",
+        "value": "1px 4px 7px rgb(0 0 0 / 0.2)",
+        "purpose": "Pale-blue file backs."
+      },
+      {
+        "name": "dossier-tab",
+        "value": "2px 4px 6px rgb(0 0 0 / 0.16)",
+        "purpose": "Attached mobile chapter tabs."
       }
     ],
     "motion": [
       {
         "name": "ease-out",
         "value": "cubic-bezier(0.23, 1, 0.32, 1)",
-        "purpose": "Centre print and menu resolve."
+        "purpose": "Centre print resolve during desktop opening."
       },
       {
         "name": "ease-in-out",
@@ -151,7 +271,7 @@
       },
       {
         "name": "first-opening",
-        "value": "740ms; second flap delay 60ms; initial rotations \u00b1175deg",
+        "value": "740ms; second flap delay 60ms; initial rotations ±175deg",
         "purpose": "Once per session on desktop; skip for reduced motion, interrupt on keyboard."
       },
       {
@@ -168,25 +288,28 @@
         "name": "project-image",
         "value": "280ms",
         "purpose": "Pointer shared screenshot carry into project detail."
-      },
-      {
-        "name": "mobile-menu",
-        "value": "200ms",
-        "purpose": "Pointer disclosure resolve; keyboard and reduced motion disable animation."
       }
     ],
     "breakpoints": [
       {
         "name": "mobile-max",
-        "value": "960px"
+        "value": "60em"
       },
       {
         "name": "desktop-min",
-        "value": "961px"
+        "value": "60.0625em"
       },
       {
-        "name": "sheet-cap",
-        "value": "1601px"
+        "name": "mobile-tablet-min",
+        "value": "42em"
+      },
+      {
+        "name": "mobile-narrow-max",
+        "value": "21em"
+      },
+      {
+        "name": "feedback-stack-max",
+        "value": "33.75em"
       }
     ],
     "auditRefinements": {
@@ -194,7 +317,6 @@
       "bodyMinimum": "14px desktop",
       "metadataMinimum": "12px desktop",
       "touchTargetMinimum": "44px mobile/coarse pointer",
-      "accent": "#9a2d09",
       "modalScrollLock": true,
       "mobileDetailTop": "auto",
       "projectsPaperHeight": "--opening-height",
@@ -211,6 +333,57 @@
       },
       "mobileInsertBleed": "8px",
       "dialogCloseFocus": "explicit native onClose trigger restoration"
+    },
+    "mobileDossier": {
+      "recordedAt": "2026-11-15",
+      "scope": "Merged mobile/tablet composition; laptop folded rules preserved.",
+      "source": [
+        "src/atlas/Atlas.jsx",
+        "src/atlas/atlas.css",
+        "src/atlas/dossier.css"
+      ],
+      "layout": {
+        "maxWidth": "650px",
+        "tabColumn": "44px",
+        "contentGutter": "20px",
+        "bodyWidth": "100% of its grid column",
+        "bodyContainer": "inline-size",
+        "clipTop": "-11.5cqw",
+        "clipWidth": "100%",
+        "tabStickyTop": "max(22px, env(safe-area-inset-top, 0px))",
+        "tabRailMaxHeight": "calc(100svh - 44px)",
+        "tabRailOverflow": "auto",
+        "tabMinHeights": [
+          "126px",
+          "158px",
+          "144px"
+        ],
+        "tabFlexShrink": 0,
+        "textureTile": "420px 420px"
+      },
+      "materials": [
+        {
+          "path": "public/materials/dossier-top.webp",
+          "dimensions": [
+            1100,
+            195
+          ],
+          "bytes": 27620,
+          "alpha": true,
+          "provenance": "adjacent .webp.json"
+        },
+        {
+          "path": "public/materials/dossier-stock.webp",
+          "dimensions": [
+            840,
+            840
+          ],
+          "bytes": 9532,
+          "provenance": "adjacent .webp.json"
+        }
+      ],
+      "retiredRenderedDirection": "Full-bleed blue stock with Explore-only mobile disclosure.",
+      "receiptStatus": "Formal CLI material-review receipt remains null; manual review is separate."
     }
   },
   "components": [
@@ -219,8 +392,8 @@
       "kind": "button",
       "refersTo": "action",
       "description": "Underlined orange route action with inline directional arrow.",
-      "html": "<a class=\"ds-action\" href=\"#/experience\">Follow my journey <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M3 12h18m-8-8 8 8-8 8\"/></svg></a>",
-      "css": ".ds-action{font-family:Inter,sans-serif;color:var(--ink,#07174f);color:var(--orange,#9a2d09);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.2em;display:inline-block}.ds-action svg{width:.8em;height:.8em;fill:none;stroke:currentColor;stroke-width:2.2;margin-left:.12em}.ds-action:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;}@media(hover:hover) and (pointer:fine){.ds-action:hover{color:#802405}}"
+      "html": "<a class=\"ds-action\" href=\"/experience\">See how I work <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M3 12h18m-8-8 8 8-8 8\"/></svg></a>",
+      "css": ".ds-action{font-family:Inter,sans-serif;color:var(--ink,#07174f);color:var(--orange,#9a2d09);font-weight:700;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.2em;display:inline-block}.ds-action svg{width:.8em;height:.8em;fill:none;stroke:currentColor;stroke-width:2.2;margin-left:.12em}.ds-action:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;}@media(hover:hover) and (pointer:fine){.ds-action:hover{color:#802405}} .ds-action:active{color:var(--orange,#9a2d09)}"
     },
     {
       "name": "Copy address control",
@@ -228,46 +401,71 @@
       "refersTo": "copy-button",
       "description": "Transparent native text button with a printed bottom rule. Clipboard behavior belongs to React, not this visual sample.",
       "html": "<button class=\"ds-copy\" type=\"button\">Copy address</button>",
-      "css": ".ds-copy{font-family:Inter,sans-serif;color:var(--ink,#07174f);background:transparent;border:0;border-bottom:1px solid currentColor;padding:2px 0;font-weight:600;cursor:pointer}.ds-copy:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;}.ds-copy:disabled{opacity:.6;cursor:default}@media(hover:hover) and (pointer:fine){.ds-copy:hover{color:#802405}}"
+      "css": ".ds-copy{font-family:Inter,sans-serif;color:var(--ink,#07174f);background:transparent;border:0;border-bottom:1px solid currentColor;padding:2px 0;font-weight:600;cursor:pointer}.ds-copy:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;}.ds-copy:disabled{opacity:.6;cursor:default}@media(hover:hover) and (pointer:fine){.ds-copy:hover{color:#802405}} .ds-copy:active{color:var(--orange,#9a2d09)}"
     },
     {
       "name": "Printed chapter index",
       "kind": "nav",
       "refersTo": "chapter-current",
       "description": "Unequal-fold desktop index with numbered chapters and current-page ink.",
-      "html": "<nav class=\"ds-index\" aria-label=\"Chapters\"><a href=\"#/\" aria-current=\"page\"><span>01</span><strong>About</strong></a><a href=\"#/experience\"><span>02</span><strong>Experience</strong></a><a href=\"#/projects\"><span>03</span><strong>Projects</strong></a><a href=\"#/writing\"><span>04</span><strong>Writing</strong></a></nav>",
-      "css": ".ds-index{font-family:Inter,sans-serif;color:var(--ink,#07174f);width:200px}.ds-index a{display:flex;flex-direction:column;gap:4px;font-family:Alan,Inter,sans-serif;font-size:29px;font-weight:750;padding:13px 0 15px;line-height:1.04;text-decoration:none;color:var(--ink,#07174f)}.ds-index a>span{font-size:23px}.ds-index strong{font-weight:inherit;width:fit-content;border-bottom:1px solid;padding-bottom:4px}.ds-index a[aria-current=\"page\"]{color:var(--orange,#9a2d09)}.ds-index a:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;}"
-    },
-    {
-      "name": "Mobile Explore disclosure",
-      "kind": "nav",
-      "description": "Native details expands stacked chapter links in document flow.",
-      "html": "<details class=\"ds-explore\"><summary>Explore</summary><nav aria-label=\"Chapters\"><a href=\"#/\" aria-current=\"page\">01 About</a><a href=\"#/experience\">02 Experience</a><a href=\"#/projects\">03 Projects</a><a href=\"#/writing\">04 Writing</a></nav></details>",
-      "css": ".ds-explore{font-family:Inter,sans-serif;color:var(--ink,#07174f);max-width:360px;border-bottom:1px solid}.ds-explore summary{padding:17px 0;font-size:16px;font-weight:700;cursor:pointer}.ds-explore a{display:block;padding:15px 0;border-top:1px solid #07174f55;font-family:Alan,Inter,sans-serif;font-size:25px;font-weight:750;text-decoration:none;color:var(--ink,#07174f)}.ds-explore a[aria-current=\"page\"]{color:var(--orange,#9a2d09)}.ds-explore a:focus-visible,.ds-explore summary:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;}"
+      "html": "<nav class=\"ds-index\" aria-label=\"Chapters\"><a href=\"/\" aria-current=\"page\"><span>01</span><strong>About</strong></a><a href=\"/experience\"><span>02</span><strong>Experience</strong></a><a href=\"/projects\"><span>03</span><strong>Projects</strong></a></nav>",
+      "css": ".ds-index{font-family:Inter,sans-serif;color:var(--ink,#07174f);width:200px}.ds-index a{display:flex;flex-direction:column;gap:4px;font-family:Alan,Inter,sans-serif;font-size:29px;font-weight:750;padding:13px 0 15px;line-height:1.04;text-decoration:none;color:var(--ink,#07174f)}.ds-index a>span{font-size:23px}.ds-index strong{font-weight:inherit;width:fit-content;border-bottom:1px solid;padding-bottom:4px}.ds-index a[aria-current=\"page\"]{color:var(--orange,#9a2d09)}.ds-index a:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px;} .ds-index a:hover,.ds-index a:active{color:var(--orange,#9a2d09)}"
     },
     {
       "name": "Torn evidence insert",
       "kind": "custom",
       "description": "Distinct offwhite raster stock behind semantic example copy; no CSS card shadow or border.",
-      "html": "<blockquote class=\"ds-insert\">\u201cSetup takes too long.\u201d</blockquote>",
+      "html": "<blockquote class=\"ds-insert\">“Setup takes too long.”</blockquote>",
       "css": ".ds-insert{font-family:Inter,sans-serif;color:var(--ink,#07174f);position:relative;isolation:isolate;margin:12px;padding:24px;font-weight:650;font-style:italic;font-size:20px;transform:rotate(-1deg);border:0;box-shadow:none}.ds-insert:before{content:\"\";position:absolute;inset:-3%;z-index:-1;background:url(\"/materials/insert.webp\") center/100% 100% no-repeat;pointer-events:none}"
     },
     {
-      "name": "Mobile paper stock",
-      "kind": "custom",
-      "description": "Dedicated sharp full-bleed stock tiles vertically at natural aspect ratio with horizontal crease relief. Decorative raster sits behind semantic content.",
-      "html": "<section class=\"ds-mobile-paper\"><h2>Projects</h2><p>Independent studies in product thinking.</p></section>",
-      "css": ".ds-mobile-paper{background:#d2e8f5 url(\"/materials/mobile-paper.webp\") center top/100% auto repeat-y;color:var(--ink,#07174f);font-family:Inter,sans-serif;max-width:390px;min-height:400px;padding:34px 22px 30px}.ds-mobile-paper h2{font-family:Alan,Inter,sans-serif;font-size:57px;font-weight:800;line-height:1.02;letter-spacing:-.035em;margin:0 0 18px}.ds-mobile-paper p{font-size:20px;line-height:1.45;margin:0}"
+      "name": "Mobile primary experience action",
+      "kind": "button",
+      "refersTo": "dossier-primary-action",
+      "description": "Filled homepage route action inside the mobile dossier.",
+      "html": "<a class=\"ds-dossier-action\" href=\"/experience\">See experience <svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M3 12h18m-8-8 8 8-8 8\"/></svg></a>",
+      "css": ".ds-dossier-action{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:11px 12px;border-radius:6px;background:var(--orange,#9a2d09);color:#fff;font:750 18px Alan,Inter,sans-serif;text-decoration:none}.ds-dossier-action svg{width:.8em;height:.8em;fill:none;stroke:currentColor;stroke-width:2.2}.ds-dossier-action:hover,.ds-dossier-action:active{background:#802405}.ds-dossier-action:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px}"
+    },
+    {
+      "name": "Attached mobile chapter rail",
+      "kind": "nav",
+      "refersTo": "dossier-tab",
+      "description": "Three ordinary chapter links, with a bounded scroll rail at enlarged browser text. In-page rail is sticky.",
+      "html": "<nav class=\"ds-dossier-tabs\" aria-label=\"Mobile chapters\"><a href=\"/\" aria-current=\"page\"><span>About</span></a><a href=\"/experience\"><span>Experience</span></a><a href=\"/projects\"><span>Projects</span></a></nav>",
+      "css": ".ds-dossier-tabs{display:flex;flex-direction:column;width:44px;max-height:calc(100svh - 44px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}.ds-dossier-tabs a{flex-shrink:0;display:flex;justify-content:center;align-items:center;width:44px;min-height:126px;padding:16px 7px;background:var(--dossier-back,#b3cfe6) url(\"/materials/dossier-stock.webp\") 0 0/420px 420px;background-blend-mode:multiply;border-radius:0 22px 22px 0;color:var(--ink,#07174f);font:750 24px/1 Alan,Inter,sans-serif;text-decoration:none;box-shadow:2px 4px 6px rgb(0 0 0/.16);touch-action:manipulation}.ds-dossier-tabs a:nth-child(2){min-height:158px}.ds-dossier-tabs a:nth-child(3){min-height:144px}.ds-dossier-tabs span{writing-mode:vertical-rl}.ds-dossier-tabs a[aria-current]{color:var(--orange,#9a2d09);background-color:var(--dossier-stock,#e8e8e9);background-blend-mode:normal}.ds-dossier-tabs a[aria-current] span{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.24em}.ds-dossier-tabs a:hover{color:var(--orange,#9a2d09)}.ds-dossier-tabs a:active{background-color:#d2e8f5}.ds-dossier-tabs a:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:-5px}"
+    },
+    {
+      "name": "Mobile dossier reading stock",
+      "kind": "card",
+      "refersTo": "dossier-front",
+      "description": "Neutral textured front with two pale-blue backs. The full-page top/clip is a separate decorative raster.",
+      "html": "<section class=\"ds-dossier-stock\"><h2>Experience</h2><p>Product work, evaluation and analytics.</p></section>",
+      "css": ".ds-dossier-stock{position:relative;isolation:isolate;margin:25px 18px;padding:26px 20px;max-width:340px;min-height:220px;background:var(--dossier-stock,#e8e8e9) url(\"/materials/dossier-stock.webp\") 0 0/420px 420px;color:var(--ink,#07174f);font-family:Inter,sans-serif;border-radius:18px 18px 22px 2px;box-shadow:2px 5px 9px rgb(0 0 0/.2)}.ds-dossier-stock:before,.ds-dossier-stock:after{content:\"\";position:absolute;inset:-10px 8px -9px;background:var(--dossier-back,#b3cfe6) url(\"/materials/dossier-stock.webp\") 0 0/420px 420px;background-blend-mode:multiply;border-radius:18px 18px 22px 8px;box-shadow:1px 4px 7px rgb(0 0 0/.2);z-index:-1}.ds-dossier-stock:after{inset:-17px 15px -15px;transform:skewY(-1deg);z-index:-2}.ds-dossier-stock h2{font:800 34px/1.04 Alan,Inter,sans-serif;margin:0 0 24px}.ds-dossier-stock p{font-size:17px;line-height:1.45;margin:0}"
+    },
+    {
+      "name": "Mobile role picker",
+      "kind": "nav",
+      "description": "Early role selection with wrapped, ruled native links.",
+      "html": "<nav class=\"ds-role-picker\" aria-label=\"Choose experience\"><a href=\"/experience?role=apm\" aria-current=\"true\">Product</a><a href=\"/experience?role=intern\">Internship</a><a href=\"/experience?role=gro\">Marketing</a></nav>",
+      "css": ".ds-role-picker{display:flex;flex-wrap:wrap;gap:4px 15px;border-block:1px solid #07174f55;color:var(--ink,#07174f);font-family:Inter,sans-serif}.ds-role-picker a{display:inline-flex;align-items:center;min-height:46px;font-size:14px;font-weight:650;color:inherit;text-underline-offset:.2em}.ds-role-picker a[aria-current],.ds-role-picker a:hover,.ds-role-picker a:active{color:var(--orange,#9a2d09)}.ds-role-picker a[aria-current]{text-decoration-thickness:2px}.ds-role-picker a:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px}"
+    },
+    {
+      "name": "Mobile project contents",
+      "kind": "nav",
+      "description": "Early links to real detail-page anchors before long copy.",
+      "html": "<nav class=\"ds-project-contents\" aria-label=\"Jump to project section\"><a href=\"/projects/trendsage-lite#project-idea\">The idea</a><a href=\"/projects/trendsage-lite#project-build\">The build</a><a href=\"/projects/trendsage-lite#project-interface\">The interface</a></nav>",
+      "css": ".ds-project-contents{display:flex;flex-wrap:wrap;gap:4px 15px;border-block:1px solid #07174f55;color:var(--ink,#07174f);font-family:Inter,sans-serif}.ds-project-contents a{display:inline-flex;align-items:center;min-height:46px;font-size:14px;font-weight:650;color:inherit;text-underline-offset:.2em}.ds-project-contents a:hover,.ds-project-contents a:active{color:var(--orange,#9a2d09)}.ds-project-contents a:focus-visible{outline:3px solid var(--orange,#9a2d09);outline-offset:5px}"
     }
   ],
   "narrative": {
     "northStar": "A journey held in one folded sheet",
-    "overview": "A personal journey held in one physically folded sheet. The original folded-paper reference establishes the physical silhouette, unequal folds and expressive navy print; the approved replacement world uses a warm-grey desktop surround. The paper is a material object with readable semantic content, rather than a screenshot of an interface.\n\nHeavy Alan Sans lettering, Inter supporting copy, fine printed rules and occasional offwhite torn inserts make the system tactile and editorial. Chapter compositions adapt to their content while keeping the same sheet. The rejected conventional sidebar redesign is not a visual reference.",
+    "overview": "A personal journey held in physical paper. The original folded-paper reference establishes the desktop silhouette, unequal folds and expressive navy print on a warm-grey desk. On mobile, the user-selected tabbed dossier carries the same editorial identity through light neutral reading stock, pale-blue file backs, an actual raster clip and attached chapter tabs.\n\nHeavy Alan Sans lettering, Inter supporting copy, fine printed rules and occasional offwhite torn inserts make the system tactile and editorial. Chapter compositions adapt to their content. The genuine portrait and original project evidence remain unchanged. The rejected conventional sidebar redesign and full-bleed blue mobile article are not visual references.",
     "keyCharacteristics": [
-      "Pale-blue fibrous stock and unequal folds",
-      "Navy print with orange underlined actions",
+      "Pale-blue fibrous stock and unequal folds on laptop",
+      "Neutral reading stock, pale-blue file backs and attached tabs on mobile",
+      "Navy print with sparse burnt-orange actions",
       "Genuine portrait and original project evidence",
-      "Full-bleed continuous paper on mobile"
+      "Semantic text and ordinary scrolling above decorative raster material"
     ],
     "rules": [
       {
@@ -277,21 +475,24 @@
       },
       {
         "name": "The Material Rule",
-        "body": "Raster stock supplies fibres, creases and torn edges; semantic HTML supplies every readable word and control.",
+        "body": "Raster stock supplies fibres, creases, torn edges and the mobile clip; semantic HTML supplies every readable word and control.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do preserve the physical sheet, visible folds and chapter-specific composition.",
-      "Do keep semantic text above decorative raster materials.",
-      "Do use the genuine portrait and retain original image sources and provenance.",
-      "Do preserve keyboard focus, normal scrolling, direct links and reduced-motion access."
+      "Do preserve the laptop physical sheet, visible folds and chapter-specific composition.",
+      "Do preserve the approved mobile dossier layers, genuine portrait and attached three-chapter navigation.",
+      "Do keep semantic text above decorative raster materials and the clip clear of reading content.",
+      "Do retain original image sources and provenance.",
+      "Do preserve keyboard focus, native scrolling, browser zoom, direct links and reduced-motion access."
     ],
     "donts": [
-      "Don\u2019t restore cobalt surroundings, Archivo Black or the superseded 18/62/20 composition.",
-      "Don\u2019t turn the printed chapter index into a conventional application sidebar.",
-      "Don\u2019t bake navigation or readable copy into screenshots.",
-      "Don\u2019t present developing studies or proposed writing as completed evidence."
+      "Don't restore the rejected full-bleed blue mobile article or Explore-only mobile navigation.",
+      "Don't replace the warm-grey laptop desk with the mobile navy ground.",
+      "Don't turn the printed laptop chapter index into a conventional application sidebar.",
+      "Don't bake navigation or readable copy into screenshots, or use generated portrait pixels.",
+      "Don't present developing studies or proposed writing as completed evidence.",
+      "Don't restore Archivo Black or the superseded (18/62/20) folded composition."
     ]
   }
 }

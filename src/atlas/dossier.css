@@ -1,0 +1,490 @@
+/* Mobile's approved dossier is a separate composition. Desktop wrappers have
+   no layout boxes, so the existing folded spread keeps its measured geometry. */
+.dossier-layout,
+.dossier-body,
+.home-identity {
+  display: contents;
+}
+.dossier-tabs,
+.dossier-location,
+.dossier-edge,
+.dossier-feature,
+.dossier-next,
+.dossier-specialty,
+.mobile-brand,
+.mobile-action-label {
+  display: none;
+}
+
+@media (max-width: 60em) {
+  :root {
+    --dossier-desk: #081644;
+    --dossier-stock: #e8e8e9;
+    --dossier-back: #b3cfe6;
+    --dossier-tab-width: 44px;
+    --dossier-gutter: 20px;
+    background: var(--dossier-desk);
+    scrollbar-color: #b3cfe6 var(--dossier-desk);
+  }
+  .sheet {
+    overflow: visible;
+    background: transparent;
+    padding-bottom: max(28px, env(safe-area-inset-bottom, 0px));
+  }
+  .site-header {
+    width: calc(100% - 40px);
+    max-width: 610px;
+    color: #f1f2f5;
+    border-color: #b3cfe6;
+  }
+  .masthead {
+    min-height: 76px;
+    padding: 16px 0;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .masthead .brand {
+    font-size: 29px;
+    letter-spacing: -0.02em;
+    min-width: 44px;
+  }
+  .desktop-brand,
+  .route-home .mobile-specialty {
+    display: none;
+  }
+  .mobile-brand {
+    display: inline;
+  }
+  .masthead .utilities {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    font-size: 15px;
+  }
+  .utilities a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 44px;
+  }
+  .utilities a[aria-current],
+  .utilities a:active,
+  .brand:active {
+    color: #f2b689;
+  }
+  .dossier-layout {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--dossier-tab-width);
+    align-items: start;
+    width: 100%;
+    max-width: 650px;
+    margin: 44px auto 16px;
+  }
+  .dossier-layout::before,
+  .dossier-layout::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    bottom: -9px;
+    left: 8px;
+    right: 34px;
+    border-radius: 18px 18px 22px 8px;
+    background: var(--dossier-back) url("/materials/dossier-stock.webp") 0 0 / 420px 420px;
+    background-blend-mode: multiply;
+    box-shadow: 1px 4px 7px rgb(0 0 0 / 0.2);
+    z-index: -1;
+  }
+  .dossier-layout::after {
+    top: -17px;
+    left: 15px;
+    right: 42px;
+    bottom: -15px;
+    transform: skewY(-1deg);
+    z-index: -2;
+  }
+  .dossier-body {
+    position: relative;
+    container-type: inline-size;
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    min-height: calc(100svh - 146px);
+    padding-bottom: 16px;
+    background: var(--dossier-stock) url("/materials/dossier-stock.webp") 0 0 / 420px 420px;
+    border-radius: 18px 18px 22px 2px;
+    box-shadow: 2px 5px 9px rgb(0 0 0 / 0.2);
+    z-index: 1;
+  }
+  .dossier-edge {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -11.5cqw;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .dossier-tabs {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: max(22px, env(safe-area-inset-top, 0px));
+    margin-top: 33px;
+    grid-column: 2;
+    grid-row: 1;
+    width: 44px;
+    max-height: calc(100svh - 44px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    z-index: 2;
+  }
+  .dossier-tabs a {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    min-height: 126px;
+    padding: 16px 7px;
+    background: var(--dossier-back) url("/materials/dossier-stock.webp") 0 0 / 420px 420px;
+    background-blend-mode: multiply;
+    border-radius: 0 22px 22px 0;
+    font-family: Alan, Inter, sans-serif;
+    font-size: 24px;
+    font-weight: 750;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: 2px 4px 6px rgb(0 0 0 / 0.16);
+    touch-action: manipulation;
+  }
+  .dossier-tabs a:nth-child(2) {
+    min-height: 158px;
+  }
+  .dossier-tabs a:nth-child(3) {
+    min-height: 144px;
+  }
+  .dossier-tabs span {
+    writing-mode: vertical-rl;
+  }
+  .dossier-tabs a[aria-current] {
+    color: var(--orange);
+    background-color: var(--dossier-stock);
+    background-blend-mode: normal;
+  }
+  .dossier-tabs a[aria-current] span {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.24em;
+  }
+  .dossier-tabs a:focus-visible {
+    outline-offset: -5px;
+  }
+  .dossier-tabs a:active {
+    background-color: #d2e8f5;
+  }
+  .dossier-location {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 10px var(--dossier-gutter) 0;
+  }
+  .dossier-location a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 12px;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+  }
+  .dossier-location > span {
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+  }
+  .home-centre {
+    display: grid;
+    grid-template-columns: minmax(0, 56fr) minmax(0, 41fr);
+    gap: 0 3%;
+    max-width: none;
+    margin: 12px 0 0;
+    padding: 0 var(--dossier-gutter);
+  }
+  .home-identity {
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+  .home-centre h1 {
+    font-size: clamp(32px, calc((100cqw - 40px) * 0.141), 62px);
+    line-height: 0.99;
+    letter-spacing: -0.035em;
+  }
+  .home-centre .portrait {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    margin-top: -7px;
+    width: 100%;
+  }
+  .mobile-intro-role {
+    display: block;
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 450;
+    line-height: 1.35;
+  }
+  .dossier-specialty {
+    display: block;
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+  .home-bio {
+    margin-top: 18px;
+  }
+  .home-bio .home-lede {
+    font-size: 16px;
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+  }
+  .home-bio > p + p {
+    display: none;
+  }
+  .home-invitation {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 28px;
+  }
+  .home-invitation > .action {
+    padding: 11px 12px;
+    min-height: 44px;
+    gap: 6px;
+    color: #fff;
+    background: var(--orange);
+    border-radius: 6px;
+    font-family: Alan, Inter, sans-serif;
+    font-size: 18px;
+    font-weight: 750;
+    text-decoration: none;
+  }
+  .home-invitation > .action:active {
+    background: #802405;
+  }
+  .desktop-action-label {
+    display: none;
+  }
+  .mobile-action-label {
+    display: inline;
+  }
+  .home-invitation .secondary-action {
+    font-size: 13px;
+    gap: 3px;
+  }
+  .home-folio,
+  .home-current {
+    display: none;
+  }
+  .dossier-feature,
+  .dossier-next {
+    display: block;
+    margin: 0 var(--dossier-gutter);
+    border-top: 1px solid;
+  }
+  .dossier-feature > a {
+    position: relative;
+    display: block;
+    padding: 27px 0 28px;
+    text-decoration: none;
+  }
+  .dossier-feature h2 {
+    padding-right: 6px;
+    font-size: clamp(23px, 7.5cqw, 34px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .dossier-feature p {
+    margin-top: 12px;
+    padding-right: 26px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .dossier-feature .arrow {
+    position: absolute;
+    right: 0;
+    bottom: 39px;
+    color: var(--orange);
+    width: 19px;
+    height: 19px;
+  }
+  .dossier-next {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    padding: 20px 0 12px;
+  }
+  .dossier-next a {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    min-height: 44px;
+    font-family: Alan, Inter, sans-serif;
+    font-size: 21px;
+    font-weight: 750;
+  }
+  .chapter {
+    max-width: none;
+    padding: 20px var(--dossier-gutter) 26px;
+  }
+  .chapter h1,
+  .projects-chapter h1 {
+    font-size: clamp(34px, calc((100cqw - 40px) * 0.155), 62px);
+    overflow-wrap: anywhere;
+    line-height: 1.04;
+    margin-bottom: 24px;
+  }
+  .project-detail h1 {
+    font-size: clamp(32px, 10.5cqw, 50px);
+  }
+  .role-heading h2 {
+    font-size: 34px;
+  }
+  .role-heading h3 {
+    font-size: 22px;
+  }
+  .chapter .lead,
+  .projects-intro {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .chapter h3,
+  .themes h3 {
+    font-size: 23px;
+    line-height: 1.15;
+  }
+  .themes section {
+    gap: 10px;
+  }
+  .theme-number {
+    display: none;
+  }
+  .themes section + section {
+    padding-top: 24px;
+    border-top: 1px solid #07174f55;
+  }
+  .right-fold,
+  .folio {
+    width: auto;
+    max-width: none;
+    margin-inline: var(--dossier-gutter);
+  }
+  .selected-work h2 {
+    font-size: 29px;
+    line-height: 1.1;
+  }
+  .previous-spread {
+    background: transparent;
+  }
+  .previous-inner {
+    max-width: none;
+    padding: 24px var(--dossier-gutter);
+  }
+  .previous-heading h2 {
+    font-size: 32px;
+  }
+  .project-register h3 {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+  .project-register .project-summary {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .folio.catalogue-continuation {
+    padding-bottom: 12px;
+  }
+  .mobile-role-picker,
+  .mobile-project-contents {
+    gap: 4px 15px;
+  }
+  .correspondence {
+    margin-top: 28px;
+    padding: 24px 10px;
+  }
+  .email-address {
+    font-size: clamp(18px, 6.1cqw, 28px);
+    overflow-wrap: anywhere;
+  }
+  .email-actions {
+    gap: 8px 20px;
+  }
+  .contact-links > a {
+    font-size: 23px;
+  }
+  .folio {
+    font-size: 14px;
+    gap: 12px;
+    padding: 22px 0 24px;
+  }
+  .folio > .action {
+    font-size: 20px;
+  }
+  .image-dialog {
+    background-color: var(--dossier-stock);
+    background-image: url("/materials/dossier-stock.webp");
+  }
+}
+
+@media (max-width: 21em) {
+  .home-invitation > .action {
+    justify-content: center;
+    width: 100%;
+  }
+  .dossier-next a {
+    font-size: 19px;
+  }
+  .masthead .utilities {
+    gap: 15px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 42em) and (max-width: 60em) {
+  .home-centre {
+    padding-inline: 30px;
+  }
+  .home-centre h1 {
+    font-size: 62px;
+  }
+  .mobile-intro-role,
+  .dossier-specialty {
+    font-size: 18px;
+  }
+  .home-bio .home-lede {
+    font-size: 21px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dossier-feature > a:hover h2,
+  .dossier-next a:hover {
+    color: var(--orange);
+  }
+  .dossier-tabs a:hover {
+    color: var(--orange);
+  }
+}

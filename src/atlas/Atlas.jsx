@@ -28,6 +28,7 @@ const uber = "/screenshots/uber.webp";
 const hr = "/screenshots/hr.webp";
 const task = "/screenshots/task.webp";
 import "./atlas.css";
+import "./dossier.css";
 const email = "kondurianirudh0304@gmail.com";
 const siteOrigin = "https://kondurianirudh.netlify.app";
 /* Writing stays hidden until one real, published piece exists. Set to true
@@ -140,7 +141,6 @@ function Material() {
       src="/materials/paper.webp"
       alt=""
       aria-hidden="true"
-      fetchPriority="high"
     />
   );
 }
@@ -166,66 +166,60 @@ function Navigation({ mobile = false }) {
   );
 }
 function Header() {
-  const menu = useRef(null);
   const location = useLocation();
-  useEffect(() => {
-    if (menu.current) menu.current.open = false;
-  }, [location]);
   return (
-    <>
+    <div className="site-header">
       <header className="masthead">
         {location.pathname === "/" ? (
           <Go className="brand brand-mark" to="/" aria-label="Konduri Anirudh, home">
             KA
           </Go>
         ) : (
-          <Go className="brand" to="/">
-            Konduri Anirudh
+          <Go className="brand" to="/" aria-label="Konduri Anirudh, home">
+            <span className="desktop-brand">Konduri Anirudh</span>
+            <span className="mobile-brand">KA</span>
           </Go>
         )}
+        <span className="mobile-specialty">Product management</span>
         <span className="discipline">Product · AI workflows · Analytics</span>
         <div className="utilities">
           <a href="/resume.pdf" target="_blank" rel="noreferrer">
             Résumé <Arrow />
           </a>
-          <Go to="/contact">
+          <Go to="/contact" aria-current={location.pathname === "/contact" ? "page" : undefined}>
             Contact <Arrow />
           </Go>
         </div>
       </header>
-      <details
-        className="mobile-explore"
-        ref={menu}
-        onKeyDown={(e) => {
-          if (e.key === "Escape") {
-            menu.current.open = false;
-            menu.current.querySelector("summary").focus();
-          }
-        }}
-      >
-        <summary
-          onClick={(event) => {
-            menu.current.dataset.keyboard = String(event.detail === 0);
-          }}
-        >
-          Explore <span className="menu-mark" aria-hidden="true" />
-        </summary>
-        <Navigation mobile />
-        <div className="mobile-utilities">
-          <a href="/resume.pdf" target="_blank" rel="noreferrer">
-            Résumé <Arrow />
-          </a>
-          <Go to="/contact">
-            Contact <Arrow />
-          </Go>
-        </div>
-      </details>
-    </>
+    </div>
+  );
+}
+function DossierTabs() {
+  const { pathname } = useLocation();
+  return (
+    <nav className="dossier-tabs" aria-label="Mobile chapters">
+      {chapters.map(([url, title]) => (
+        <Go key={url} to={url} aria-current={(url === "/" ? pathname === "/" : pathname.startsWith(url)) ? "page" : undefined}>
+          <span>{title}</span>
+        </Go>
+      ))}
+    </nav>
+  );
+}
+function DossierLocation() {
+  const { pathname } = useLocation();
+  const chapter = pathname === "/contact" ? ["/contact", "Contact"]
+    : chapters.find(([url]) => url === "/" ? pathname === "/" : pathname.startsWith(url));
+  return (
+    <nav className="dossier-location" aria-label="Current chapter">
+      <Go to={chapter?.[0] || "/"}>{chapter?.[1] || "Portfolio"}</Go>
+      <span aria-hidden="true" />
+    </nav>
   );
 }
 function Index() {
   return (
-    <aside className="index">
+    <aside className="index" aria-label="Portfolio navigation">
       <Label>Explore</Label>
       <Navigation />
       <p className="signature">
@@ -261,11 +255,15 @@ function Home() {
   return (
     <>
       <div className="centre home-centre">
-        <h1 tabIndex={-1}>
-          Konduri
-          <br />
-          Anirudh
-        </h1>
+        <div className="home-identity">
+          <h1 tabIndex={-1}>
+            Konduri
+            <br />
+            Anirudh
+          </h1>
+          <p className="mobile-intro-role">Associate Product Manager at <strong>Revspot.ai</strong></p>
+          <p className="dossier-specialty">AI workflows, evaluation &amp; analytics</p>
+        </div>
         {portraitFailed ? (
           <p
             className="portrait portrait-unavailable"
@@ -295,7 +293,10 @@ function Home() {
           </p>
         </div>
         <div className="home-invitation">
-          <Action to="/experience">See how I work</Action>
+          <Action to="/experience">
+            <span className="desktop-action-label">See how I work</span>
+            <span className="mobile-action-label">See experience</span>
+          </Action>
           <a
             className="secondary-action"
             href="/resume.pdf"
@@ -306,7 +307,32 @@ function Home() {
           </a>
         </div>
       </div>
-      <aside className="right-fold home-current">
+      <section className="folio home-folio" aria-label="Selected work">
+        <span>Start with</span>
+        <nav className="proof-links" aria-label="Selected work links">
+          <Go to="/experience#make-launches-correct">
+            Making launches correct <Arrow direction="right" />
+          </Go>
+          <Go to="/experience#test-the-workflow-not-the-demo">
+            Testing AI workflows <Arrow direction="right" />
+          </Go>
+          <Go to="/projects/trendsage-lite">
+            TrendSage Lite <Arrow direction="right" />
+          </Go>
+        </nav>
+      </section>
+      <section className="dossier-feature" aria-label="Featured product work">
+        <Go to="/experience#make-launches-correct">
+          <h2>Making launches correct</h2>
+          <p>Trace gaps between a campaign plan and an ad platform, then turn failures into safer launch flows.</p>
+          <Arrow direction="right" />
+        </Go>
+      </section>
+      <nav className="dossier-next" aria-label="Explore the portfolio">
+        <Go to="/experience">Experience <Arrow direction="right" /></Go>
+        <Go to="/projects">Projects <Arrow direction="right" /></Go>
+      </nav>
+      <aside className="right-fold home-current" aria-label="Current role and background">
         <Label>Now</Label>
         <h2>Revspot.ai</h2>
         <p>Associate Product Manager</p>
@@ -320,20 +346,6 @@ function Home() {
           <p className="small">May 2026</p>
         </div>
       </aside>
-      <footer className="folio home-folio">
-        <span>Start with</span>
-        <nav className="proof-links" aria-label="Selected work">
-          <Go to="/experience#make-launches-correct">
-            Making launches correct <Arrow direction="right" />
-          </Go>
-          <Go to="/experience#test-the-workflow-not-the-demo">
-            Testing AI workflows <Arrow direction="right" />
-          </Go>
-          <Go to="/projects/trendsage-lite">
-            TrendSage Lite <Arrow direction="right" />
-          </Go>
-        </nav>
-      </footer>
     </>
   );
 }
@@ -346,6 +358,14 @@ function Experience() {
     <>
       <article className="centre chapter experience">
         <h1 tabIndex={-1}>Experience</h1>
+        <nav className="mobile-role-picker" aria-label="Choose experience">
+          {Object.entries(roles).map(([key, item]) => (
+            <Go key={key} to={`/experience?role=${key}`} aria-current={id === key ? "true" : undefined}>
+              {key === "apm" ? "Product" : key === "intern" ? "Internship" : "Marketing"}
+              <span className="visually-hidden">: {item.company}, {item.title}</span>
+            </Go>
+          ))}
+        </nav>
         <div className="role-heading">
           <h2>{role.company}</h2>
           <h3>{role.title}</h3>
@@ -368,7 +388,7 @@ function Experience() {
           ))}
         </div>
       </article>
-      <aside className="right-fold role-history">
+      <aside className="right-fold role-history" aria-label="Other roles and education">
         <Label>{id === "apm" ? "Earlier chapters" : "Other chapters"}</Label>
         {Object.entries(roles)
           .filter(([key]) => key !== id)
@@ -392,6 +412,19 @@ function Experience() {
       </aside>
       <Footer to="/projects" title="Explore the projects" />
     </>
+  );
+}
+function ComingNext({ className }) {
+  return (
+    <aside className={`right-fold project-list coming-next ${className}`} aria-label="Studies in development">
+      <Label>Coming next</Label>
+      <p className="small">Independent studies in development.</p>
+      <ul>
+        {Object.values(projects).map((p) => (
+          <li key={p.id}><Go to={`/projects/${p.id}`}>{p.title}</Go></li>
+        ))}
+      </ul>
+    </aside>
   );
 }
 function Projects() {
@@ -418,27 +451,20 @@ function Projects() {
                 </Go>
                 <h2>{name}</h2>
                 <p>{p.text}</p>
-                <Action to={`/projects/${slug(name)}`}>View project</Action>
+                <Go to={`/projects/${slug(name)}`} className="action" aria-label={`View ${name} project`}>
+                  View project <Arrow direction="right" />
+                </Go>
               </article>
             );
           })}
         </div>
       </article>
-      <aside className="right-fold project-list coming-next">
-        <Label>Coming next</Label>
-        <p className="small">Independent studies in development.</p>
-        <ul>
-          {Object.values(projects).map((p) => (
-            <li key={p.id}>
-              <Go to={`/projects/${p.id}`}>{p.title}</Go>
-            </li>
-          ))}
-        </ul>
-      </aside>
-      <Footer to={afterProjects[0]} title={afterProjects[1]}>
-        Selected work above. More projects below.
-      </Footer>
-      <section className="previous-spread" id="more-projects">
+      <ComingNext className="desktop-coming-next" />
+      <nav className="folio catalogue-continuation" aria-label="Continue through projects">
+        <span>Five more builds in data and software.</span>
+        <Action to="/projects#more-projects">More projects</Action>
+      </nav>
+      <section className="previous-spread" id="more-projects" tabIndex={-1}>
         <Material />
         <div className="previous-inner">
           <header className="previous-heading">
@@ -458,9 +484,9 @@ function Projects() {
                     <p className="project-summary">{item.text}</p>
                   </div>
                   <span>{item.type}</span>
-                  <Action to={`/projects/${slug(item.title)}`}>
-                    View project
-                  </Action>
+                  <Go to={`/projects/${slug(item.title)}`} className="action" aria-label={`View ${item.title} project`}>
+                    View project <Arrow direction="right" />
+                  </Go>
                 </article>
               ))}
           </div>
@@ -468,6 +494,7 @@ function Projects() {
             A collection of undergraduate and technical work.
           </p>
         </div>
+        <ComingNext className="mobile-coming-next" />
         <Footer to={afterProjects[0]} title={afterProjects[1]}>
           {afterProjects[2]}
         </Footer>
@@ -497,7 +524,7 @@ function Writing() {
           Writing will appear here as the independent studies develop.
         </p>
       </article>
-      <aside className="right-fold writing-next">
+      <aside className="right-fold writing-next" aria-label="More planned writing">
         <Label>Also taking shape</Label>
         <h2>{essays[1].title}</h2>
         <p>{essays[1].question}</p>
@@ -550,7 +577,7 @@ function Contact() {
           </p>
         </div>
       </article>
-      <aside className="right-fold contact-links">
+      <aside className="right-fold contact-links" aria-label="Profiles and résumé">
         <Label>Elsewhere</Label>
         <a
           href="https://www.linkedin.com/in/konduri-anirudh/"
@@ -646,6 +673,11 @@ function ProjectDetail() {
           </>
         ) : (
           <>
+            <nav className="mobile-project-contents" aria-label="Jump to project section">
+              {[["project-idea", "The idea"], ["project-build", "The build"], ["project-interface", "The interface"]].map(([key, title]) => (
+                <Link key={key} to={`/projects/${id}#${key}`}>{title}</Link>
+              ))}
+            </nav>
             {image && (
               <button
                 className="detail-image"
@@ -692,7 +724,7 @@ function ProjectDetail() {
           </>
         )}
       </article>
-      <aside className="right-fold detail-aside">
+      <aside className="right-fold detail-aside" aria-label={planned ? "Planned project artifacts" : "Project details"}>
         <Label>{planned ? "Planned artifacts" : "Project contents"}</Label>
         {planned ? (
           <>
@@ -799,7 +831,7 @@ function Shell() {
   useLayoutEffect(() => {
     const page = sheet.current;
     if (location.pathname !== "/projects" || !page) return;
-    const footer = page.querySelector(":scope > .folio");
+    const footer = page.querySelector(".catalogue-continuation");
     if (!footer) return;
     const measure = () => {
       const height =
@@ -814,8 +846,8 @@ function Shell() {
     [
       page,
       footer,
-      page.querySelector(":scope > .centre"),
-      page.querySelector(":scope > .masthead"),
+      page.querySelector(".centre"),
+      page.querySelector(".masthead"),
     ]
       .filter(Boolean)
       .forEach((element) => observer?.observe(element));
@@ -1057,6 +1089,11 @@ function Shell() {
         <Material />
         <Header />
         <Index />
+        <div className="dossier-layout">
+          <DossierTabs />
+          <div className="dossier-body">
+            <img className="dossier-edge" src="/materials/dossier-top.webp" alt="" aria-hidden="true" width="2172" height="385" onError={(event) => { event.currentTarget.hidden = true; }} />
+            <DossierLocation />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Navigate to="/" replace />} />
@@ -1071,6 +1108,8 @@ function Shell() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+          </div>
+        </div>
       </main>
       <div className="motion-overlay" ref={overlay} aria-hidden="true" />
     </Journey.Provider>
