@@ -1,5 +1,13 @@
 # Session handoff — 2026-11-08
 
+## Desktop hierarchy pass — 2026-11-19
+
+Following the user's strict desktop review and request to start fixes, retained the approved folded-paper composition and existing factual content. The homepage now puts the current role beside the name, names the primary experience action directly, and relies on the masthead résumé link on desktop. Experience reduces the page-title and secondary-history emphasis, spaces the work themes, and labels role links by destination. Projects identifies the featured entries as earlier technical builds and provides the existing study subtitles beside their in-development status on desktop. The internal Contact arrow now points forward instead of suggesting an external destination. Mobile retains its dossier layout; shared role-link and archive wording is clearer.
+
+Changed: `src/atlas/Atlas.jsx`, `src/atlas/atlas.css`. Verification: `npm run lint`, `npm run build`, and `git diff --check` pass. Browser inspection covered home, Experience and Projects at the default desktop viewport, home and Projects at 1024×768, and Projects at 390×844. No layout collision was observed in those views; this is not a full browser, accessibility, motion, or design-approval audit. The Impeccable context launcher and detector failed in the preceding review due to launcher execution/line-ending errors; no automated design gate is claimed.
+
+Open: stronger product evidence and a case-study structure require real, cleared examples; do not invent outcomes. Project-detail hierarchy, long-page/zoom checks, and a wider responsive and keyboard pass remain to be done. Exact next action: review this desktop pass with the user, then improve a featured project detail using existing verified content and collect any shareable experience examples. Keep changes local; no deployment.
+
 ## Completed B dossier — 2026-11-15 (current)
 
 The user explicitly said "complete it please" after the material checkpoint, then "push it". B tabbed dossier is IMPLEMENTED and final QA/review/documentation complete. Direct user instruction takes precedence over the skill's extra approval workflow; no additional approval requested. Formal CLI material receipt remains null and no automatic gate was forged or claimed passed. Earlier resume/draft entries below are historical, not current blockers.

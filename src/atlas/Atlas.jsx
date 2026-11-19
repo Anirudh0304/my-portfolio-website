@@ -187,7 +187,7 @@ function Header() {
             Résumé <Arrow />
           </a>
           <Go to="/contact" aria-current={location.pathname === "/contact" ? "page" : undefined}>
-            Contact <Arrow />
+            Contact <Arrow direction="right" />
           </Go>
         </div>
       </header>
@@ -294,7 +294,7 @@ function Home() {
         </div>
         <div className="home-invitation">
           <Action to="/experience">
-            <span className="desktop-action-label">See how I work</span>
+            <span className="desktop-action-label">View experience</span>
             <span className="mobile-action-label">See experience</span>
           </Action>
           <a
@@ -397,7 +397,9 @@ function Experience() {
               <h2>{item.company}</h2>
               <p>{item.title}</p>
               <p className="small">{item.date}</p>
-              <Action to={`/experience?role=${key}`}>View experience</Action>
+              <Action to={`/experience?role=${key}`}>
+                {key === "apm" ? "View product role" : key === "intern" ? "View internship" : "View marketing role"}
+              </Action>
             </section>
           ))}
         <p className="annotation">
@@ -417,11 +419,14 @@ function Experience() {
 function ComingNext({ className }) {
   return (
     <aside className={`right-fold project-list coming-next ${className}`} aria-label="Studies in development">
-      <Label>Coming next</Label>
-      <p className="small">Independent studies in development.</p>
+      <Label>In development</Label>
+      <p className="small">Independent product studies.</p>
       <ul>
         {Object.values(projects).map((p) => (
-          <li key={p.id}><Go to={`/projects/${p.id}`}>{p.title}</Go></li>
+          <li key={p.id}>
+            <Go to={`/projects/${p.id}`}>{p.title}</Go>
+            <p className="study-summary">{p.subtitle}</p>
+          </li>
         ))}
       </ul>
     </aside>
@@ -433,7 +438,8 @@ function Projects() {
       <article className="centre chapter projects-chapter">
         <h1 tabIndex={-1}>Projects</h1>
         <p className="projects-intro">
-          Finished work in data, machine learning and software.
+          <span className="desktop-project-intro">Earlier technical builds in data, machine learning and software.</span>
+          <span className="mobile-project-intro">Finished work in data, machine learning and software.</span>
         </p>
         <div className="previous-featured selected-work">
           {featured.map((name) => {
@@ -468,7 +474,7 @@ function Projects() {
         <Material />
         <div className="previous-inner">
           <header className="previous-heading">
-            <h2>More projects</h2>
+            <h2>More technical builds</h2>
             <p>
               Earlier explorations in data, machine learning and building
               software.
