@@ -19,9 +19,9 @@
 @media (max-width: 60em) {
   :root {
     --dossier-desk: #081644;
-    --dossier-stock: #e8e8e9;
-    --dossier-back: #b3cfe6;
-    --dossier-tab-width: 44px;
+    --dossier-stock: #efefec;
+    --dossier-back: #b9d2e4;
+    --dossier-tab-width: 38px;
     --dossier-gutter: 20px;
     background: var(--dossier-desk);
     scrollbar-color: #b3cfe6 var(--dossier-desk);
@@ -78,9 +78,9 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) var(--dossier-tab-width);
     align-items: start;
-    width: 100%;
+    width: calc(100% - 24px);
     max-width: 650px;
-    margin: 44px auto 16px;
+    margin: 44px auto 20px;
   }
   .dossier-layout::before,
   .dossier-layout::after {
@@ -137,7 +137,7 @@
     margin-top: 33px;
     grid-column: 2;
     grid-row: 1;
-    width: 44px;
+    width: var(--dossier-tab-width);
     max-height: calc(100svh - 44px);
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -149,14 +149,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 44px;
-    min-height: 126px;
-    padding: 16px 7px;
+    width: var(--dossier-tab-width);
+    min-height: 112px;
+    padding: 14px 6px;
     background: var(--dossier-back) url("/materials/dossier-stock.webp") 0 0 / 420px 420px;
     background-blend-mode: multiply;
     border-radius: 0 22px 22px 0;
     font-family: Alan, Inter, sans-serif;
-    font-size: 24px;
+    font-size: 21px;
     font-weight: 750;
     line-height: 1;
     text-decoration: none;
@@ -164,10 +164,10 @@
     touch-action: manipulation;
   }
   .dossier-tabs a:nth-child(2) {
-    min-height: 158px;
+    min-height: 140px;
   }
   .dossier-tabs a:nth-child(3) {
-    min-height: 144px;
+    min-height: 126px;
   }
   .dossier-tabs span {
     writing-mode: vertical-rl;
@@ -213,7 +213,7 @@
   }
   .home-centre {
     display: grid;
-    grid-template-columns: minmax(0, 56fr) minmax(0, 41fr);
+    grid-template-columns: minmax(0, 51fr) minmax(0, 46fr);
     gap: 0 3%;
     max-width: none;
     margin: 12px 0 0;
@@ -234,24 +234,26 @@
     grid-column: 2;
     grid-row: 1;
     align-self: start;
-    margin-top: -7px;
+    margin-top: -10px;
     width: 100%;
+    transform: rotate(1.4deg);
+    filter: drop-shadow(2px 5px 5px rgb(20 46 81 / 0.2));
   }
   .mobile-intro-role {
     display: block;
-    margin-top: 14px;
+    margin-top: 16px;
     font-size: 15px;
     font-weight: 450;
     line-height: 1.35;
   }
   .dossier-specialty {
     display: block;
-    margin-top: 12px;
+    margin-top: 8px;
     font-size: 15px;
     line-height: 1.35;
   }
   .home-bio {
-    margin-top: 18px;
+    margin-top: 24px;
   }
   .home-bio .home-lede {
     font-size: 16px;
@@ -266,7 +268,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
-    margin: 20px 0 28px;
+    margin: 22px 0 34px;
   }
   .home-invitation > .action {
     padding: 11px 12px;
@@ -383,7 +385,7 @@
     display: none;
   }
   .themes section + section {
-    padding-top: 24px;
+    padding-top: 28px;
     border-top: 1px solid #07174f55;
   }
   .right-fold,
@@ -486,5 +488,57 @@
   }
   .dossier-tabs a:hover {
     color: var(--orange);
+  }
+}
+
+.mobile-page-turn {
+  position: fixed;
+  perspective: 1200px;
+  pointer-events: none;
+  z-index: 40;
+}
+.mobile-page-band-frame {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  perspective: 1200px;
+}
+.mobile-page-leaf {
+  position: absolute;
+  inset: 0;
+  transform-origin: right top;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.mobile-page-front,
+.mobile-page-back {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+.mobile-page-band-frame:first-child,
+.mobile-page-band-frame:first-child .mobile-page-front,
+.mobile-page-band-frame:first-child .mobile-page-back {
+  border-radius: 18px 18px 0 0;
+}
+.mobile-page-band-frame:last-child,
+.mobile-page-band-frame:last-child .mobile-page-front,
+.mobile-page-band-frame:last-child .mobile-page-back {
+  border-radius: 0 0 22px 2px;
+}
+.mobile-page-front {
+  box-shadow: 0 10px 18px rgb(0 0 0 / 0.22);
+}
+.mobile-page-back {
+  transform: rotateX(180deg);
+  background: #efefec url("/materials/dossier-stock.webp") 0 0 / 420px 420px;
+  box-shadow: 0 -10px 18px rgb(0 0 0 / 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dossier-body {
+    scroll-behavior: auto;
   }
 }

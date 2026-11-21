@@ -5,7 +5,7 @@ export const roles = {
     date: "September 2026 — Present",
     place: "Bengaluru, India",
     intro:
-      "I work on Spot, Revspot’s AI advertising product, making launches more reliable and product decisions easier to trust.",
+      "I work on Spot, Revspot’s AI advertising product, turning campaign problems into AI-agent workflows, product requirements, and decisions teams can trust.",
     context: "Current product practice",
     themes: [
       {
@@ -15,11 +15,19 @@ export const roles = {
       },
       {
         title: "Test the workflow, not the demo",
-        text: "Define evaluation criteria and controlled tests for AI-assisted advertising workflows so the team can see what improved, what failed and what to change next.",
+        text: "Design structured evaluations and experiments for AI-agent advertising workflows so the team can see what improved, what failed and what to change next.",
       },
       {
         title: "Build a decision-grade view",
-        text: "Develop internal analytics for revenue, customer-level P&L, voice-bot quality and false negatives. Clear definitions make the numbers useful in product decisions.",
+        text: "Build reporting for revenue, customer performance, and operational quality, with clear data rules that make product decisions more reliable.",
+      },
+      {
+        title: "Find missed opportunities",
+        text: "Define quality-analysis workflows for automated and human sales conversations, surfacing missed qualification signals and product improvements.",
+      },
+      {
+        title: "Support Google Ads decisions",
+        text: "Shape product capabilities across keyword research, campaign workflows, negative keywords, and match-type guidance.",
       },
     ],
   },
@@ -29,7 +37,7 @@ export const roles = {
     date: "June — August 2026",
     place: "Bengaluru, India",
     intro:
-      "Worked on advertising workflows, product specifications, and evaluation frameworks before moving into the APM role.",
+      "Translated recurring advertising problems into AI skills, product specifications, evaluation frameworks, and reusable workflows before moving into the APM role.",
     context: "Earlier at Revspot",
     themes: [
       {
@@ -164,13 +172,13 @@ export const archive = [
   {
     title: "TrendSage Lite",
     type: "NLP & news analysis",
-    text: "An undergraduate news and sentiment exploration project with entity extraction and a Streamlit dashboard.",
+    text: "An NLP pipeline and Streamlit dashboard for exploring sentiment and named entities across 60+ headlines from 30+ countries.",
     url: "https://github.com/Anirudh0304/TrendSage-Lite",
   },
   {
     title: "XAI Governance",
     type: "Explainability & model risk",
-    text: "An undergraduate credit-risk project exploring explainability, fairness, and model governance.",
+    text: "A credit-risk system combining tree-based models, SHAP, fairness metrics, drift detection, and governance checks.",
   },
   {
     title: "QuantPEGY",
@@ -210,7 +218,7 @@ export const previousDetails = {
     stack: ["Python", "NLP", "Streamlit", "Data visualisation"],
     idea: "Explore news through countries, entities and sentiment.",
     build:
-      "Extract geopolitical entities, apply sentiment analysis and connect country selections to related headlines.",
+      "Analyse 60+ headlines across 30+ countries, extract geopolitical entities, apply sentiment analysis and connect country selections to related headlines.",
     interface:
       "A Streamlit dashboard brings together country filters, sentiment filters and a world choropleth map.",
   },
@@ -230,10 +238,10 @@ export const previousDetails = {
       "A Streamlit interface exposes configuration, an equity-curve view and summary statistics.",
   },
   "XAI Governance": {
-    focus: ["Explainability", "Fairness", "Model governance"],
+    focus: ["XGBoost", "SHAP", "Fairness", "Drift detection"],
     idea: "Explore how a credit-risk model can be understood and governed.",
     build:
-      "The undergraduate project considers explainability, fairness and model risk in credit decisions.",
+      "Train Random Forest and XGBoost models on 1,000 samples, then apply SHAP, fairness metrics, feature selection, drift detection, and governance checks. The reported evaluation reached 78% accuracy and 0.775 ROC-AUC.",
     interface:
       "The project is included as earlier technical work. Additional artifacts will be added when available.",
   },

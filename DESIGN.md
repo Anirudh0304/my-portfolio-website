@@ -8,8 +8,8 @@ colors:
   desktop-surround: "#ece9e2"
   mobile-paper-fallback: "#d2e8f5"
   dossier-desk: "#081644"
-  dossier-stock: "#e8e8e9"
-  dossier-back: "#b3cfe6"
+  dossier-stock: "#efefec"
+  dossier-back: "#b9d2e4"
   dossier-masthead: "#f1f2f5"
   action-on-orange: "#fff"
   dialog-paper: "#d8e9f3"
@@ -63,7 +63,7 @@ typography:
     lineHeight: 1.45
   mobile-tab:
     fontFamily: "Alan, Inter, sans-serif"
-    fontSize: "24px"
+    fontSize: "21px"
     fontWeight: 750
     lineHeight: 1
 rounded:
@@ -104,8 +104,8 @@ components:
     backgroundColor: "{colors.dossier-back}"
     textColor: "{colors.ink}"
     rounded: "{rounded.dossier-tab}"
-    width: "44px"
-    padding: "16px 7px"
+    width: "38px"
+    padding: "14px 6px"
   dossier-tab-current:
     backgroundColor: "{colors.dossier-stock}"
     textColor: "{colors.orange}"
@@ -242,7 +242,7 @@ Screenshot enlargement uses a native labelled dialog, viewport-bounded original 
 
 ### Motion and reading
 
-Preserve the laptop first-opening motion: connected double-sided flaps from (±175deg), each (740ms), with a (60ms) right offset, once per session. Centre print resolves (380ms) after (170ms). Pointer chapter travel turns bounded outgoing panels (280ms); pointer project navigation can carry the original screenshot to detail over (280ms). Keyboard activation and reduced motion skip travel; any key interrupts the opening. Mobile skips flap opening and chapter turns, retains ordinary scrolling and browser zoom, and adds no fake pull gesture or mandatory swipe. There is no rendered Explore disclosure to animate. Session storage resumes the last route without replaying intro; browser Back restores stored positions. No fake progress or minimum loading wait exists.
+Preserve the laptop first-opening motion: connected double-sided flaps from (±175deg), each (740ms), with a (60ms) right offset, once per session. Centre print resolves (380ms) after (170ms). Pointer chapter travel turns bounded outgoing panels (280ms); pointer project navigation can carry the original screenshot to detail over (280ms). Keyboard activation and reduced motion skip travel; any key interrupts the opening. Mobile skips the desktop flap opening and retains ordinary scrolling and browser zoom. The visible top clip defines a notepad, while the interaction begins at the lower-left corner and sweeps toward the upper-right. A single rigid transform is prohibited: the captured visible sheet is divided into seven overlapping horizontal paper bands. The lowest band begins first and the curl travels upward in (18ms) offsets; each band uses perspective (1200px), a top-right anchor, a peak (22px) forward lift, `rotateX(0deg)` to `rotateX(104deg)`, slight clockwise rotation, and diagonal translation over (520ms) with strong ease-in-out. This travelling deformation exposes the textured backside and incoming sheet progressively. Keyboard and reduced-motion navigation keep the route change instant. There is no mandatory swipe or rendered Explore disclosure. Session storage resumes the last route without replaying intro; browser Back restores stored positions. No fake progress or minimum loading wait exists.
 
 ## Do's and Don'ts
 

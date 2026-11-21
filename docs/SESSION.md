@@ -7,6 +7,13 @@ Following the user's strict desktop review and request to start fixes, retained 
 Changed: `src/atlas/Atlas.jsx`, `src/atlas/atlas.css`. Verification: `npm run lint`, `npm run build`, and `git diff --check` pass. Browser inspection covered home, Experience and Projects at the default desktop viewport, home and Projects at 1024×768, and Projects at 390×844. No layout collision was observed in those views; this is not a full browser, accessibility, motion, or design-approval audit. The Impeccable context launcher and detector failed in the preceding review due to launcher execution/line-ending errors; no automated design gate is claimed.
 
 Open: stronger product evidence and a case-study structure require real, cleared examples; do not invent outcomes. Project-detail hierarchy, long-page/zoom checks, and a wider responsive and keyboard pass remain to be done. Exact next action: review this desktop pass with the user, then improve a featured project detail using existing verified content and collect any shareable experience examples. Keep changes local; no deployment.
+## Desktop comments — 2026-11-16
+
+User requested XAI Governance and SQL Data Warehouse as featured projects; updated featured ordering and homepage proof link from TrendSage to XAI. Existing six original screenshots remain on their individual detail pages and decode successfully. No XAI asset found; user explicitly said leave XAI without an image. No fabricated image added. Added current role beside the homepage identity as live text. Compact desktop Experience typography/spacing and education supporting text reduce scrolling; tested three selected roles and laptop sizes, with final focused1280×720 checks. Mobile dossier styles remain scoped separately. Lint/build passed before final small spacing adjustment. Changes local, not pushed.
+
+## Desktop refinement — 2026-11-16
+
+User requested improving the current desktop design, preserving the existing direction. Applied a narrow desktop-only reading/typography pass in atlas.css: featured-project titles and descriptions now have laptop-readable floors, clearer line spacing and action spacing; coming-next links retain a readable floor; work-theme/catalogue/detail headings have more comfortable multiline leading. Folded composition, homepage viewport fit, factual copy and mobile dossier preserved. Nine route/width checks at961/1280/1440 passed without horizontal overflow; rendered Projects inspected. Lint/build pass, detector exact[]. Local only, not pushed. Preview4182; screenshot .impeccable/review/desktop-projects-refined.png.
 
 ## Completed B dossier — 2026-11-15 (current)
 

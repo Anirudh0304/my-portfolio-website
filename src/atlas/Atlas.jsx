@@ -43,7 +43,7 @@ const chapters = [
 const afterProjects = showWriting
   ? ["/writing", "Continue to Writing", "Earlier builds. Next, the thinking behind the work."]
   : ["/contact", "Let’s talk", "That’s the work so far."];
-const featured = ["TrendSage Lite", "QuantPEGY"];
+const featured = ["XAI Governance", "SQL Data Warehouse"];
 const images = {
   "TrendSage Lite": trend,
   QuantPEGY: quant,
@@ -262,7 +262,7 @@ function Home() {
             Anirudh
           </h1>
           <p className="mobile-intro-role">Associate Product Manager at <strong>Revspot.ai</strong></p>
-          <p className="dossier-specialty">AI workflows, evaluation &amp; analytics</p>
+          <p className="dossier-specialty">AI agents, evaluation &amp; product analytics</p>
         </div>
         {portraitFailed ? (
           <p
@@ -284,8 +284,8 @@ function Home() {
         )}
         <div className="home-bio">
           <p className="home-lede">
-            I work on the parts of AI advertising that have to be right:
-            launches, evaluations and the numbers behind decisions.
+            I turn advertising problems into AI-agent workflows, reliable
+            launches and evidence teams can use to make product decisions.
           </p>
           <p>
             Find where the plan breaks, agree how to test the fix, then make
@@ -316,8 +316,8 @@ function Home() {
           <Go to="/experience#test-the-workflow-not-the-demo">
             Testing AI workflows <Arrow direction="right" />
           </Go>
-          <Go to="/projects/trendsage-lite">
-            TrendSage Lite <Arrow direction="right" />
+          <Go to="/projects/xai-governance">
+            XAI Governance <Arrow direction="right" />
           </Go>
         </nav>
       </section>
@@ -446,7 +446,7 @@ function Projects() {
             const p = archive.find((item) => item.title === name);
             return (
               <article key={name}>
-                <Go to={`/projects/${slug(name)}`} className="preview-image">
+                {images[name] && <Go to={`/projects/${slug(name)}`} className="preview-image">
                   <Screenshot
                     key={images[name]}
                     data-project-image={slug(name)}
@@ -454,7 +454,7 @@ function Projects() {
                     alt={`${name} application screenshot`}
                     loading="lazy"
                   />
-                </Go>
+                </Go>}
                 <h2>{name}</h2>
                 <p>{p.text}</p>
                 <Go to={`/projects/${slug(name)}`} className="action" aria-label={`View ${name} project`}>
@@ -902,6 +902,57 @@ function Shell() {
       return leaf;
     });
   }
+  function makeMobilePage() {
+    const page = sheet.current?.querySelector(".dossier-body");
+    if (!page) return null;
+    const rect = page.getBoundingClientRect();
+    const visibleHeight = Math.min(rect.height, window.innerHeight - rect.top);
+    const wrapper = document.createElement("div");
+    wrapper.className = "mobile-page-turn";
+    wrapper.inert = true;
+    wrapper.setAttribute("aria-hidden", "true");
+    Object.assign(wrapper.style, {
+      left: `${rect.left}px`,
+      top: `${rect.top}px`,
+      width: `${rect.width}px`,
+      height: `${visibleHeight}px`,
+    });
+    const bandCount = 7;
+    const bandHeight = visibleHeight / bandCount;
+    const bands = Array.from({ length: bandCount }, (_, index) => {
+      const top = index * bandHeight;
+      const frame = document.createElement("div");
+      frame.className = "mobile-page-band-frame";
+      Object.assign(frame.style, {
+        top: `${Math.max(0, top - 1)}px`,
+        height: `${bandHeight + 2}px`,
+      });
+      const leaf = document.createElement("div");
+      leaf.className = "mobile-page-leaf";
+      const front = document.createElement("div");
+      front.className = "mobile-page-front";
+      const copy = page.cloneNode(true);
+      copy.removeAttribute("id");
+      copy.querySelectorAll("[id]").forEach((node) => node.removeAttribute("id"));
+      Object.assign(copy.style, {
+        position: "absolute",
+        left: "0",
+        top: `${-top}px`,
+        width: `${rect.width}px`,
+        height: `${rect.height}px`,
+        margin: "0",
+      });
+      front.append(copy);
+      const back = document.createElement("div");
+      back.className = "mobile-page-back";
+      leaf.append(front, back);
+      frame.append(leaf);
+      wrapper.append(frame);
+      return { leaf, index };
+    });
+    overlay.current.append(wrapper);
+    return { wrapper, bands, rect };
+  }
   function travel(to, pointer, trigger) {
     if (to === location.pathname + location.search + location.hash) {
       const disclosure = trigger?.closest("details.mobile-explore");
@@ -917,9 +968,41 @@ function Shell() {
     const sourceRect = source?.getBoundingClientRect();
     const clone = source?.cloneNode(true);
     const animate = pointer && !reduced();
+    const mobilePage = animate && !desktopLayout() ? makeMobilePage() : null;
     const outgoing = animate && !source && desktopLayout() ? makeLeaves() : [];
     flushSync(() => navigate(to));
-    if (animate && clone) {
+    if (mobilePage) {
+      const finalX = mobilePage.rect.width * 0.16;
+      const finalY = mobilePage.rect.height * -0.16;
+      const turns = mobilePage.bands.map(({ leaf, index }) => {
+        const fromBottom = mobilePage.bands.length - 1 - index;
+        const turn = leaf.animate(
+          [
+            { transform: "translate3d(0, 0, 0) rotateX(0deg) rotateZ(0deg)" },
+            {
+              offset: 0.22,
+              transform: `translate3d(${finalX * 0.08}px, ${finalY * 0.05}px, 10px) rotateX(8deg) rotateZ(0.2deg)`,
+            },
+            {
+              offset: 0.56,
+              transform: `translate3d(${finalX * 0.48}px, ${finalY * 0.46}px, 22px) rotateX(48deg) rotateZ(1.2deg)`,
+            },
+            {
+              transform: `translate3d(${finalX}px, ${finalY}px, 0) rotateX(104deg) rotateZ(3deg)`,
+            },
+          ],
+          {
+            duration: 520,
+            delay: fromBottom * 18,
+            fill: "both",
+            easing: "cubic-bezier(.77,0,.175,1)",
+          },
+        );
+        active.current.push(turn);
+        return turn.finished;
+      });
+      Promise.allSettled(turns).then(() => mobilePage.wrapper.remove());
+    } else if (animate && clone) {
       const target = sheet.current.querySelector(
         `img[data-project-image="${source.dataset.projectImage}"]`,
       );

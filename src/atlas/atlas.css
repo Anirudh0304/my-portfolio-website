@@ -2563,6 +2563,137 @@ html:has(.image-dialog[open]) {
 }
 /* Small laptops need a reading floor even when the sheet is height-constrained. */
 @media (min-width: 60.0625em) {
+  .home-centre .mobile-intro-role {
+    display: block;
+    position: absolute;
+    top: 22.3cqw;
+    left: 2.2cqw;
+    width: 25cqw;
+    font-family: Inter, sans-serif;
+    font-size: clamp(14px, 1.4cqw, 23px);
+    font-weight: 550;
+    letter-spacing: 0;
+    line-height: 1.4;
+    margin: 0;
+  }
+  .selected-work article {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .selected-work article > .preview-image {
+    width: 100%;
+  }
+  .selected-work article > .action {
+    margin-top: auto;
+    padding-top: 0.75em;
+  }
+  .selected-work article:not(:has(.preview-image)) {
+    padding: 2cqw 1.4cqw;
+    border-block: 1px solid;
+    justify-content: center;
+  }
+  .route-experience {
+    width: min(100% - 32px, 1600px, calc((100svh - 32px) * 1.5));
+    min-height: 0;
+    margin: 8px auto;
+  }
+  .experience {
+    padding-top: 2.3cqw;
+    min-height: 49cqw;
+  }
+  .experience h1 {
+    font-size: 4.8cqw;
+    margin-bottom: 1.2cqw;
+  }
+  .experience .role-heading {
+    padding-bottom: 0.9cqw;
+  }
+  .experience .role-heading h2 {
+    font-size: 2.8cqw;
+  }
+  .experience .role-heading h3 {
+    font-size: clamp(17px, 1.7cqw, 28px);
+    margin: 0.6cqw 0 0.4cqw;
+  }
+  .experience > .lead {
+    font-size: clamp(16px, 1.55cqw, 25px);
+    margin: 1cqw 0;
+  }
+  .experience .themes section {
+    padding: 0.85cqw 0;
+  }
+  .experience .themes h3 {
+    font-size: clamp(18px, 1.8cqw, 29px);
+  }
+  .experience .themes p {
+    font-size: clamp(14px, 1.3cqw, 21px);
+    line-height: 1.4;
+  }
+  .route-experience .role-history {
+    top: 11cqw;
+    line-height: 1.35;
+  }
+  .route-experience .role-history .print-label {
+    margin-bottom: 0.8cqw;
+  }
+  .route-experience .role-history section > p {
+    margin-top: 0.4cqw;
+  }
+  .route-experience .role-history .action {
+    margin-top: 0.65cqw;
+  }
+  .route-experience .role-history section + section {
+    margin-top: 1.4cqw;
+    padding-top: 1.2cqw;
+  }
+  .route-experience .role-history .annotation {
+    margin-top: 1.2cqw;
+  }
+  .route-experience .education-note {
+    margin-top: 1cqw;
+    padding-top: 0.8cqw;
+  }
+  .route-experience .education-note h2 {
+    font-size: clamp(14px, 1.3cqw, 20px);
+    line-height: 1.2;
+  }
+  .route-experience .education-note p {
+    font-size: clamp(13px, 1.15cqw, 18px);
+    line-height: 1.35;
+  }
+  .route-experience .folio {
+    margin-top: 1.4cqw;
+    padding-bottom: 2.2cqw;
+  }
+  .selected-work h2 {
+    font-size: clamp(24px, 2.2cqw, 38px);
+    line-height: 1.12;
+    margin-bottom: 0.65em;
+  }
+  .selected-work p {
+    font-size: clamp(15px, 1.2cqw, 20px);
+    line-height: 1.55;
+  }
+  .selected-work .action {
+    font-size: clamp(16px, 1.3cqw, 22px);
+    margin-top: 0.75em;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+  }
+  .coming-next li a {
+    display: inline-block;
+    font-size: clamp(17px, 1.6cqw, 27px);
+    line-height: 1.25;
+    padding-block: 0.2em;
+  }
+  .themes h3,
+  .project-register h3,
+  .detail-sections h2 {
+    line-height: 1.15;
+  }
   .signature > span {
     font-size: max(12px, 0.72em);
   }
