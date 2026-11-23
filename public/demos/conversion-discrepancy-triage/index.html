@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0c2738" />
+    <meta name="description" content="Compare two conversion reports after aligning dates, events, and declared settings." />
+    <title>Conversion Discrepancy Triage</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="dist/main.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top">Conversion Discrepancy Triage</a>
+      <nav aria-label="Page sections"><a href="#reports">Reports</a><a href="#assessment">Assessment</a><a href="#limits">Limits</a></nav>
+    </header>
+    <main id="top">
+      <section class="disclosure" aria-label="Data disclosure"><strong>Local comparison</strong><span>Synthetic samples · uploaded CSVs stay in this browser · no platform connection</span></section>
+      <section class="intro" aria-labelledby="page-title">
+        <div><h1 id="page-title">Before explaining the gap, align the reports.</h1><p>Choose a sample pair or load two small exports. This check aligns shared dates and mapped events, then surfaces declared differences that guide the next verification.</p></div>
+        <div class="intro-note"><span class="rule-mark" aria-hidden="true"></span><p>A difference is evidence to investigate. It is not proof of a cause.</p></div>
+      </section>
+
+      <section class="report-workbench" id="reports" aria-labelledby="reports-title">
+        <div class="section-heading">
+          <div><h2 id="reports-title">Set up the comparison</h2><p>Both reports need a shared date span, event mapping, and declared settings.</p></div>
+          <label class="sample-select">Sample pair<select id="fixture-select" aria-label="Sample report pair"></select></label>
+        </div>
+        <div class="report-grid">
+          <section class="report-panel" aria-labelledby="report-a-title">
+            <h3 id="report-a-title">Report A</h3>
+            <p class="report-name" id="report-a-name"></p>
+            <label class="upload-label" for="file-a">Load CSV</label><input id="file-a" type="file" accept=".csv,text/csv" />
+            <label for="event-a">Event in this report</label><select id="event-a"></select>
+            <div class="settings-grid">
+              <label for="basis-a">Reporting basis<select id="basis-a"><option value="">Unknown / not declared</option><option value="event_time">Conversion time</option><option value="interaction_time">Interaction time</option><option value="session_time">Session time</option></select></label>
+              <label for="attribution-a">Attribution<select id="attribution-a"><option value="">Unknown / not declared</option><option value="data_driven">Data-driven</option><option value="last_click">Last click</option><option value="google_paid">Google paid channels</option><option value="paid_organic">Paid + organic channels</option></select></label>
+              <label for="freshness-a">Hours since newest included day ended<input id="freshness-a" type="number" min="0" step="1" /></label>
+            </div>
+            <p class="file-status" id="file-status-a" aria-live="polite"></p>
+          </section>
+          <section class="report-panel" aria-labelledby="report-b-title">
+            <h3 id="report-b-title">Report B</h3>
+            <p class="report-name" id="report-b-name"></p>
+            <label class="upload-label" for="file-b">Load CSV</label><input id="file-b" type="file" accept=".csv,text/csv" />
+            <label for="event-b">Event in this report</label><select id="event-b"></select>
+            <div class="settings-grid">
+              <label for="basis-b">Reporting basis<select id="basis-b"><option value="">Unknown / not declared</option><option value="event_time">Conversion time</option><option value="interaction_time">Interaction time</option><option value="session_time">Session time</option></select></label>
+              <label for="attribution-b">Attribution<select id="attribution-b"><option value="">Unknown / not declared</option><option value="data_driven">Data-driven</option><option value="last_click">Last click</option><option value="google_paid">Google paid channels</option><option value="paid_organic">Paid + organic channels</option></select></label>
+              <label for="freshness-b">Hours since newest included day ended<input id="freshness-b" type="number" min="0" step="1" /></label>
+            </div>
+            <p class="file-status" id="file-status-b" aria-live="polite"></p>
+          </section>
+        </div>
+        <div class="mapping-row">
+          <label for="mapped-event">These source events both mean<input id="mapped-event" type="text" autocomplete="off" placeholder="For example, completed purchase" /></label>
+          <p>Choose the corresponding source event above. This shared label records the mapping you intend to compare.</p>
+        </div>
+        <p class="csv-contract">CSV columns: <code>date,event,conversions</code>. Use <code>YYYY-MM-DD</code>, with a row for every day in the shared period. Include explicit zero rows only when the source confirms zero. Rows that repeat an event and date are summed.</p>
+      </section>
+
+      <section class="assessment" id="assessment" aria-labelledby="assessment-title">
+        <div class="section-heading assessment-heading"><div><h2 id="assessment-title">Triage assessment</h2><p id="assessment-lede">Recommendations follow only from the supplied rows and declared settings.</p></div><span id="assessment-badge" class="assessment-badge"></span></div>
+        <div class="error-note" id="file-error" hidden role="alert"></div>
+        <div class="assessment-content">
+          <section class="recommendation" aria-live="polite" aria-atomic="true">
+            <h3 id="assessment-title-copy"></h3><p id="assessment-explanation"></p>
+            <div class="next-step"><strong>Next verification</strong><p id="next-step"></p></div>
+          </section>
+          <section class="evidence" aria-labelledby="evidence-title"><h3 id="evidence-title">Inputs that drove this check</h3><dl id="evidence-list"></dl></section>
+        </div>
+        <section class="comparison" id="comparison-values" hidden aria-labelledby="values-title">
+          <div class="comparison-heading"><div><h3 id="values-title">Aligned conversion totals</h3><p id="aligned-range"></p></div><p class="gap-value"><strong id="gap-percent"></strong><span>of the larger total</span></p></div>
+          <div class="table-wrap"><table><thead><tr><th scope="col">Date</th><th scope="col" id="column-a"></th><th scope="col" id="column-b"></th><th scope="col">Daily difference</th></tr></thead><tbody id="aligned-rows"></tbody><tfoot id="aligned-totals"></tfoot></table></div>
+        </section>
+      </section>
+
+      <aside class="limits" id="limits" aria-labelledby="limits-title"><div><h2 id="limits-title">What this check can tell you</h2><p>It aligns the selected events to dates shared by both files, calculates the count gap, and checks the settings you declare. It cannot inspect attribution processing, identity, collection quality, deduplication, or account configuration.</p></div><ul><li><a href="https://support.google.com/analytics/answer/13965727" target="_blank" rel="noreferrer">Analytics: Conversions vs. key events</a></li><li><a href="https://support.google.com/analytics/answer/11198161" target="_blank" rel="noreferrer">Analytics: Data freshness</a></li><li><a href="https://support.google.com/analytics/answer/10597962" target="_blank" rel="noreferrer">Analytics: Attribution settings</a></li></ul></aside>
+    </main>
+    <footer><span>Conversion Discrepancy Triage</span><span>One check at a time; no root-cause claims from totals alone.</span></footer>
+  </body>
+</html>

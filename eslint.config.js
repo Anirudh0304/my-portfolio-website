@@ -6,7 +6,7 @@ import reactRefresh from "eslint-plugin-react-refresh";
 
 export default [
   // Build output and generated review/vendor artifacts are not authored source.
-  { ignores: ["dist/**", ".impeccable/**"] },
+  { ignores: ["dist/**", ".impeccable/**", "public/demos/*/dist/**", "public/demos/*/tests/**"] },
   {
     files: ["**/*.{js,jsx,mjs}"],
     languageOptions: {

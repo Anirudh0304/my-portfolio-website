@@ -170,6 +170,18 @@ export const essays = [
 ];
 export const archive = [
   {
+    title: "Negative Keyword Preflight",
+    type: "Independent product tool",
+    text: "Compare current and proposed negative lists to spot newly introduced conflicts on searches you need to keep.",
+    demo: "/demos/negative-keyword-preflight/index.html",
+  },
+  {
+    title: "Conversion Discrepancy Triage",
+    type: "Independent product tool",
+    text: "Compare two conversion reports and identify the next check supported by the evidence.",
+    demo: "/demos/conversion-discrepancy-triage/index.html",
+  },
+  {
     title: "TrendSage Lite",
     type: "NLP & news analysis",
     text: "An NLP pipeline and Streamlit dashboard for exploring sentiment and named entities across 60+ headlines from 30+ countries.",
@@ -214,6 +226,18 @@ export const archive = [
 
 // Technical descriptions retained from the original portfolio; no performance claims.
 export const previousDetails = {
+  "Negative Keyword Preflight": {
+    stack: ["TypeScript", "Rule-based matching", "Synthetic test cases"],
+    idea: "A negative keyword can block a search that a campaign was intended to reach. Review that overlap before approving a launch.",
+    build: "Compare two complete list states against the same search set. A rule-level match on a must-keep search calls for launch review. Each query shows whether the conflict is new, existing, removed, or uncertain.",
+    interface: "Restore the synthetic sample. Two conflicts are newly introduced, including one must-keep query, and one conflict already existed. Those are demo observations under a bounded text model, with no live ad-delivery test.",
+  },
+  "Conversion Discrepancy Triage": {
+    stack: ["TypeScript", "CSV validation", "Synthetic report fixtures"],
+    idea: "Two conversion reports can disagree because they measure different events, dates, or reporting settings. Give marketers a useful next check before they draw conclusions.",
+    build: "Validate both CSVs and require daily coverage for the mapped events over the shared dates. An explicit zero counts as data. A missing day withholds a comparison.",
+    interface: "Try the synthetic timing mismatch to see a 100 versus 86 comparison and an alignment check. The missing-day sample shows why the tool withholds a result when one source covers only two of three days.",
+  },
   "TrendSage Lite": {
     stack: ["Python", "NLP", "Streamlit", "Data visualisation"],
     idea: "Explore news through countries, entities and sentiment.",

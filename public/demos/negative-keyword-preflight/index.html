@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0c2738" />
+    <meta name="description" content="A local preflight to spot supplied search queries caught by proposed negative keywords." />
+    <title>Negative Keyword Preflight</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="dist/main.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top">Negative Keyword Preflight</a>
+      <nav aria-label="Page sections"><a href="#inputs">Inputs</a><a href="#results">Review results</a><a href="#limits">Limits</a></nav>
+    </header>
+    <main id="top">
+      <section class="disclosure" aria-label="Simulation disclosure">
+        <strong>Local rule simulation</strong>
+        <span>Synthetic example · runs in this browser · no Google Ads connection</span>
+      </section>
+
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <h1 id="page-title">Catch the conflict before launch.</h1>
+          <p>Compare the searches you mean to reach with the negatives you plan to add. Every flagged row shows the rule that matched it.</p>
+        </div>
+        <div class="intro-note"><span class="rule-mark" aria-hidden="true"></span><p>Text match is a reason to review. It is not a forecast of whether an ad will serve.</p></div>
+      </section>
+
+      <section class="workbench" id="inputs" aria-labelledby="inputs-title">
+        <div class="section-heading">
+          <div><h2 id="inputs-title">Compare your inputs</h2><p>One query or negative keyword per line. Edit either list to run the check.</p></div>
+          <button id="seed-button" class="quiet-button" type="button">Restore sample</button>
+        </div>
+        <div class="input-grid">
+          <div class="input-column">
+            <label for="query-input">Search queries</label>
+            <p class="field-help" id="query-help">Prefix with <code>!</code> when a query is must-keep; a match becomes a review blocker.</p>
+            <textarea id="query-input" aria-describedby="query-help" spellcheck="false"></textarea>
+          </div>
+          <div class="input-column">
+            <label for="negative-input">Proposed negative keywords</label>
+            <p class="field-help" id="negative-help">Bare = broad · <code>"quotes"</code> = phrase · <code>[brackets]</code> = exact</p>
+            <textarea id="negative-input" aria-describedby="negative-help" spellcheck="false"></textarea>
+          </div>
+        </div>
+        <div class="input-column comparison-controls">
+          <label><input type="checkbox" id="compare-enabled" checked> Compare against the current list</label>
+          <div id="compare-input">
+            <label for="current-input">Current negative keywords</label>
+            <p class="field-help">Enter the complete current list here and the complete replacement in the proposed field. An empty current list means there are no existing negatives.</p>
+            <textarea id="current-input" rows="3" spellcheck="false"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section" id="results" aria-labelledby="results-title">
+        <div class="section-heading results-heading">
+          <div><h2 id="results-title">Preflight results</h2><p>Review each detected match before adding the negative list to a campaign.</p></div>
+          <div class="result-summary" id="result-summary" aria-live="polite" aria-atomic="true"></div>
+        </div>
+        <div class="issues" id="input-issues" hidden aria-live="polite"></div>
+        <div class="table-wrap">
+          <table class="results-table">
+            <thead><tr><th scope="col">Intended query</th><th scope="col">Review status</th><th scope="col">Matching negative</th><th scope="col">Why it matches</th></tr></thead>
+            <tbody id="result-rows"></tbody>
+          </table>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>Paste one or more queries and negative keywords to begin.</p>
+      </section>
+
+      <aside class="limits" id="limits" aria-labelledby="limits-title">
+        <div><h2 id="limits-title">What this check can tell you</h2><p>It applies a bounded text simulation to the terms you supply, up to the 16-word boundary. It does not normalize misspellings or model every symbol, campaign/list attachment, or eligibility setting. A “no direct match” result is not proof that Google will treat the terms as distinct or serve an ad.</p></div>
+        <ul>
+          <li><a href="https://support.google.com/google-ads/answer/2453972" target="_blank" rel="noreferrer">Google Ads: About negative keywords</a></li>
+          <li><a href="https://support.google.com/google-ads/answer/9701952" target="_blank" rel="noreferrer">Google Ads: Fix issues with negative keywords</a></li>
+        </ul>
+      </aside>
+    </main>
+    <footer><span>Negative Keyword Preflight</span><span>Rule matches are review signals, not campaign-delivery predictions.</span></footer>
+  </body>
+</html>

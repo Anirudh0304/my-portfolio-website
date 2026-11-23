@@ -29,6 +29,7 @@ const hr = "/screenshots/hr.webp";
 const task = "/screenshots/task.webp";
 import "./atlas.css";
 import "./dossier.css";
+import "./portfolio-refinement.css";
 const email = "kondurianirudh0304@gmail.com";
 const siteOrigin = "https://kondurianirudh.netlify.app";
 /* Writing stays hidden until one real, published piece exists. Set to true
@@ -43,8 +44,10 @@ const chapters = [
 const afterProjects = showWriting
   ? ["/writing", "Continue to Writing", "Earlier builds. Next, the thinking behind the work."]
   : ["/contact", "Let’s talk", "That’s the work so far."];
-const featured = ["XAI Governance", "SQL Data Warehouse"];
+const featured = ["Negative Keyword Preflight", "Conversion Discrepancy Triage"];
 const images = {
+  "Negative Keyword Preflight": "/screenshots/preflight.webp",
+  "Conversion Discrepancy Triage": "/screenshots/conversion-triage.webp",
   "TrendSage Lite": trend,
   QuantPEGY: quant,
   "SQL Data Warehouse": sql,
@@ -70,6 +73,15 @@ const pageTitle = (pathname, projectId) => {
 const slug = (t) => t.toLowerCase().replaceAll(" ", "-");
 const anchor = (t) =>
   t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const practice = [
+  ["Campaign launches", "Turn setup, targeting and budget problems into safer launch flows."],
+  ["AI workflow evaluation", "Use structured evaluations to see what works and what needs to change."],
+  ["Reporting quality", "Define reliable measures for revenue, performance and operational quality."],
+].map(([title, text], index) => ({
+  title,
+  text,
+  to: `/experience#${anchor(roles.apm.themes[index].title)}`,
+}));
 const Journey = createContext(null);
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 const desktopLayout = () => matchMedia("(min-width: 60.0625em)").matches;
@@ -262,7 +274,6 @@ function Home() {
             Anirudh
           </h1>
           <p className="mobile-intro-role">Associate Product Manager at <strong>Revspot.ai</strong></p>
-          <p className="dossier-specialty">AI agents, evaluation &amp; product analytics</p>
         </div>
         {portraitFailed ? (
           <p
@@ -284,67 +295,37 @@ function Home() {
         )}
         <div className="home-bio">
           <p className="home-lede">
-            I turn advertising problems into AI-agent workflows, reliable
-            launches and evidence teams can use to make product decisions.
-          </p>
-          <p>
-            Find where the plan breaks, agree how to test the fix, then make
-            the result measurable.
+            I build and evaluate AI workflows for advertising.
           </p>
         </div>
         <div className="home-invitation">
-          <Action to="/experience">
-            <span className="desktop-action-label">View experience</span>
-            <span className="mobile-action-label">See experience</span>
-          </Action>
-          <a
-            className="secondary-action"
-            href="/resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Résumé (PDF) <Arrow />
-          </a>
+          <Action to="/projects">See selected work</Action>
         </div>
       </div>
       <section className="folio home-folio" aria-label="Selected work">
         <span>Start with</span>
         <nav className="proof-links" aria-label="Selected work links">
-          <Go to="/experience#make-launches-correct">
-            Making launches correct <Arrow direction="right" />
-          </Go>
-          <Go to="/experience#test-the-workflow-not-the-demo">
-            Testing AI workflows <Arrow direction="right" />
-          </Go>
-          <Go to="/projects/xai-governance">
-            XAI Governance <Arrow direction="right" />
-          </Go>
+          {featured.map((title) => (
+            <Go key={title} to={`/projects/${slug(title)}`}>
+              {title} <Arrow direction="right" />
+            </Go>
+          ))}
         </nav>
       </section>
-      <section className="dossier-feature" aria-label="Featured product work">
-        <Go to="/experience#make-launches-correct">
-          <h2>Making launches correct</h2>
-          <p>Trace gaps between a campaign plan and an ad platform, then turn failures into safer launch flows.</p>
+      <section className="dossier-feature" aria-label="Featured project">
+        <Go to={`/projects/${slug(featured[0])}`}>
+          <h2>{featured[0]}</h2>
           <Arrow direction="right" />
         </Go>
       </section>
-      <nav className="dossier-next" aria-label="Explore the portfolio">
-        <Go to="/experience">Experience <Arrow direction="right" /></Go>
-        <Go to="/projects">Projects <Arrow direction="right" /></Go>
-      </nav>
-      <aside className="right-fold home-current" aria-label="Current role and background">
-        <Label>Now</Label>
-        <h2>Revspot.ai</h2>
-        <p>Associate Product Manager</p>
-        <p className="small">September 2026 — Present</p>
-        <p className="small">On Spot, AI advertising</p>
-        <div className="previous-role">
-          <p className="previous-label">Before</p>
-          <p>PM Intern, Revspot.ai</p>
-          <p className="small">June — August 2026</p>
-          <p>B.Tech CSE, VIT</p>
-          <p className="small">May 2026</p>
-        </div>
+      <aside className="right-fold home-current" aria-label="Current product work">
+        <Label>Current work</Label>
+        {practice.map(({ title, text, to }) => (
+          <section key={title}>
+            <h2><Go to={to}>{title}</Go></h2>
+            <p>{text}</p>
+          </section>
+        ))}
       </aside>
     </>
   );
@@ -373,8 +354,22 @@ function Experience() {
             {role.date} · {role.place}
           </p>
         </div>
-        <p className="lead">{role.intro}</p>
-        <div className="themes">
+        <p className="lead">{id === "apm" ? "I work on Spot, Revspot’s AI advertising product." : role.intro}</p>
+        {id === "apm" && <div className="mobile-overview-jump">
+          <Action to="/experience#all-work-areas">Explore all five work areas</Action>
+        </div>}
+        {id === "apm" && <nav className="practice-index" aria-label="Current product work">
+          {practice.map(({ title, text, to }) => (
+            <Go key={title} to={to}>
+              <strong>{title}</strong>
+              <span>{text}</span>
+              <Arrow direction="right" />
+            </Go>
+          ))}
+        </nav>}
+        <details className="experience-details" key={id} open={id !== "apm" || undefined}>
+          <summary>{id === "apm" ? "All five areas of my work" : "Work in this role"}</summary>
+          <div className="themes" id={id === "apm" ? "all-work-areas" : undefined} tabIndex={id === "apm" ? -1 : undefined}>
           {role.themes.map((theme, i) => (
             <section key={theme.title} id={anchor(theme.title)} tabIndex={-1}>
               <span className="theme-number">0{i + 1}</span>
@@ -386,7 +381,8 @@ function Experience() {
               </div>
             </section>
           ))}
-        </div>
+          </div>
+        </details>
       </article>
       <aside className="right-fold role-history" aria-label="Other roles and education">
         <Label>{id === "apm" ? "Earlier chapters" : "Other chapters"}</Label>
@@ -416,9 +412,9 @@ function Experience() {
     </>
   );
 }
-function ComingNext({ className }) {
+function ComingNext() {
   return (
-    <aside className={`right-fold project-list coming-next ${className}`} aria-label="Studies in development">
+    <aside className="project-studies coming-next" aria-label="Studies in development">
       <Label>In development</Label>
       <p className="small">Independent product studies.</p>
       <ul>
@@ -438,25 +434,27 @@ function Projects() {
       <article className="centre chapter projects-chapter">
         <h1 tabIndex={-1}>Projects</h1>
         <p className="projects-intro">
-          <span className="desktop-project-intro">Earlier technical builds in data, machine learning and software.</span>
-          <span className="mobile-project-intro">Finished work in data, machine learning and software.</span>
+          Independent prototypes for ad launches and conversion reporting.
         </p>
+        <div className="mobile-overview-jump">
+          <Action to="/projects#more-projects">Browse earlier projects</Action>
+        </div>
         <div className="previous-featured selected-work">
           {featured.map((name) => {
             const p = archive.find((item) => item.title === name);
             return (
               <article key={name}>
+                <h2>{name}</h2>
+                <p>{p.text}</p>
                 {images[name] && <Go to={`/projects/${slug(name)}`} className="preview-image">
                   <Screenshot
                     key={images[name]}
                     data-project-image={slug(name)}
                     src={images[name]}
-                    alt={`${name} application screenshot`}
+                    alt={`${name} demo screenshot`}
                     loading="lazy"
                   />
                 </Go>}
-                <h2>{name}</h2>
-                <p>{p.text}</p>
                 <Go to={`/projects/${slug(name)}`} className="action" aria-label={`View ${name} project`}>
                   View project <Arrow direction="right" />
                 </Go>
@@ -465,20 +463,23 @@ function Projects() {
           })}
         </div>
       </article>
-      <ComingNext className="desktop-coming-next" />
-      <nav className="folio catalogue-continuation" aria-label="Continue through projects">
-        <span>Five more builds in data and software.</span>
-        <Action to="/projects#more-projects">More projects</Action>
+      <aside className="right-fold project-discovery" aria-label="Other finished projects">
+        <Label>Also in the archive</Label>
+        {archive.filter((item) => ["XAI Governance", "SQL Data Warehouse"].includes(item.title)).map((item) => (
+          <section key={item.title}>
+            <h2><Go to={`/projects/${slug(item.title)}`}>{item.title}</Go></h2>
+            <p>{item.type}</p>
+          </section>
+        ))}
+      </aside>
+      <nav className="catalogue-continuation" aria-label="Continue through projects">
+        <Action to="/projects#more-projects">See more projects</Action>
       </nav>
       <section className="previous-spread" id="more-projects" tabIndex={-1}>
         <Material />
         <div className="previous-inner">
           <header className="previous-heading">
-            <h2>More technical builds</h2>
-            <p>
-              Earlier explorations in data, machine learning and building
-              software.
-            </p>
+            <h2>More projects</h2>
           </header>
           <div className="project-register">
             {archive
@@ -496,11 +497,8 @@ function Projects() {
                 </article>
               ))}
           </div>
-          <p className="annotation">
-            A collection of undergraduate and technical work.
-          </p>
+          <ComingNext />
         </div>
-        <ComingNext className="mobile-coming-next" />
         <Footer to={afterProjects[0]} title={afterProjects[1]}>
           {afterProjects[2]}
         </Footer>
@@ -661,6 +659,9 @@ function ProjectDetail() {
         </Go>
         <h1 tabIndex={-1}>{item.title}</h1>
         <p className="lead">{planned ? item.subtitle : item.text}</p>
+        {item.demo && <a className="action project-demo" href={item.demo} target="_blank" rel="noreferrer">
+          Try the demo <span className="visually-hidden">(opens in a new tab)</span><Arrow />
+        </a>}
         {planned ? (
           <>
             <p className="development">Independent project · In development</p>
@@ -782,7 +783,7 @@ function ProjectDetail() {
         }
         title={!planned && nextTitle ? `Next / ${nextTitle}` : "All projects"}
       >
-        {planned ? "Independent study · In development" : "Finished project"}
+        {planned ? "Independent study · In development" : item.demo ? "Independent prototype" : "Finished project"}
       </Footer>
       {image && (
         <dialog
@@ -907,6 +908,7 @@ function Shell() {
     if (!page) return null;
     const rect = page.getBoundingClientRect();
     const visibleHeight = Math.min(rect.height, window.innerHeight - rect.top);
+    if (visibleHeight <= 0 || rect.top < 0) return null;
     const wrapper = document.createElement("div");
     wrapper.className = "mobile-page-turn";
     wrapper.inert = true;
@@ -932,6 +934,7 @@ function Shell() {
       const front = document.createElement("div");
       front.className = "mobile-page-front";
       const copy = page.cloneNode(true);
+      copy.querySelector(".dossier-edge")?.remove();
       copy.removeAttribute("id");
       copy.querySelectorAll("[id]").forEach((node) => node.removeAttribute("id"));
       Object.assign(copy.style, {
@@ -968,7 +971,8 @@ function Shell() {
     const sourceRect = source?.getBoundingClientRect();
     const clone = source?.cloneNode(true);
     const animate = pointer && !reduced();
-    const mobilePage = animate && !desktopLayout() ? makeMobilePage() : null;
+    const changesPage = to.split(/[?#]/)[0] !== location.pathname;
+    const mobilePage = animate && changesPage && !desktopLayout() ? makeMobilePage() : null;
     const outgoing = animate && !source && desktopLayout() ? makeLeaves() : [];
     flushSync(() => navigate(to));
     if (mobilePage) {
@@ -1046,6 +1050,9 @@ function Shell() {
       });
   }
   useLayoutEffect(() => {
+    const target = location.hash && document.getElementById(location.hash.slice(1));
+    const details = target && target.closest("details.experience-details");
+    if (details) details.open = true;
     if (
       previous.current !== entryKey &&
       navType === "POP" &&
@@ -1055,9 +1062,10 @@ function Shell() {
       previous.current = entryKey;
       sheet.current.querySelector("h1")?.focus({ preventScroll: true });
     } else if (location.hash) {
-      const target = document.getElementById(location.hash.slice(1));
-      target?.scrollIntoView();
-      target?.focus({ preventScroll: true });
+      if (target) {
+        target.scrollIntoView();
+        target.focus({ preventScroll: true });
+      }
       previous.current = entryKey;
     } else if (previous.current !== entryKey) {
       window.scrollTo(
