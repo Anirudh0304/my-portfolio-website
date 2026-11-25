@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d40">
+  <title>Tender Amendment Review — interactive workbench</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#main" aria-label="Tender Amendment Review home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4.5h9l5 5v10H5zM14 4.5v5h5M8 13h8M8 16.5h5"/></svg></span>
+      <span>Tender Amendment Review</span>
+    </a>
+    <a class="case-study-link" href="/projects/tender-amendment-review">Read the case study</a>
+  </header>
+
+  <main id="main">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">What changed in this tender?</h1>
+        <p>Compare public notice releases and see which recorded bid assumptions may need another look.</p>
+      </div>
+      <aside class="disclosure"><strong>Illustrative review</strong><span>Approval names and dependencies are sample rules, not actual supplier decisions. No bid recommendation is made.</span></aside>
+    </section>
+
+    <section class="casebar" aria-label="Tender and release selection">
+      <label class="field-label" for="case-select">Tender</label>
+      <select id="case-select" aria-label="Choose a tender"></select>
+      <span class="divider" aria-hidden="true"></span>
+      <label class="field-label" for="transition-select">Compare releases</label>
+      <select id="transition-select" aria-label="Choose two releases to compare"></select>
+    </section>
+
+    <section class="release-strip" aria-label="Selected releases">
+      <div class="release-side"><span class="release-label">Previous notice</span><a id="previous-link" target="_blank" rel="noreferrer"></a><time id="previous-time"></time></div>
+      <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
+      <div class="release-side"><span class="release-label">Updated notice</span><a id="updated-link" target="_blank" rel="noreferrer"></a><time id="updated-time"></time></div>
+    </section>
+
+    <section class="ledger-section" aria-labelledby="changes-heading">
+      <div class="section-heading">
+        <div><h2 id="changes-heading">Change ledger</h2><p id="change-summary">Changes between the selected releases.</p></div>
+        <span class="source-chip">OCDS release comparison</span>
+      </div>
+      <div class="table-wrap" role="region" aria-label="Before and after values" tabindex="0">
+        <table>
+          <thead><tr><th scope="col">Field</th><th scope="col">Previous value</th><th scope="col">Updated value</th><th scope="col">Review signal</th></tr></thead>
+          <tbody id="changes-body"></tbody>
+        </table>
+      </div>
+      <p id="empty-ledger" class="empty-state" hidden>No tracked changes in this comparison. Check the updated notice for context.</p>
+      <div class="amendment-note" id="amendment-note"></div>
+    </section>
+
+    <section class="review-layout" aria-label="Approval review and document access">
+      <div class="approval-panel">
+        <div class="section-heading"><div><h2>Approval impact</h2><p>Statuses recalculate from the changed fields and the rules below.</p></div><span class="illustrative-label">Synthetic rules</span></div>
+        <div class="table-wrap" role="region" aria-label="Approval dependencies and status" tabindex="0">
+          <table class="approval-table">
+            <thead><tr><th scope="col">Recorded approval</th><th scope="col">Depends on</th><th scope="col">Status</th></tr></thead>
+            <tbody id="approvals-body"></tbody>
+          </table>
+        </div>
+        <div class="rules-footer"><span>Change a dependency to explore the impact.</span><button id="reset-rules" type="button">Restore sample rules</button></div>
+      </div>
+
+      <aside class="access-panel" aria-labelledby="access-heading">
+        <h2 id="access-heading">Buyer pack access</h2>
+        <p class="access-state"><span class="access-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5 20 7v5.5c0 4.1-3.4 7.2-8 8.5-4.6-1.3-8-4.4-8-8.5V7zM12 8v5m0 3h.01"/></svg></span><strong>Not verified</strong></p>
+        <p>A notice link or supplier portal does not confirm that the bid pack was downloaded or that its contents are unchanged.</p>
+        <a id="pack-link" class="pack-link" target="_blank" rel="noreferrer" hidden>Open listed supplier portal <span aria-hidden="true">↗</span></a>
+        <p class="access-footnote">This demo compares notice records only. It does not fetch external pages or documents.</p>
+      </aside>
+    </section>
+
+    <section class="review-record" aria-labelledby="review-heading">
+      <h2 id="review-heading">Review brief</h2>
+      <p>Add a decision or a clarification to follow up. Notes stay in this tab until you close or reload it.</p>
+      <fieldset id="review-controls" disabled>
+        <label for="review-notes">Reviewer notes</label>
+        <textarea id="review-notes" rows="3" maxlength="2000"></textarea>
+        <button id="download-brief" type="button">Download review brief</button>
+      </fieldset>
+    </section>
+    <footer class="page-footer">
+      <span>Source · Cabinet Office Find a Tender</span>
+      <span id="capture-date"></span>
+      <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>
+    </footer>
+  </main>
+  <script src="app.js" type="module"></script>
+</body>
+</html>

@@ -17,6 +17,10 @@ export default [
     rules: { ...js.configs.recommended.rules },
   },
   {
+    files: ["public/demos/tender-amendment-review/app.js"],
+    languageOptions: { globals: globals.browser },
+  },
+  {
     files: ["src/**/*.{js,jsx}"],
     languageOptions: { globals: globals.browser },
     settings: { react: { version: "18.3" } },

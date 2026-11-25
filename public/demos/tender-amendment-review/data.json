@@ -1,0 +1,984 @@
+{
+  "captured_at_utc": "2026-11-25T06:11:33+00:00",
+  "cases": {
+    "ocds-h6vhtk-05e1c5": {
+      "title": "Tech Staff Augmentation",
+      "releases": [
+        {
+          "release_id": "074095-2025",
+          "published_at": "2025-11-14T15:27:50Z",
+          "tags": [
+            "planning"
+          ],
+          "title": "Tech Staff Augmentation",
+          "value.amount": 200000,
+          "value.currency": "GBP",
+          "expressionOfInterestDeadline": null,
+          "tenderPeriod.endDate": null,
+          "enquiryPeriod.endDate": null,
+          "awardPeriod.endDate": null,
+          "contractPeriod": {
+            "startDate": "2026-04-01T00:00:00+01:00",
+            "endDate": "2028-03-31T23:59:59+01:00",
+            "maxExtentDate": "2030-03-31T23:59:59+01:00"
+          },
+          "selectionCriteria": null,
+          "documents": [],
+          "amendments": []
+        },
+        {
+          "release_id": "077284-2025",
+          "published_at": "2025-11-26T14:00:43Z",
+          "tags": [
+            "planningUpdate"
+          ],
+          "title": "Tech Staff Augmentation",
+          "value.amount": 9000000,
+          "value.currency": "GBP",
+          "expressionOfInterestDeadline": null,
+          "tenderPeriod.endDate": null,
+          "enquiryPeriod.endDate": null,
+          "awardPeriod.endDate": null,
+          "contractPeriod": {
+            "startDate": "2026-04-01T00:00:00+01:00",
+            "endDate": "2028-03-31T23:59:59+01:00",
+            "maxExtentDate": "2030-03-31T23:59:59+01:00"
+          },
+          "selectionCriteria": null,
+          "documents": [],
+          "amendments": []
+        },
+        {
+          "release_id": "018582-2026",
+          "published_at": "2026-03-02T15:31:59Z",
+          "tags": [
+            "tender"
+          ],
+          "title": "Tech Staff Augmentation",
+          "value.amount": 666666.67,
+          "value.currency": "GBP",
+          "expressionOfInterestDeadline": "2026-03-30T11:00:00+01:00",
+          "tenderPeriod.endDate": null,
+          "enquiryPeriod.endDate": "2026-03-18T10:00:00Z",
+          "awardPeriod.endDate": "2026-06-18T23:59:59+01:00",
+          "contractPeriod": {
+            "startDate": "2026-06-20T00:00:00+01:00",
+            "endDate": "2028-06-19T23:59:59+01:00",
+            "maxExtentDate": "2032-06-19T23:59:59+01:00"
+          },
+          "selectionCriteria": {
+            "criteria": [
+              {
+                "description": "Up to 8 suppliers will be shortlisted for tender stage.",
+                "forReduction": true
+              }
+            ]
+          },
+          "documents": [
+            [
+              "conflictOfInterest",
+              "Not published",
+              null
+            ],
+            [
+              "biddingDocuments",
+              null,
+              "https://tap.tcsapps.com/tap2/#/bc-supplier-registration"
+            ],
+            [
+              "tenderNotice",
+              "Tender notice on Find a Tender",
+              "https://www.find-tender.service.gov.uk/Notice/018582-2026"
+            ]
+          ],
+          "amendments": []
+        },
+        {
+          "release_id": "019117-2026",
+          "published_at": "2026-03-03T15:42:20Z",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "title": "Tech Staff Augmentation",
+          "value.amount": 9000000,
+          "value.currency": "GBP",
+          "expressionOfInterestDeadline": "2026-03-30T11:00:00+01:00",
+          "tenderPeriod.endDate": null,
+          "enquiryPeriod.endDate": "2026-03-18T10:00:00Z",
+          "awardPeriod.endDate": "2026-06-18T23:59:59+01:00",
+          "contractPeriod": {
+            "startDate": "2026-06-20T00:00:00+01:00",
+            "endDate": "2028-06-19T23:59:59+01:00",
+            "maxExtentDate": "2032-06-19T23:59:59+01:00"
+          },
+          "selectionCriteria": {
+            "criteria": [
+              {
+                "description": "Up to 8 suppliers will be shortlisted for tender stage.",
+                "forReduction": true
+              }
+            ]
+          },
+          "documents": [
+            [
+              "conflictOfInterest",
+              "Not published",
+              null
+            ],
+            [
+              "biddingDocuments",
+              null,
+              "https://tap.tcsapps.com/tap2/#/bc-supplier-registration"
+            ],
+            [
+              "tenderNotice",
+              "Tender notice on Find a Tender",
+              "https://www.find-tender.service.gov.uk/Notice/019117-2026"
+            ]
+          ],
+          "amendments": [
+            [
+              "019117-2026",
+              "Estimated total framework updated. Figure in original version was included in error."
+            ]
+          ]
+        },
+        {
+          "release_id": "019127-2026",
+          "published_at": "2026-03-03T15:51:58Z",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "title": "Tech Staff Augmentation",
+          "value.amount": 45000000,
+          "value.currency": "GBP",
+          "expressionOfInterestDeadline": "2026-03-30T11:00:00+01:00",
+          "tenderPeriod.endDate": null,
+          "enquiryPeriod.endDate": "2026-03-18T10:00:00Z",
+          "awardPeriod.endDate": "2026-06-18T23:59:59+01:00",
+          "contractPeriod": {
+            "startDate": "2026-06-20T00:00:00+01:00",
+            "endDate": "2028-06-19T23:59:59+01:00",
+            "maxExtentDate": "2032-06-19T23:59:59+01:00"
+          },
+          "selectionCriteria": {
+            "criteria": [
+              {
+                "description": "Up to 8 suppliers will be shortlisted for tender stage.",
+                "forReduction": true
+              }
+            ]
+          },
+          "documents": [
+            [
+              "conflictOfInterest",
+              "Not published",
+              null
+            ],
+            [
+              "biddingDocuments",
+              null,
+              "https://tap.tcsapps.com/tap2/#/bc-supplier-registration"
+            ],
+            [
+              "tenderNotice",
+              "Tender notice on Find a Tender",
+              "https://www.find-tender.service.gov.uk/Notice/019127-2026"
+            ]
+          ],
+          "amendments": [
+            [
+              "019127-2026",
+              "Total estimated framework value has been updated. Previous version was included in error."
+            ]
+          ]
+        },
+        {
+          "release_id": "026924-2026",
+          "published_at": "2026-03-24T15:11:09Z",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "title": "Tech Staff Augmentation",
+          "value.amount": 45000000,
+          "value.currency": "GBP",
+          "expressionOfInterestDeadline": "2026-03-31T11:00:00+01:00",
+          "tenderPeriod.endDate": null,
+          "enquiryPeriod.endDate": "2026-03-18T10:00:00Z",
+          "awardPeriod.endDate": "2026-06-18T23:59:59+01:00",
+          "contractPeriod": {
+            "startDate": "2026-06-20T00:00:00+01:00",
+            "endDate": "2028-06-19T23:59:59+01:00",
+            "maxExtentDate": "2032-06-19T23:59:59+01:00"
+          },
+          "selectionCriteria": {
+            "criteria": [
+              {
+                "description": "Up to 8 suppliers will be shortlisted for tender stage.",
+                "forReduction": true
+              }
+            ]
+          },
+          "documents": [
+            [
+              "conflictOfInterest",
+              "Not published",
+              null
+            ],
+            [
+              "biddingDocuments",
+              null,
+              "https://tap.tcsapps.com/tap2/#/bc-supplier-registration"
+            ],
+            [
+              "tenderNotice",
+              "Tender notice on Find a Tender",
+              "https://www.find-tender.service.gov.uk/Notice/026924-2026"
+            ]
+          ],
+          "amendments": [
+            [
+              "026924-2026",
+              "Deadline for submissions is updated to Tuesday 31 March, 11 am UK time."
+            ]
+          ]
+        },
+        {
+          "release_id": "110242-2026",
+          "published_at": "2026-11-20T15:03:01Z",
+          "tags": [
+            "award",
+            "contract"
+          ],
+          "title": "Tech Staff Augmentation",
+          "value.amount": null,
+          "value.currency": null,
+          "expressionOfInterestDeadline": null,
+          "tenderPeriod.endDate": null,
+          "enquiryPeriod.endDate": null,
+          "awardPeriod.endDate": null,
+          "contractPeriod": null,
+          "selectionCriteria": null,
+          "documents": [],
+          "amendments": []
+        }
+      ],
+      "structured_diffs": [
+        {
+          "from_release": "074095-2025",
+          "to_release": "077284-2025",
+          "from_url": "https://www.find-tender.service.gov.uk/Notice/074095-2025",
+          "to_url": "https://www.find-tender.service.gov.uk/Notice/077284-2025",
+          "published_at": "2025-11-26T14:00:43Z",
+          "tags": [
+            "planningUpdate"
+          ],
+          "changes": [
+            {
+              "field": "value.amount",
+              "before": 200000,
+              "after": 9000000
+            }
+          ]
+        },
+        {
+          "from_release": "018582-2026",
+          "to_release": "019117-2026",
+          "from_url": "https://www.find-tender.service.gov.uk/Notice/018582-2026",
+          "to_url": "https://www.find-tender.service.gov.uk/Notice/019117-2026",
+          "published_at": "2026-03-03T15:42:20Z",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "changes": [
+            {
+              "field": "value.amount",
+              "before": 666666.67,
+              "after": 9000000
+            },
+            {
+              "field": "documents",
+              "before": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "biddingDocuments",
+                  null,
+                  "https://tap.tcsapps.com/tap2/#/bc-supplier-registration"
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/018582-2026"
+                ]
+              ],
+              "after": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "biddingDocuments",
+                  null,
+                  "https://tap.tcsapps.com/tap2/#/bc-supplier-registration"
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/019117-2026"
+                ]
+              ]
+            },
+            {
+              "field": "amendments",
+              "before": [],
+              "after": [
+                [
+                  "019117-2026",
+                  "Estimated total framework updated. Figure in original version was included in error."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "from_release": "019117-2026",
+          "to_release": "019127-2026",
+          "from_url": "https://www.find-tender.service.gov.uk/Notice/019117-2026",
+          "to_url": "https://www.find-tender.service.gov.uk/Notice/019127-2026",
+          "published_at": "2026-03-03T15:51:58Z",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "changes": [
+            {
+              "field": "value.amount",
+              "before": 9000000,
+              "after": 45000000
+            },
+            {
+              "field": "documents",
+              "before": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "biddingDocuments",
+                  null,
+                  "https://tap.tcsapps.com/tap2/#/bc-supplier-registration"
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/019117-2026"
+                ]
+              ],
+              "after": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "biddingDocuments",
+                  null,
+                  "https://tap.tcsapps.com/tap2/#/bc-supplier-registration"
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/019127-2026"
+                ]
+              ]
+            },
+            {
+              "field": "amendments",
+              "before": [
+                [
+                  "019117-2026",
+                  "Estimated total framework updated. Figure in original version was included in error."
+                ]
+              ],
+              "after": [
+                [
+                  "019127-2026",
+                  "Total estimated framework value has been updated. Previous version was included in error."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "from_release": "019127-2026",
+          "to_release": "026924-2026",
+          "from_url": "https://www.find-tender.service.gov.uk/Notice/019127-2026",
+          "to_url": "https://www.find-tender.service.gov.uk/Notice/026924-2026",
+          "published_at": "2026-03-24T15:11:09Z",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "changes": [
+            {
+              "field": "expressionOfInterestDeadline",
+              "before": "2026-03-30T11:00:00+01:00",
+              "after": "2026-03-31T11:00:00+01:00"
+            },
+            {
+              "field": "documents",
+              "before": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "biddingDocuments",
+                  null,
+                  "https://tap.tcsapps.com/tap2/#/bc-supplier-registration"
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/019127-2026"
+                ]
+              ],
+              "after": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "biddingDocuments",
+                  null,
+                  "https://tap.tcsapps.com/tap2/#/bc-supplier-registration"
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/026924-2026"
+                ]
+              ]
+            },
+            {
+              "field": "amendments",
+              "before": [
+                [
+                  "019127-2026",
+                  "Total estimated framework value has been updated. Previous version was included in error."
+                ]
+              ],
+              "after": [
+                [
+                  "026924-2026",
+                  "Deadline for submissions is updated to Tuesday 31 March, 11 am UK time."
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "document_inventory": {
+        "release_count": 7,
+        "document_entries": 12,
+        "entries_without_url": 4,
+        "document_types": {
+          "conflictOfInterest": 4,
+          "biddingDocuments": 4,
+          "tenderNotice": 4
+        },
+        "document_type_url_presence": {
+          "conflictOfInterest|no_url": 4,
+          "biddingDocuments|url": 4,
+          "tenderNotice|url": 4
+        },
+        "url_hosts": {
+          "tap.tcsapps.com": 4,
+          "www.find-tender.service.gov.uk": 4
+        }
+      }
+    },
+    "ocds-h6vhtk-0514cc": {
+      "title": "Print Fulfilment and Mailing Hub Framework Agreement",
+      "releases": [
+        {
+          "release_id": "021862-2025",
+          "published_at": "2025-05-15T15:29:39+01:00",
+          "tags": [
+            "planning"
+          ],
+          "title": "Vendor-Managed Portal for Print, Mail, Fulfilment and Associated Services",
+          "value.amount": null,
+          "value.currency": null,
+          "expressionOfInterestDeadline": null,
+          "tenderPeriod.endDate": null,
+          "enquiryPeriod.endDate": null,
+          "awardPeriod.endDate": null,
+          "contractPeriod": {
+            "startDate": "2025-12-01T00:00:00+00:00",
+            "endDate": "2029-11-30T23:59:59+00:00"
+          },
+          "selectionCriteria": null,
+          "documents": [],
+          "amendments": []
+        },
+        {
+          "release_id": "067291-2025",
+          "published_at": "2025-10-22T08:07:26+01:00",
+          "tags": [
+            "tender"
+          ],
+          "title": "Print Fulfilment and Mailing Hub Framework Agreement",
+          "value.amount": 30000000,
+          "value.currency": "GBP",
+          "expressionOfInterestDeadline": null,
+          "tenderPeriod.endDate": "2025-11-21T11:59:00+00:00",
+          "enquiryPeriod.endDate": "2025-11-07T23:59:00+00:00",
+          "awardPeriod.endDate": "2026-01-05T23:59:59+00:00",
+          "contractPeriod": {
+            "startDate": "2026-01-06T00:00:00+00:00",
+            "endDate": "2030-01-04T23:59:59+00:00"
+          },
+          "selectionCriteria": null,
+          "documents": [
+            [
+              "conflictOfInterest",
+              "Not published",
+              null
+            ],
+            [
+              "tenderNotice",
+              "Tender notice on Find a Tender",
+              "https://www.find-tender.service.gov.uk/Notice/067291-2025"
+            ]
+          ],
+          "amendments": []
+        },
+        {
+          "release_id": "067560-2025",
+          "published_at": "2025-10-22T15:27:40+01:00",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "title": "Print Fulfilment and Mailing Hub Framework Agreement",
+          "value.amount": 30000000,
+          "value.currency": "GBP",
+          "expressionOfInterestDeadline": null,
+          "tenderPeriod.endDate": "2025-11-28T11:59:00Z",
+          "enquiryPeriod.endDate": "2025-11-07T23:59:00Z",
+          "awardPeriod.endDate": "2026-01-05T23:59:59Z",
+          "contractPeriod": {
+            "startDate": "2026-01-06T00:00:00Z",
+            "endDate": "2030-01-04T23:59:59Z"
+          },
+          "selectionCriteria": null,
+          "documents": [
+            [
+              "conflictOfInterest",
+              "Not published",
+              null
+            ],
+            [
+              "tenderNotice",
+              "Tender notice on Find a Tender",
+              "https://www.find-tender.service.gov.uk/Notice/067560-2025"
+            ]
+          ],
+          "amendments": [
+            [
+              "067560-2025",
+              "22/10/25  the tender submission deadline was changed to 28.11.25"
+            ]
+          ]
+        },
+        {
+          "release_id": "073286-2025",
+          "published_at": "2025-11-12T15:57:50Z",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "title": "Print Fulfilment and Mailing Hub Framework Agreement",
+          "value.amount": 30000000,
+          "value.currency": "GBP",
+          "expressionOfInterestDeadline": null,
+          "tenderPeriod.endDate": "2025-12-12T11:59:00Z",
+          "enquiryPeriod.endDate": "2025-11-07T23:59:00Z",
+          "awardPeriod.endDate": "2026-01-19T23:59:59Z",
+          "contractPeriod": {
+            "startDate": "2026-02-02T00:00:00Z",
+            "endDate": "2030-02-01T23:59:59Z"
+          },
+          "selectionCriteria": null,
+          "documents": [
+            [
+              "conflictOfInterest",
+              "Not published",
+              null
+            ],
+            [
+              "tenderNotice",
+              "Tender notice on Find a Tender",
+              "https://www.find-tender.service.gov.uk/Notice/073286-2025"
+            ]
+          ],
+          "amendments": [
+            [
+              "073286-2025",
+              "On 12 November 2025:\nThe closing date for submissions was changed to 11.59 on 12 December 2025.\nThe framework commencement date was changed to 2 February 2026.\nThe framework end date was changed to 1 February 2030."
+            ]
+          ]
+        },
+        {
+          "release_id": "073288-2025",
+          "published_at": "2025-11-12T16:02:25Z",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "title": "Print Fulfilment and Mailing Hub Framework Agreement",
+          "value.amount": 30000000,
+          "value.currency": "GBP",
+          "expressionOfInterestDeadline": null,
+          "tenderPeriod.endDate": "2025-12-12T11:59:00Z",
+          "enquiryPeriod.endDate": "2025-11-07T23:59:00Z",
+          "awardPeriod.endDate": "2026-01-19T23:59:59Z",
+          "contractPeriod": {
+            "startDate": "2026-02-02T00:00:00Z",
+            "endDate": "2030-02-01T23:59:59Z"
+          },
+          "selectionCriteria": null,
+          "documents": [
+            [
+              "conflictOfInterest",
+              "Not published",
+              null
+            ],
+            [
+              "tenderNotice",
+              "Tender notice on Find a Tender",
+              "https://www.find-tender.service.gov.uk/Notice/073288-2025"
+            ]
+          ],
+          "amendments": [
+            [
+              "073288-2025",
+              "On 12 November 2025:\nThe notification of outcome date was changed to 19 January 2026."
+            ]
+          ]
+        },
+        {
+          "release_id": "004544-2026",
+          "published_at": "2026-01-19T17:46:00Z",
+          "tags": [
+            "award",
+            "contract"
+          ],
+          "title": "Print Fulfilment and Mailing Hub Framework Agreement",
+          "value.amount": null,
+          "value.currency": null,
+          "expressionOfInterestDeadline": null,
+          "tenderPeriod.endDate": null,
+          "enquiryPeriod.endDate": null,
+          "awardPeriod.endDate": null,
+          "contractPeriod": null,
+          "selectionCriteria": null,
+          "documents": [],
+          "amendments": []
+        },
+        {
+          "release_id": "059492-2026",
+          "published_at": "2026-06-24T14:51:07+01:00",
+          "tags": [
+            "award",
+            "contract"
+          ],
+          "title": "Print Fulfilment and Mailing Hub Framework Agreement",
+          "value.amount": null,
+          "value.currency": null,
+          "expressionOfInterestDeadline": null,
+          "tenderPeriod.endDate": null,
+          "enquiryPeriod.endDate": null,
+          "awardPeriod.endDate": null,
+          "contractPeriod": null,
+          "selectionCriteria": null,
+          "documents": [
+            [
+              "conflictOfInterest",
+              "Not published",
+              null
+            ]
+          ],
+          "amendments": []
+        }
+      ],
+      "structured_diffs": [
+        {
+          "from_release": "067291-2025",
+          "to_release": "067560-2025",
+          "from_url": "https://www.find-tender.service.gov.uk/Notice/067291-2025",
+          "to_url": "https://www.find-tender.service.gov.uk/Notice/067560-2025",
+          "published_at": "2025-10-22T15:27:40+01:00",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "changes": [
+            {
+              "field": "tenderPeriod.endDate",
+              "before": "2025-11-21T11:59:00+00:00",
+              "after": "2025-11-28T11:59:00Z"
+            },
+            {
+              "field": "enquiryPeriod.endDate",
+              "before": "2025-11-07T23:59:00+00:00",
+              "after": "2025-11-07T23:59:00Z"
+            },
+            {
+              "field": "awardPeriod.endDate",
+              "before": "2026-01-05T23:59:59+00:00",
+              "after": "2026-01-05T23:59:59Z"
+            },
+            {
+              "field": "contractPeriod",
+              "before": {
+                "startDate": "2026-01-06T00:00:00+00:00",
+                "endDate": "2030-01-04T23:59:59+00:00"
+              },
+              "after": {
+                "startDate": "2026-01-06T00:00:00Z",
+                "endDate": "2030-01-04T23:59:59Z"
+              }
+            },
+            {
+              "field": "documents",
+              "before": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/067291-2025"
+                ]
+              ],
+              "after": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/067560-2025"
+                ]
+              ]
+            },
+            {
+              "field": "amendments",
+              "before": [],
+              "after": [
+                [
+                  "067560-2025",
+                  "22/10/25  the tender submission deadline was changed to 28.11.25"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "from_release": "067560-2025",
+          "to_release": "073286-2025",
+          "from_url": "https://www.find-tender.service.gov.uk/Notice/067560-2025",
+          "to_url": "https://www.find-tender.service.gov.uk/Notice/073286-2025",
+          "published_at": "2025-11-12T15:57:50Z",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "changes": [
+            {
+              "field": "tenderPeriod.endDate",
+              "before": "2025-11-28T11:59:00Z",
+              "after": "2025-12-12T11:59:00Z"
+            },
+            {
+              "field": "awardPeriod.endDate",
+              "before": "2026-01-05T23:59:59Z",
+              "after": "2026-01-19T23:59:59Z"
+            },
+            {
+              "field": "contractPeriod",
+              "before": {
+                "startDate": "2026-01-06T00:00:00Z",
+                "endDate": "2030-01-04T23:59:59Z"
+              },
+              "after": {
+                "startDate": "2026-02-02T00:00:00Z",
+                "endDate": "2030-02-01T23:59:59Z"
+              }
+            },
+            {
+              "field": "documents",
+              "before": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/067560-2025"
+                ]
+              ],
+              "after": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/073286-2025"
+                ]
+              ]
+            },
+            {
+              "field": "amendments",
+              "before": [
+                [
+                  "067560-2025",
+                  "22/10/25  the tender submission deadline was changed to 28.11.25"
+                ]
+              ],
+              "after": [
+                [
+                  "073286-2025",
+                  "On 12 November 2025:\nThe closing date for submissions was changed to 11.59 on 12 December 2025.\nThe framework commencement date was changed to 2 February 2026.\nThe framework end date was changed to 1 February 2030."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "from_release": "073286-2025",
+          "to_release": "073288-2025",
+          "from_url": "https://www.find-tender.service.gov.uk/Notice/073286-2025",
+          "to_url": "https://www.find-tender.service.gov.uk/Notice/073288-2025",
+          "published_at": "2025-11-12T16:02:25Z",
+          "tags": [
+            "tenderUpdate"
+          ],
+          "changes": [
+            {
+              "field": "documents",
+              "before": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/073286-2025"
+                ]
+              ],
+              "after": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ],
+                [
+                  "tenderNotice",
+                  "Tender notice on Find a Tender",
+                  "https://www.find-tender.service.gov.uk/Notice/073288-2025"
+                ]
+              ]
+            },
+            {
+              "field": "amendments",
+              "before": [
+                [
+                  "073286-2025",
+                  "On 12 November 2025:\nThe closing date for submissions was changed to 11.59 on 12 December 2025.\nThe framework commencement date was changed to 2 February 2026.\nThe framework end date was changed to 1 February 2030."
+                ]
+              ],
+              "after": [
+                [
+                  "073288-2025",
+                  "On 12 November 2025:\nThe notification of outcome date was changed to 19 January 2026."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "from_release": "004544-2026",
+          "to_release": "059492-2026",
+          "from_url": "https://www.find-tender.service.gov.uk/Notice/004544-2026",
+          "to_url": "https://www.find-tender.service.gov.uk/Notice/059492-2026",
+          "published_at": "2026-06-24T14:51:07+01:00",
+          "tags": [
+            "award",
+            "contract"
+          ],
+          "changes": [
+            {
+              "field": "documents",
+              "before": [],
+              "after": [
+                [
+                  "conflictOfInterest",
+                  "Not published",
+                  null
+                ]
+              ]
+            }
+          ]
+        }
+      ],
+      "document_inventory": {
+        "release_count": 7,
+        "document_entries": 9,
+        "entries_without_url": 5,
+        "document_types": {
+          "conflictOfInterest": 5,
+          "tenderNotice": 4
+        },
+        "document_type_url_presence": {
+          "conflictOfInterest|no_url": 5,
+          "tenderNotice|url": 4
+        },
+        "url_hosts": {
+          "www.find-tender.service.gov.uk": 4
+        }
+      }
+    }
+  },
+  "document_access_probes": [
+    {
+      "url": "https://tap.tcsapps.com/tap2/#/bc-supplier-registration",
+      "status": 200,
+      "final_url": "https://tap.tcsapps.com/tap2/#/bc-supplier-registration",
+      "content_type": "text/html",
+      "interpretation": "HTTP response only; this does not establish document download/authentication or historical pack access."
+    },
+    {
+      "url": "https://www.find-tender.service.gov.uk/Notice/026924-2026",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "url": "https://www.find-tender.service.gov.uk/Notice/073288-2025",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    }
+  ]
+}

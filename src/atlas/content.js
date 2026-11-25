@@ -170,6 +170,12 @@ export const essays = [
 ];
 export const archive = [
   {
+    title: "Tender Amendment Review",
+    type: "Independent product case study",
+    text: "Replay real UK tender amendments and trace which bid approvals need another look.",
+    demo: "/demos/tender-amendment-review/index.html",
+  },
+  {
     title: "Negative Keyword Preflight",
     type: "Independent product tool",
     text: "Compare current and proposed negative lists to spot newly introduced conflicts on searches you need to keep.",
@@ -226,6 +232,54 @@ export const archive = [
 
 // Technical descriptions retained from the original portfolio; no performance claims.
 export const previousDetails = {
+  "Tender Amendment Review": {
+    stack: ["Find a Tender OCDS releases", "Python data replay", "JavaScript", "Deterministic approval rules"],
+    sections: [
+      {
+        id: "project-idea",
+        title: "The decision",
+        paragraphs: [
+          "A bid manager has already agreed to pursue a tender. When the buyer publishes a revision, somebody must decide whether to revisit the commercial case, shift the submission plan, or leave both as they are. I focused this independent project on that decision and used a fictional bid team to make its assumptions explicit.",
+          "I compared the idea with notice alerts, side-by-side diffs, and bid management tools that already extract requirements and support bid/no-bid reviews. The narrower product hypothesis was that a team could record the fields each approval depends on, then reopen only the approvals touched by a verified change.",
+        ],
+        links: [
+          ["AutogenAI project workflow", "https://support.autogenai.com/hc/en-gb/articles/6397465843999-Creating-a-new-project"],
+        ],
+      },
+      {
+        id: "project-evidence",
+        title: "What changed",
+        paragraphs: [
+          "In the British Council’s Tech Staff Augmentation tender, the published framework estimate moved from £666,666.67 to £9 million and then £45 million. A later revision moved the participation deadline from 30 to 31 March 2026 at 11 a.m. UK time. In the sample workflow, the value correction reopens the bid decision while the date change also reopens the submission plan.",
+          "The Print Fulfilment and Mailing Hub tender supplied the counterexample. After a revision moved the submission deadline to 12 December 2025, a subsequent revision changed the outcome notification date alone. The submission deadline stayed in place, and the prose-only change called for human review.",
+        ],
+        links: [
+          ["British Council release history", "https://www.find-tender.service.gov.uk/api/1.0/ocdsReleasePackages/ocds-h6vhtk-05e1c5"],
+          ["Print Fulfilment release history", "https://www.find-tender.service.gov.uk/api/1.0/ocdsReleasePackages/ocds-h6vhtk-0514cc"],
+        ],
+      },
+      {
+        id: "project-build",
+        title: "How the review works",
+        paragraphs: [
+          "A Python replay compares successive releases within the same procurement stage. The browser preserves the source timestamps and displays London time alongside them. It treats equal instants as the same value and filters each release’s own notice link out of the document comparison. Both notices remain cited.",
+          "The review starts with three editable sample approvals. A changed field that matches a dependency produces Reopen. With no matching change, a revised notice note or document pointer produces Cannot assess. The buyer pack remains unverified throughout. A reviewer can add notes and download a brief with the release links, changed values, approval rules, and open questions.",
+        ],
+        links: [
+          ["Open Contracting Data Standard release model", "https://standard.open-contracting.org/latest/en/primer/releases_and_records/"],
+          ["Download the captured comparison data", "/demos/tender-amendment-review/data.json"],
+        ],
+      },
+      {
+        id: "project-validation",
+        title: "What I validated",
+        paragraphs: [
+          "The demo replays eight comparisons across two public histories. The structured baseline surfaced the known value and deadline changes. In a separate bounded sample of 300 Find a Tender releases, 13 comparable pairs surfaced mostly document and note changes, with no change to a tracked value or submission deadline. That sample probes data coverage and gives little evidence about how often critical changes occur.",
+          "The structured baseline handled the cases I could verify, so I shipped the portfolio prototype with deterministic rules. Buyer portal links and notice metadata could not establish what changed inside the pack. A model comparison and practitioner task test are still open. The next test would ask a bid manager to replay a past amendment with their current tracker and with the demo, then compare time, missed changes, and unnecessary reopenings.",
+        ],
+      },
+    ],
+  },
   "Negative Keyword Preflight": {
     stack: ["TypeScript", "Rule-based matching", "Synthetic test cases"],
     idea: "A negative keyword can block a search that a campaign was intended to reach. Review that overlap before approving a launch.",

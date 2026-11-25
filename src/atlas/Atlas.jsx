@@ -44,8 +44,9 @@ const chapters = [
 const afterProjects = showWriting
   ? ["/writing", "Continue to Writing", "Earlier builds. Next, the thinking behind the work."]
   : ["/contact", "Let’s talk", "That’s the work so far."];
-const featured = ["Negative Keyword Preflight", "Conversion Discrepancy Triage"];
+const featured = ["Tender Amendment Review", "Negative Keyword Preflight"];
 const images = {
+  "Tender Amendment Review": "/screenshots/tender-amendment-review.webp",
   "Negative Keyword Preflight": "/screenshots/preflight.webp",
   "Conversion Discrepancy Triage": "/screenshots/conversion-triage.webp",
   "TrendSage Lite": trend,
@@ -434,7 +435,7 @@ function Projects() {
       <article className="centre chapter projects-chapter">
         <h1 tabIndex={-1}>Projects</h1>
         <p className="projects-intro">
-          Independent prototypes for ad launches and conversion reporting.
+          Independent projects on evidence review, ad launches, and conversion reporting.
         </p>
         <div className="mobile-overview-jump">
           <Action to="/projects#more-projects">Browse earlier projects</Action>
@@ -640,6 +641,11 @@ function ProjectDetail() {
   if (!planned && !earlier) return <NotFound />;
   const item = planned || earlier;
   const detail = previousDetails[item.title];
+  const sections = detail?.sections ?? (detail ? [
+    { id: "project-idea", title: "The idea", paragraphs: [detail.idea] },
+    { id: "project-build", title: "The build", paragraphs: [detail.build] },
+    { id: "project-interface", title: "The interface", paragraphs: [detail.interface] },
+  ] : []);
   const ordered = [
     ...featured,
     ...archive
@@ -681,7 +687,7 @@ function ProjectDetail() {
         ) : (
           <>
             <nav className="mobile-project-contents" aria-label="Jump to project section">
-              {[["project-idea", "The idea"], ["project-build", "The build"], ["project-interface", "The interface"]].map(([key, title]) => (
+              {sections.map(({ id: key, title }) => (
                 <Link key={key} to={`/projects/${id}#${key}`}>{title}</Link>
               ))}
             </nav>
@@ -717,16 +723,19 @@ function ProjectDetail() {
               </button>
             )}
             <div className="detail-sections">
-              {[
-                ["project-idea", "The idea", detail.idea],
-                ["project-build", "The build", detail.build],
-                ["project-interface", "The interface", detail.interface],
-              ].map(([key, title, text]) => (
+              {sections.map(({ id: key, title, paragraphs, links }) => (
                 <section id={key} key={key} tabIndex={-1}>
                   <h2>{title}</h2>
-                  <p>{text}</p>
+                  {paragraphs.map((text) => <p key={text}>{text}</p>)}
+                  {links && (
+                    <ul>
+                      {links.map(([label, href]) => (
+                        <li key={href}><a href={href}>{label}</a></li>
+                      ))}
+                    </ul>
+                  )}
                 </section>
-              ))}{" "}
+              ))}
             </div>
           </>
         )}
@@ -745,11 +754,7 @@ function ProjectDetail() {
         ) : (
           <>
             <nav className="in-project" aria-label="Project contents">
-              {[
-                ["project-idea", "The idea"],
-                ["project-build", "The build"],
-                ["project-interface", "The interface"],
-              ].map(([key, title]) => (
+              {sections.map(({ id: key, title }) => (
                 <Link key={key} to={`/projects/${id}#${key}`}>
                   {title}
                 </Link>
@@ -773,7 +778,7 @@ function ProjectDetail() {
                 View source <Arrow />
               </a>
             )}
-            <p className="annotation">Previous project</p>
+            <p className="annotation">{detail.sections ? item.type : "Previous project"}</p>
           </>
         )}
       </aside>
